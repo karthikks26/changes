@@ -1,0 +1,51 @@
+.Filter-array
+{
+    display: flex;
+    justify-content: space-between;
+    gap : 0.9rem;
+    padding-top: 0.4rem;
+    padding-left: 0.5rem;
+    padding-right: 3rem;
+    width: 80%; 
+}
+.Filter-array-element
+{
+    display: flex;
+    gap : 0.75rem;
+    opacity: 50%;
+    padding: 1rem;
+    margin: 0;
+    align-items: center;
+    border-bottom-style : solid ;
+    border-color: rgb(255, 255, 255);
+    border-width: 80%;
+}
+.Filter-array-element-img
+{
+    height: 2rem;
+}
+.Filter-array-element-lebel
+{
+    margin-right: 14px;
+    /* overflow: hidden; */
+    white-space: nowrap;
+}
+.Filter-array-element:hover
+{
+    opacity: 100%;
+    border-bottom-style : solid ;
+    border-color: rgb(131, 131, 131);
+    border-width: 80%;
+}
+.selected-array-element
+{
+    opacity: 100%;
+    border-bottom-style : solid ;
+    font-weight: 600;
+    border-color: rgb(0, 0, 0);
+    border-width: 80%;
+}
+  
+  .Filter-array-element:hover .dropdown-content {
+    display: block;
+  }
