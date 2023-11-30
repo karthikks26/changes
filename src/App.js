@@ -1,20 +1,20 @@
 import "./App.css";
-import React, { useState } from 'react';
-import Header from "./components/Header";
-import MobileSeachBar from "./components/MobileSearch/";
-import Filter from "./components/Filter/"
-import Footer from "./components/Footer";
-import Cards from "./components/Cards";
-import Popup from "./components/Reviews/PopUp";
+import React,{useState,useEffect} from 'react';
+import { Routes, Route } from 'react-router-dom'
+import HomePage from "./pages/HomePage";
+import MapPage from "./pages/MapPage";
+
+
 
 function App() {
+  
   return (
-    <div>
-      <Header />
-      <MobileSeachBar />
-      <Filter />
-      <Cards/>
-    </div>
+    <>
+    <Routes>
+      <Route path="/" element={<HomePage/>} /> 
+      <Route path="/ayatrio-map" element={<MapPage/>} /> 
+      </Routes>
+    </>
   );
 }
 

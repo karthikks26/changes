@@ -1,0 +1,86 @@
+import { GoogleMap, useLoadScript, OverlayView } from "@react-google-maps/api";
+import './styles.css';
+import {  useState } from "react";
+import mapStyles from "./mapStyles";
+import MapMarker from "../MapMarker";
+import Sidebar from "../Sidebar";
+import { REACT_APP_GMAP_API_KEY } from "../../config";
+
+const Map = ({ setBoundaries, coords, places }) => {
+
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: REACT_APP_GMAP_API_KEY,
+  });
+
+  const [map, setMap] = useState(null);
+
+  const onLoad = (map) => {
+    setMap(map);
+  };
+
+    // Custom overlay component
+    const CustomMarker = ({ lat, lng, content }) => (
+      <OverlayView
+        position={{ lat, lng }}
+        mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
+      >
+        <div style={{ position: "absolute", transform: "translate(-50%, -50%)" }}>
+          {/* snapmarker component */}
+          {content} 
+        </div>
+      </OverlayView>
+    );
+
+  const handleBoundsChanged = () => {
+    if (map) {
+      const bounds = map.getBounds();
+      const ne = {
+        lat: bounds.getNorthEast().lat(),
+        lng: bounds.getNorthEast().lng(),
+      };
+      const sw = {
+        lat: bounds.getSouthWest().lat(),
+        lng: bounds.getSouthWest().lng(),
+      };
+      
+      setBoundaries({ ne, sw });
+
+    }
+  };
+
+  return (
+    <>
+      {!isLoaded ? (
+        <h1 className="text-center my-6">Loading...</h1>
+      ) : (
+        <>
+    <Sidebar places={places} />
+        <GoogleMap
+          mapContainerClassName="map-container"
+          onLoad={onLoad}
+          center={coords}
+          zoom={4} // initial zoom level
+          options={{ disableDefaultUI: true, zoomControl: true, styles: mapStyles }}
+          onBoundsChanged={handleBoundsChanged}
+        >
+          {places.length > 0 &&
+
+            places.map((place, i) => (
+
+              <CustomMarker
+            lat={place.latitude}
+            lng={place.longitude}
+            key={i}
+            content={<MapMarker place={place}/>}
+              />
+
+            ))}
+        </GoogleMap>
+        <div/>
+        </>
+      )}
+    </>
+  );
+};
+
+export default Map;
