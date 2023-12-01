@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import './styles.css';
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 const Sidebar = ({ places }) => {
   const [isNavOpen, setNavOpen] = useState(true);
@@ -17,7 +19,7 @@ const Sidebar = ({ places }) => {
               Listed properties
             </li>
 
-            {places.map(
+            {places && places.length > 0 && places.map(
               (place, index) =>
                 place &&
                 place.name &&
@@ -53,9 +55,9 @@ const Sidebar = ({ places }) => {
           onClick={toggleNav}
         >
           {isNavOpen ? (
-            <i className="fa fa-chevron-left" aria-hidden="true"></i>
+            <KeyboardArrowLeftIcon/>
           ) : (
-            <i className="fa fa-chevron-right" aria-hidden="true"></i>
+            <KeyboardArrowRightIcon/>
           )}
         </button>
       </div>

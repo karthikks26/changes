@@ -71,6 +71,19 @@
     -webkit-box-shadow: 0 4px 20px #000, 0 1px 8px rgba(0, 0, 0, .8), 0 2px 12px rgba(0, 0, 0, .8), 0 2px 26px rgba(0, 0, 0, .8), 0 2px 48px rgba(0, 0, 0, .6);
     box-shadow: 0 4px 20px #000, 0 1px 8px rgba(0, 0, 0, .8), 0 2px 12px rgba(0, 0, 0, .8), 0 2px 26px rgba(0, 0, 0, .8), 0 2px 48px rgba(0, 0, 0, .6);
   }
+
+  .marker-popover-image{
+    width: 340px;
+    height: calc(600px - 80px);
+    z-index: 1000;
+    margin-top: 82px;
+    overflow-y: hidden;
+    position: fixed;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    border: 7px solid white;
+    top: 0;
+  }
   
   /* ********* END custom marker style ********** */
   
