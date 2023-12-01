@@ -3,6 +3,8 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
+import "./styles.css";
+
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -37,10 +39,10 @@ export default function BasicMenu() {
         }}
       >
         <MenuItem onClick={handleClose}>Sign Up</MenuItem>
-        <MenuItem onClick={handleClose}>Login</MenuItem>
+        <MenuItem onClick={handleClose} >Login</MenuItem>
         <div style={{ height: "1px", backgroundColor: "grey" }}></div>
-        <MenuItem onClick={handleClose}>Airbnb your home</MenuItem>
-        <MenuItem onClick={handleClose}>Help Centre</MenuItem>
+        <MenuItem onClick={handleClose} >Airbnb your home</MenuItem>
+        <MenuItem onClick={handleClose} >Help Centre</MenuItem>
       </Menu>
     </div>
   );

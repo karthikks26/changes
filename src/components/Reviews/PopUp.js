@@ -11,18 +11,18 @@ import { RiLightbulbFlashLine } from "react-icons/ri";
 import { BsStars } from "react-icons/bs";
 import { MdOutlineFastfood } from "react-icons/md";
 import { BsBalloon } from "react-icons/bs";
+import "./styles.css";
+
 function PopUp({ isPopupVisible, setPopupVisible, closePopup }) {
   return (
     <div>
       {isPopupVisible && (
         <>
-          <div className=" top-0 left-0 w-full h-[100%] bg-black bg-opacity-50 z-[999999]"></div>
-          <div className="fixed top-0 left-0 w-full h-full  flex items-center justify-center z-[999999] overflow-hidden ">
+        <div className="popup">
             <div className="bg-white px-4 w-[50%] h-[600px] border rounded-3xl shadow-2xl overflow-y-scroll ">
             <div className="flex justify-start mt-2 mr-2 cursor-pointer">
-            <IoClose onClick={()=>
-              closePopup} className="text-2xl" />
-                </div>
+            <IoClose onClick={closePopup} className="text-2xl" />
+            </div>
               <div className="grid grid-cols-2 ml-2 h-88 w-88 border rounded-xl shadow-xl mt-10">
                 <div className="flex flex-col items-center justify-center">
                   <div>
@@ -149,6 +149,7 @@ function PopUp({ isPopupVisible, setPopupVisible, closePopup }) {
               </div>
             </div>
           </div>
+          {/* </div> */}
         </>
       )}
     </div>

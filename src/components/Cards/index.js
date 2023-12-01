@@ -4,14 +4,13 @@ import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import PopUp from '../Reviews/PopUp';
 import './styles.css'
-
+import MainSlider from "../MainSlider/MianSlider";
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import { Pagination, Navigation } from 'swiper/modules';
-import Mainslider from '../MainSlider/MainSlider';
 function Cards() {
   const [swiperRef, setSwiperRef] = useState(null);
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -25,13 +24,13 @@ function Cards() {
     setPopupVisible(false);
   };
   return (
-    <div className=" pt-20 pb-20">
-            <Mainslider />
+    <div className="pb-20">
+      <MainSlider/>
       <div className="pt-20 px-10 mb-20 py-10 bg-white">
         <div className="mb-2 w-full">
           <h2 className="text-bold text-2xl font-serif ml-4">Beach and resort.</h2>
         </div>
-        <PopUp isPopupVisible={isPopupVisible} />
+        <PopUp isPopupVisible={isPopupVisible} closePopup={closePopup}/>
         <Swiper
           onSwiper={setSwiperRef}
           slidesPerView={4}

@@ -7,6 +7,7 @@ import PopUp from '../Reviews/PopUp';
 
 function Card(props) {
   const [isFullBioVisible, setFullBioVisible] = useState(false);
+  const [isPopupVisible, setPopupVisible]=useState(false)
   const handleImageClick = () => {
     props.setPopupVisible(true);
   };
@@ -49,8 +50,7 @@ function Card(props) {
       {props.isPopupVisible && (
         <PopUp
           isPopupVisible={props.isPopupVisible}
-
-          closePopup={closePopup}
+          closePopup={props.closePopup}
         />
       )}
     </>
