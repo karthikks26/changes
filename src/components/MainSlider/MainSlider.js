@@ -28,7 +28,7 @@ function MainSlider() {
         {products.map((prod, i) => (
           <SwiperSlide key={i}>
             <div className="m-0">
-              <div className="items-center justify-center flex mt-28">
+              <div className="items-center justify-center  flex mt-32">
                 <img
                   className="h-full "
                   src={prod.imgSrc}
