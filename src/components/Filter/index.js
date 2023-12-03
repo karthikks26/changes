@@ -3,6 +3,7 @@ import "./styles.css";
 import { links } from "../../assets/images-links";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs';
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 function Filter() {
   const [selectedFilter, setSelectedFilter] = useState(null);
@@ -75,12 +76,14 @@ function Filter() {
             <p className="Filter-array-element-lebel">{value.label}</p>
             {activeDropdown === idx && (
               <div
-                className="absolute top-7 left-0 mt-4 w-full bg-white border rounded shadow-md"
+                className="absolute top-7 left-0 mt-4 w-full bg-white border rounded shadow-md flex flex-col"
                 onClick={(event) => event.stopPropagation()} // Prevent clicks inside the dropdown from closing it
                 >
                 {/* Your dropdown content goes here */}
                 <p className="p-4">Dropdown Content for {value.label}</p>
-                <p className="p-4">Another option</p>
+                <Link className="p-4" to="/products">Another option 1</Link>
+                <Link className="p-4" to="/products">Another option 2</Link>
+                <Link className="p-4" to="/products">Another option 3</Link>
               </div>
             )}
             </div>

@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import PopUp from '../Reviews/PopUp';
 import './styles.css'
-import MainSlider from "../MainSlider/MianSlider";
+import MainSlider from "../MainSlider/MainSlider";
 
 import 'swiper/css';
 import 'swiper/css/pagination';

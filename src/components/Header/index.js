@@ -7,6 +7,7 @@ import SimpleBottomNavigation from "./bottombar";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Menu from "./menu";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -32,9 +33,9 @@ function Header() {
     >
       <div className="navbar">
         <div className="navbar-left cell">
-        <div>
+        <Link to='/'>
           <img src='https://s3-symbol-logo.tradingview.com/logo-yazilim--600.png' alt="logo" className="navbar-logo" />
-        </div>
+        </Link>
         </div>
         <div className="between cell">
         <div className="searchbar pt-4 w-88 h-10 items-right justify-end">
