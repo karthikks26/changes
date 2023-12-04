@@ -14,6 +14,7 @@ function MainSlider() {
   return (
     <div>
       <Swiper
+        
         spaceBetween={30}
         loop={true}
         centeredSlides={true}

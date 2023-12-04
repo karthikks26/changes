@@ -1,8 +1,8 @@
-import StarIcon from '@mui/icons-material/Star';
 import React, { useState } from 'react';
+import './styles.css';
+import StarIcon from '@mui/icons-material/Star';
 import Carousel from './swip';
 import rev from '../../assets/rev.webp';
-import './styles.css';
 import PopUp from '../Reviews/PopUp';
 
 function Card(props) {
@@ -21,8 +21,10 @@ function Card(props) {
 
   return (
     <>
-      <div>
-        <div className="card">
+        <div className="card m-2"style={{
+          width: "100%",
+          height: "100%",
+        }}>
           <div className="card-flex">
             <Carousel data={props.imgSrc} className="card-img"/>
             <div className="review-icon-container">
@@ -46,7 +48,6 @@ function Card(props) {
             <strong>₹{props.price}</strong>
           </div>
         </div>
-      </div>
       {props.isPopupVisible && (
         <PopUp
           isPopupVisible={props.isPopupVisible}

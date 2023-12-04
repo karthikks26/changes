@@ -170,3 +170,17 @@
 .swiper-button-next {
   margin-left: 100px;
 }
+.swiper-horizontal > .swiper-scrollbar,
+.swiper-scrollbar.swiper-scrollbar-horizontal{
+transition-duration: 2s  !important ;
+}
+.swiper-scrollbar-drag{
+  cursor: grab;
+  width: 18rem !important  ;
+  height: 0.5rem !important;
+  border-radius: 10px !important;
+  opacity: 1;
+
+}:active{
+  cursor: grabbing;
+}
