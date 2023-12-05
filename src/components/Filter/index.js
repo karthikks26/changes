@@ -79,8 +79,9 @@ function Filter() {
           </div>
       </div>
       <div className="after-arrow">
-        <div className="at">AirBnb your home</div>
-        <div className="at">Fill the floor</div>
+      <div className="at">Filters</div>
+        <div className="at">Find the Right Floor</div>
+       
       </div>
       </div>
     </header>

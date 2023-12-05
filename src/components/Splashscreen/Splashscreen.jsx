@@ -9,7 +9,7 @@ const Splashscreen = () => {
         <img
           src={mainlogo}
           alt="Logo"
-          className="w-80 h-auto animate-pulse transition-all ease-linear duration-1000"
+          className="w-80 h-auto transition-all ease-linear duration-1000"
         />
       </div>
     </div>
