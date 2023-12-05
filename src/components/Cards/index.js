@@ -1,17 +1,19 @@
-import Card from './card';
-import { list } from '../../assets/cards-list';
-import React, { useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import PopUp from '../Reviews/PopUp';
-import './styles.css'
+import Card from "./card";
+import { list } from "../../assets/cards-list";
+import React, { useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import PopUp from "../Reviews/PopUp";
+import "./styles.css";
 import MainSlider from "../MainSlider/MainSlider";
-
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import 'swiper/css/scrollbar';  
-import { Pagination, Navigation,Scrollbar } from 'swiper/modules';
-import Imagechanger from '../Imagechanger/Imagechanger';
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/free-mode";
+import "swiper/css/mousewheel"
+import "swiper/css/scrollbar";
+import { Pagination, Navigation, Scrollbar ,Mousewheel,FreeMode} from "swiper/modules";
+import Imagechanger from "../Imagechanger/Imagechanger";
 function Cards() {
   const [swiperRef, setSwiperRef] = useState(null);
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -20,34 +22,76 @@ function Cards() {
   };
 
   const [indexClicked, setClicked] = useState(-1);
+  const swiperUseref = useRef(null);
+  const swiperOptions = {
+    slidesPerView: 4,
+    centeredSlides: false,
+    spaceBetween: 5,
+    modules: [Pagination, Scrollbar,Mousewheel,FreeMode],
+    navigation: {
+      nextEl: ".custom-next-button",
+      prevEl: ".custom-prev-button",
+    },
+    noSwiping: true,
+    allowSlidePrev: true,
+    allowSlideNext: true,
 
+  };
   const closePopup = () => {
     setPopupVisible(false);
   };
+  const swiper1Ref = useRef(null);
+  const swiper2Ref = useRef(null);
+
   return (
     <div className="pb-20">
-      <MainSlider/>
+      <MainSlider />
       <div className="pt-20 px-10 mb-20  bg-white">
-        <div className="mb-2 w-full">
-          <h2 className="text-bold text-2xl font-serif ml-4">Beach and resort.</h2>
+        <div className="mb-2 w-full flex justify-between items-center">
+          <h2 className="text-bold text-2xl font-serif ml-4">
+            Beach and resort.
+          </h2>
+          <div className="Slidenav flex  bg-white text-2xl cursor-pointer  text-white rounded-full gap-2">
+            <div
+              onClick={() => swiper1Ref.current.swiper.slidePrev()}
+              className="custom-prev-button bg-slate-500   rounded-full  hover:bg-400 hover:scale-110 hover:text-slate-100"
+            >
+              <FaChevronLeft />
+            </div>
+            <div
+              onClick={() => swiper1Ref.current.swiper.slideNext()}
+              className="custom-next-button bg-slate-500  rounded-full hover:bg-400 hover:scale-110 hover:text-slate-100"
+            >
+              <FaChevronRight />
+            </div>
+          </div>
         </div>
-        <PopUp isPopupVisible={isPopupVisible} closePopup={closePopup}/>
+        <PopUp isPopupVisible={isPopupVisible} closePopup={closePopup} />
         <Swiper
-          scrollbar={
+          ref={swiper1Ref}
+          {...swiperOptions}
+          scrollbar={{
+            hide: false,
+            draggable: true,
+          }}
+          mousewheel={{
+            forceToAxis: true,
+            invert: false,
+          }}
+          freeMode={
             {
-              "hide": true,
-              "draggable": true,
-              
+              enabled: false,
+              sticky: true,
             }
           }
+          allowSlideNext={true}
+          allowSlidePrev={true}
+          slideNextClass="custom-next-button"
+          slidePrevClass="custom-prev-button"
           onSwiper={setSwiperRef}
-          slidesPerView={4}
-          centeredSlides={false}
-          spaceBetween={5}
-          navigation={true}
-          modules={[Pagination, Navigation,Scrollbar]}
-          className="px-10">
-            
+
+          className="px-10"
+        >
           {list.map((value, idx) => {
             return (
               <SwiperSlide key={idx} className="">
@@ -68,29 +112,47 @@ function Cards() {
           })}
         </Swiper>
       </div>
-      <div className='w-full h-[80vh] m-1 '>
-        <Imagechanger/>
+      <div className="w-full h-[80vh] m-1 ">
+        <Imagechanger />
       </div>
       <div className="pt-10 px-10 py-10 bg-white">
-        <div className="mb-2 w-full">
-          <h2 className="text-bold text-2xl font-serif ml-4">Beach and resort.</h2>
+        <div className="mb-2 w-full flex justify-between items-center">
+          <h2 className="text-bold text-2xl font-serif ml-4">
+            Beach and resort.
+          </h2>
+          <div className="Slidenav flex bg-slate-700 text-2xl cursor-pointer  text-white rounded-full gap-2">
+            <div
+              onClick={() => swiper2Ref.current.swiper.slidePrev()}
+              className="custom-prev-button hover:bg-400 hover:scale-110 hover:text-slate-100  "
+            >
+              <FaChevronLeft />
+            </div>
+            <div
+              onClick={() => swiper2Ref.current.swiper.slideNext()}
+              className="custom-next-button hover:bg-400 hover:scale-110 hover:text-slate-100"
+            >
+              <FaChevronRight />
+            </div>
+          </div>
         </div>
-        
+
         <Swiper
-         
           scrollbar={{
-            
-            "hide": true, 
-              
-            "draggable": true,
-          
+            hide: false,
+
+            draggable: true,
           }}
+          mousewheel={{
+            forceToAxis: true,
+            invert: false,
+          }}
+          allowSlidePrev={true}
+          allowSlideNext={true}
+          slideNextClass="custom-next-button"
+          slidePrevClass="custom-prev-button"
+          ref={swiper2Ref}
           onSwiper={setSwiperRef}
-          slidesPerView={4}
-          centeredSlides={false}
-          spaceBetween={5}
-          navigation={true}
-          modules={[Pagination, Navigation,Scrollbar]}
+          {...swiperOptions}
           className="mySwiper"
         >
           {list.map((value, idx) => {

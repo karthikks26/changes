@@ -14,7 +14,7 @@ const Sidebar = ({ places }) => {
     <>
       <div className={`sidebar ${isNavOpen ? "open" : ""}`}>
         <div className={`sidenav ${isNavOpen ? "open" : ""}`}>
-          <ul className="mx-4 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-black">
+          <ul className="mx-4 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-full dark:bg-gray-700 dark:border-gray-600 dark:text-black">
             <li className="list-group-item block w-full px-4 py-2 text-black  border-b border-gray-200 rounded-t-lg cursor-pointer dark:bg-gray-800 dark:border-gray-600" aria-disabled="true">
               Listed properties
             </li>
