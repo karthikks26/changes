@@ -11,24 +11,9 @@ function Filter() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollX, setScrollX] = useState(0);
   const scrl = useRef(null);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (window.scrollY > 0) {
-  //       setIsScrolled(true);
-  //     } else {
-  //       setIsScrolled(false);
-  //     }
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [isScrolled]);
   
   const handleDropdownClick = (event, idx) => {
-    event.stopPropagation(); // Prevent the click event from reaching the parent
+    event.stopPropagation(); 
     if (activeDropdown === idx) {
       setActiveDropdown(null);
     } else {
@@ -54,6 +39,7 @@ function Filter() {
         isScrolled ? "bg-white" : "bg-white"
       } `}
     >
+      <div className="filter">
       <div className="Filter-array" ref={scrl}>
         <div className=" arrow-left">
           <BsArrowLeftCircleFill className="arrow-nav" onClick={() => slide(-250)}/>
@@ -91,6 +77,11 @@ function Filter() {
         <div className=" arrow-right">
             <BsArrowRightCircleFill className="arrow-nav arrow-right" onClick={() => slide(+250)} style={{ overflowX: 'auto', scrollBehavior: 'smooth' }}/>
           </div>
+      </div>
+      <div className="after-arrow">
+        <div className="at">AirBnb your home</div>
+        <div className="at">Fill the floor</div>
+      </div>
       </div>
     </header>
   );

@@ -1,0 +1,135 @@
+/* .swiper-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  } */
+/* .slider {
+  display: flex;
+  overflow: scroll;
+  gap: 20px; 
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+} 
+.slider::-webkit-scrollbar
+{
+    display: none;
+}
+body{
+  overflow: hidden;
+}
+.slider {
+  display: flex;
+  overflow: scroll;
+  gap: 20px; 
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+} 
+.mainSlider {
+  position: relative;
+  overflow: hidden;
+}
+.slider::-webkit-scrollbar
+{
+    display: none;
+}
+
+.slide {
+  border: 1px solid black;
+  height: 60vh;
+  width: 40rem;
+  flex-shrink: 0;
+}
+
+.slide:nth-child(1) {
+  background-color: #f0f0f0;
+}
+
+.slide:nth-child(2) {
+  background-color: #e0e0e0;
+}
+
+.slide:nth-child(3) {
+  background-color: #d0d0d0;
+}
+.arrow-left
+ {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.arrow-right {
+  position: absolute;
+  top: 50%;
+  right: 10px; 
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.arrow-left{
+  margin-left: 0.3rem;
+} */
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  margin-left: 20px;
+}
+.slider::-webkit-scrollbar
+{
+    display: none;
+}
+.sd{
+  width: 500px;
+  height: 90vh;
+  border: 1px solid black;
+}
+.slider-cont{
+  display: flex;
+  overflow: scroll;
+  gap: 20px; 
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+.sd{
+  height: 95vh;
+  width: 40rem;
+  flex-shrink: 0;
+}
+.arrow-left
+ {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.arrow-rightS {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Adjust the right offset as needed */
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.arrow-nav {
+  filter: drop-shadow(0px 0px 5px #747373);
+  width: 1.6rem;
+  height: 2rem;
+  padding-right: 0.2rem;
+  color: rgb(248, 245, 245);
+  cursor: pointer;
+}
+.arrow-left{
+  margin-left: 0.3rem;
+}

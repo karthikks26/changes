@@ -29,8 +29,7 @@ function Header() {
   return (
     <header
       className={`fixed w-full top-0 transition-all ease-in-out duration-300  z-[9999] ${isScrolled ? "bg-white" : "bg-white"
-        } `}
-    >
+        } `}>
       <div className="navbar">
         <div className="navbar-left cell">
         <Link to='/'>
@@ -64,7 +63,6 @@ function Header() {
         <div className="bottom-navbar">
           <SimpleBottomNavigation />
         </div>
-
       </div>
     </header>
   );
