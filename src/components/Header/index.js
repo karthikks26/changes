@@ -39,7 +39,7 @@ function Header() {
         <div className="between cell">
         <div className="searchbar pt-4 w-88 h-10 items-right justify-end">
         
-          <input type="text" className="border-b bg-transparent p-2 h-6 focus:outline-none focus:border-black-500" />
+          <input type="text" className="border-b w-full bg-transparent p-2 h-6 border-none" />
           <SearchIcon className="seachbar-div2-icon mr-2" />
         </div>
         </div>

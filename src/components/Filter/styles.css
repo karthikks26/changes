@@ -23,7 +23,6 @@
 .Filter-array-element {
     display: flex;
     gap: 0.55rem;
-    opacity: 50%;
     padding: 0.5rem;
     margin: 0;
     align-items: center;
@@ -65,7 +64,7 @@
 }
 
 .Filter-array-element-img {
-    height: 1.5rem;
+    height: 1.3rem;
 }
 
 .Filter-array-element-lebel {

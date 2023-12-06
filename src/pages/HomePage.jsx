@@ -7,7 +7,7 @@ import { Map } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Splashscreen from '../components/Splashscreen/Splashscreen';
-import './HomePage.css'; 
+import './HomePage.css';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ const HomePage = () => {
           <Cards />
           <button
             type="button"
-            className="fixed bottom-4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bottom-2 text-white bg-black hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+            className="fixed left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bottom-0 text-white bg-black hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
             onClick={() => navigate('/ayatrio-map')}
           >
             Show Map <Map className="ml-2" />
