@@ -4,7 +4,6 @@ import StarIcon from '@mui/icons-material/Star';
 import Carousel from './swip';
 import rev from '../../assets/rev.webp';
 import PopUp from '../Reviews/PopUp';
-
 function Card(props) {
   const [isFullBioVisible, setFullBioVisible] = useState(false);
   const [isPopupVisible, setPopupVisible]=useState(false)
@@ -26,9 +25,10 @@ function Card(props) {
           height: "100%",
         }}>
           <div className="card-flex">
-            <Carousel data={props.imgSrc} className="card-img"/>
+            <Carousel  data={props.imgSrc} className="card-img"/>
             <div className="review-icon-container">
               <img
+            
                 src={rev}
                 className="h-8 rounded-md cursor-pointer"
                 onClick={handleImageClick}

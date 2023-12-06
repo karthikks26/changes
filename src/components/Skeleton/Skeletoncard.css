@@ -1,0 +1,16 @@
+.custom-shimmer-line {
+    overflow: hidden;
+    background: linear-gradient(90deg, transparent, #ebebeb, transparent); /* Change the color here */
+    background-size: 300% 100%; /* Adjust the width here */
+    animation: shimmer 2s infinite linear;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: 150% 0;
+    }
+    100% {
+      background-position: -150% 0;
+    }
+  }
+  
