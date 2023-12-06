@@ -4,6 +4,8 @@ import { links } from "../../assets/images-links";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs';
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+import Skeletonlogo from "../Skeleton/Skeletonlogo";
+import Skeletonicons from "../Skeleton/Skeletonicons";
 
 function Filter() {
   const [selectedFilter, setSelectedFilter] = useState(null);
@@ -11,7 +13,13 @@ function Filter() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollX, setScrollX] = useState(0);
   const scrl = useRef(null);
-  
+  const [fakeLoading,setFakeLoading]=useState(false)
+  useEffect(() => {
+    setTimeout(() => {
+      setFakeLoading(true)
+    }, 2500)
+  }, [])
+
   const handleDropdownClick = (event, idx) => {
     event.stopPropagation(); 
     if (activeDropdown === idx) {
@@ -54,12 +62,14 @@ function Filter() {
             onMouseEnter={() => setActiveDropdown(idx)}
             onMouseLeave={() => setActiveDropdown(null)}
           >
-            <img
+            {
+              value && fakeLoading?<img
               src={value.imgSrc}
               alt="NA"
               className="Filter-array-element-img"
-            />
-            <p className="Filter-array-element-lebel">{value.label}</p>
+            />:<Skeletonicons/>
+            }
+            {value && fakeLoading?<p className="Filter-array-element-lebel">{value.label}</p>:""}
             {activeDropdown === idx && (
               <div
                 className="absolute top-7 left-0 mt-4 w-full bg-white border rounded shadow-md flex flex-col"
