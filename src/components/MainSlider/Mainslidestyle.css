@@ -12,13 +12,12 @@
 .sd {
   width: 500px;
   height: 90vh;
-  border: 1px solid black;
 }
 
 .slider-cont {
   display: flex;
   overflow: scroll;
-  gap: 20px;
+  gap: 10px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -52,7 +51,6 @@
 }
 
 .arrow-nav {
-  filter: drop-shadow(0px 0px 5px #747373);
   width: 1.6rem;
   height: 2rem;
   padding-right: 0.2rem;

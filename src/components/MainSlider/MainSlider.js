@@ -72,7 +72,7 @@ function MainSlider() {
           <div key={i}>
               <div className="items-center justify-center flex sd">
                 <img
-                  className="sd"
+                  className="sd rounded-sm"
                   src={prod.imgSrc}
                   alt="Product"
                 />
