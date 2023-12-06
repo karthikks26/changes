@@ -1,79 +1,79 @@
-.navbar{
+.navbar {
     display: flex;
     flex-flow: row;
-    /* position: relative; */
     justify-content: space-between;
     border: 1px solid #e6e3e3;
     height: 70px;
     width: 100vw;
+    flex: 1 2 1;
 }
+
+.between {
+    flex: 3;
+}
+
+.navbar-left {
+    flex: 1;
+}
+
+.navbar-right {
+    flex: 2;
+}
+
 .cell {
     padding-left: 1em;
     text-align: center;
-    flex: 1;
     margin-bottom: 1em;
     padding: .8em 1em 0;
-  }
-  
-.navbar-logo{
-    height: 50px;
-    width: auto;
-    /* margin-top: 10px; */
-    /*margin-bottom: 10px;
-    margin-left: 35px; */
-    border-radius: 50%;
-    /* padding: 1.5rem; */
 }
 
-.searchbar
-{
+
+.searchbar {
     display: flex;
     gap: 1rem;
     margin-top: 5px;
-    width: 80%;
     padding: 0.75rem;
-    /* margin-right: 34.5rem; */
-    border: 1px solid #dddddd;
     border-radius: 2.5rem;
     align-items: center;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+    background-color: #efefef;
 }
-.searchbar:hover{
-    box-shadow: 0 1px 2px rgba(23, 21, 21, 0.1), 0 4px 12px rgba(0,0,0,0.10);
+
+.searchbar:hover {
+    background-color: #e2e2e2;
 }
-.seachbar-div
-{
+
+.seachbar-div {
     font-weight: 600;
 }
-.seachbar-div2
-{
+
+.seachbar-div2 {
     display: flex;
     font-weight: 600;
     color: #c5c3c3;
 }
-.navbar-right
-{
+
+.navbar-right {
     display: flex;
     flex-flow: row;
     justify-content: space-between;
     /* float: left; */
     gap: 2rem;
     /* margin-right: 15px; */
-    padding: 0.6rem;
+    /* padding: 0.6rem; */
     font-weight: 600;
 }
 
-.profile-home{
+.profile-home {
     margin-top: 12px;
 }
-.profile-language
-{
+
+.profile-language {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.profile-account
-{
+
+.profile-account {
     display: flex;
     gap: 0.75rem;
     font-weight: 600;
@@ -83,23 +83,24 @@
     height: 40px;
     padding: 0.3rem 0.5rem 0 0.7rem;
 }
-.bottom-navbar
-{
+
+.bottom-navbar {
     display: none;
 }
-#basic-menu{
+
+#basic-menu {
     z-index: 99999;
 }
-@media only screen and (max-width : 800px)
-{
+
+@media only screen and (max-width : 800px) {
+
     .navbar-logo,
     .searchbar,
-    .navbar-right
-    {
+    .navbar-right {
         display: none;
     }
-    .bottom-navbar
-    {
+
+    .bottom-navbar {
         align-items: center;
         position: fixed;
         bottom: 0;
