@@ -7,12 +7,8 @@ import { Map } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Splashscreen from '../components/Splashscreen/Splashscreen';
-<<<<<<< HEAD
 import "./HomePage.css";
-=======
-import './HomePage.css';
 
->>>>>>> 30ecfd4c1ab4904024f1a595ef1dc1c0125f674f
 const HomePage = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
