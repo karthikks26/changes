@@ -1,6 +1,6 @@
 import Card from "./card";
 import { list } from "../../assets/cards-list";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import PopUp from "../Reviews/PopUp";
 import "./styles.css";
@@ -13,7 +13,10 @@ import "swiper/css/free-mode";
 import "swiper/css/mousewheel"
 import "swiper/css/scrollbar";
 import { Pagination, Navigation, Scrollbar ,Mousewheel,FreeMode} from "swiper/modules";
+import 'react-loading-skeleton/dist/skeleton.css'
 import Imagechanger from "../Imagechanger/Imagechanger";
+import Skeleton from "react-loading-skeleton";
+import Skeletoncard from "../Skeleton/Skeletoncard";
 function Cards() {
   const [swiperRef, setSwiperRef] = useState(null);
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -42,6 +45,12 @@ function Cards() {
   };
   const swiper1Ref = useRef(null);
   const swiper2Ref = useRef(null);
+const [isLoading,setLoading]=useState(true)
+useEffect(() => {
+  setTimeout(() => {
+    setLoading(false)
+  }, 2500)
+}, [])
 
   return (
     <div className="pb-20">
@@ -92,24 +101,38 @@ function Cards() {
 
           className="px-10"
         >
-          {list.map((value, idx) => {
-            return (
-              <SwiperSlide key={idx} className="">
-                <div className="grid grid-cols-1 mt-2 h-fit">
-                  <Card
-                    title={value.title}
-                    date={value.date}
-                    price={value.price}
-                    desc={value.desc}
-                    imgSrc={value.imgSrc}
-                    rating={value.rating}
-                    key={idx}
-                    setPopupVisible={setPopupVisible}
-                  />
-                </div>
-              </SwiperSlide>
-            );
-          })}
+          {isLoading ? (
+             <SwiperSlide>
+             <div className="flex">
+             
+               <Skeletoncard/>
+               <Skeletoncard/>
+               <Skeletoncard/>
+               <Skeletoncard/>
+
+             </div>
+           </SwiperSlide>
+        
+          ) : (
+            list.map((value, idx) => {
+              return (
+                <SwiperSlide key={idx} className="">
+                  <div className="grid grid-cols-1 mt-2 h-fit fade-in ">
+                    <Card
+                      title={value.title}
+                      date={value.date}
+                      price={value.price}
+                      desc={value.desc}
+                      imgSrc={value.imgSrc}
+                      rating={value.rating}
+                      key={idx}
+                      setPopupVisible={setPopupVisible}
+                    />
+                  </div>
+                </SwiperSlide>
+              );
+            })
+          )}
         </Swiper>
       </div>
       <div className="w-full h-[80vh] m-1 ">
@@ -155,24 +178,38 @@ function Cards() {
           {...swiperOptions}
           className="mySwiper"
         >
-          {list.map((value, idx) => {
-            return (
-              <SwiperSlide key={idx} className="">
-                <div className="grid grid-cols-1 mt-4 h-fit">
-                  <Card
-                    title={value.title}
-                    date={value.date}
-                    price={value.price}
-                    desc={value.desc}
-                    imgSrc={value.imgSrc}
-                    rating={value.rating}
-                    key={idx}
-                    setPopupVisible={setPopupVisible}
-                  />
-                </div>
-              </SwiperSlide>
-            );
-          })}
+          {isLoading ? (
+             <SwiperSlide>
+             <div className="flex">
+             
+               <Skeletoncard/>
+               <Skeletoncard/>
+               <Skeletoncard/>
+               <Skeletoncard/>
+
+             </div>
+           </SwiperSlide>
+        
+          ) : (
+            list.map((value, idx) => {
+              return (
+                <SwiperSlide key={idx} className=""> 
+                  <div className="grid grid-cols-1 mt-2 h-fit fade-in">
+                    <Card
+                      title={value.title}
+                      date={value.date}
+                      price={value.price}
+                      desc={value.desc}
+                      imgSrc={value.imgSrc}
+                      rating={value.rating}
+                      key={idx}
+                      setPopupVisible={setPopupVisible}
+                    />
+                  </div>
+                </SwiperSlide>
+              );
+            })
+          )}
         </Swiper>
       </div>
     </div>

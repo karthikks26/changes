@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Cards from '../components/Cards';
-import MobileSearchBar from '../components/MobileSearch/';
+import MobileSeachBar from '../components/MobileSearch/';
 import Filter from '../components/Filter/';
 import { Map } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Splashscreen from '../components/Splashscreen/Splashscreen';
-import './HomePage.css';
+import "./HomePage.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -27,9 +27,9 @@ const HomePage = () => {
       {loading ? (
         <Splashscreen />
       ) : (
-        <div className="fade-in">
+        <div className='fade-in'>
           <Header />
-          <MobileSearchBar />
+          <MobileSeachBar />
           <Filter />
           <Cards />
           <button

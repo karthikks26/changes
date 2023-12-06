@@ -8,8 +8,17 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Menu from "./menu";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Skeletonlogo from "../Skeleton/Skeletonlogo";
+import Skeletonsearch from "../Skeleton/Skeletonsearch";
+import Skeletonprofile from "../Skeleton/Skeletonprofile";
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+const [fakeLoading,setFakeLoading]=useState(false)
+useEffect(() => {
+  setTimeout(() => {
+    setFakeLoading(true)
+  }, 2500)
+}, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,15 +42,19 @@ function Header() {
       <div className="navbar">
         <div className="navbar-left cell">
         <Link to='/'>
-          <img  src={mainlogo} alt="logo" className="w-40 m-2" />
+          {mainlogo && fakeLoading ?<img  src={mainlogo} alt="logo" className="w-40 m-2" />:<Skeletonlogo/>
+            
+          }
         </Link>
         </div>
         <div className="between cell">
-        <div className="searchbar pt-4 w-88 h-10 items-right justify-end">
+      {
+        fakeLoading?  <div className="searchbar pt-4 w-88 h-10 items-right justify-end">
         
-          <input type="text" className="border-b w-full bg-transparent p-2 h-6 border-none" />
-          <SearchIcon className="seachbar-div2-icon mr-2" />
-        </div>
+        <input type="text" className="border-b w-full bg-transparent p-2 h-6 border-none" />
+        <SearchIcon className="seachbar-div2-icon mr-2" />
+      </div>:<Skeletonsearch/>
+      }
         </div>
         <div className="navbar-right cell">
           <div className="h-10 w-10 cursor-pointer">
@@ -52,14 +65,16 @@ function Header() {
           <div className="profile-language cell-r">
             <LanguageIcon />
           </div>
-          <div className="profile-account cell-r">
-            <div className="profile-menu">
-              <Menu />
-            </div>
-            <div className="profile-account-circle-icon cell-r">
-              <AccountCircleIcon />
-            </div>
+         {
+          fakeLoading? <div className="profile-account cell-r">
+          <div className="profile-menu">
+            <Menu />
           </div>
+          <div className="profile-account-circle-icon cell-r">
+            <AccountCircleIcon />
+          </div>
+        </div>:<Skeletonprofile/>
+         }
         </div>
         <div className="bottom-navbar">
           <SimpleBottomNavigation />

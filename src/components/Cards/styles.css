@@ -187,14 +187,11 @@
 .swiper-scrollbar.swiper-scrollbar-horizontal {
   transition-duration: 2s !important;
 }
-
-/* .swiper-scrollbar-drag{
-  cursor: grab;
-  width: 18rem !important  ;
-  height: 0.5rem !important;
-  border-radius: 10px !important;
-  opacity: 1;
-
-}:active{
-  cursor: grabbing;
-} */
+.fade-in{
+  animation: fadeIn ease 1.5s;
+  -webkit-animation: fadeIn ease 1.5s;
+  -moz-animation: fadeIn ease 1.5s;
+  -o-animation: fadeIn ease 1.5s;
+  -ms-animation: fadeIn ease 1.5s;
+  
+}
