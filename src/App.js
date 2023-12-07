@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import HomePage from "./pages/HomePage";
 import MapPage from "./pages/MapPage";
 import ProductPage from "./pages/ProductPage";
+import Magazine from "./components/Magazine/Magazine";
 
 
 
@@ -15,6 +16,8 @@ function App() {
       <Route path="/" element={<HomePage/>} /> 
       <Route path="/ayatrio-map" element={<MapPage/>} /> 
       <Route path="/products" element={<ProductPage/>} />
+      <Route path="/magazine" element={<Magazine/>} />
+
       </Routes>
     </>
   );
