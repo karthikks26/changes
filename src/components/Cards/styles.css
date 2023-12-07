@@ -75,7 +75,7 @@
 }
 
 .slide {
-  border-radius: 0.5rem;
+  border-radius: 0.1rem;
   width: 95%;
   height: 97%;
 }
@@ -187,11 +187,12 @@
 .swiper-scrollbar.swiper-scrollbar-horizontal {
   transition-duration: 2s !important;
 }
-.fade-in{
+
+.fade-in {
   animation: fadeIn ease 1.5s;
   -webkit-animation: fadeIn ease 1.5s;
   -moz-animation: fadeIn ease 1.5s;
   -o-animation: fadeIn ease 1.5s;
   -ms-animation: fadeIn ease 1.5s;
-  
+
 }
