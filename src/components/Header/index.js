@@ -11,9 +11,12 @@ import { Link } from "react-router-dom";
 import Skeletonlogo from "../Skeleton/Skeletonlogo";
 import Skeletonsearch from "../Skeleton/Skeletonsearch";
 import Skeletonprofile from "../Skeleton/Skeletonprofile";
-function Header() {
+
+function Header({howMuchScrolled}) {
+
   const [isScrolled, setIsScrolled] = useState(false);
 const [fakeLoading,setFakeLoading]=useState(false)
+
 useEffect(() => {
   setTimeout(() => {
     setFakeLoading(true)
@@ -38,7 +41,7 @@ useEffect(() => {
   return (
     <header
       className={`fixed w-full top-0 transition-all ease-in-out duration-300  z-[9999] ${isScrolled ? "bg-white" : "bg-white"
-        } `}>
+        } ${howMuchScrolled > 20 ? 'hidden' : ''}`}>
       <div className="navbar">
         <div className="navbar-left cell">
         <Link to='/'>

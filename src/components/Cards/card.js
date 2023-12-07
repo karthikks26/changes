@@ -4,9 +4,13 @@ import StarIcon from '@mui/icons-material/Star';
 import Carousel from './swip';
 import rev from '../../assets/rev.webp';
 import PopUp from '../Reviews/PopUp';
+import { useNavigate } from 'react-router-dom';
+
 function Card(props) {
   const [isFullBioVisible, setFullBioVisible] = useState(false);
   const [isPopupVisible, setPopupVisible]=useState(false)
+  const navigate = useNavigate();
+
   const handleImageClick = () => {
     props.setPopupVisible(true);
   };
@@ -36,7 +40,7 @@ function Card(props) {
               />
             </div>
           </div>
-          <div className="card-title">
+          <div className="card-title" onClick={()=>navigate('/rooms')}> 
             <div className="card-title-desc">{props.desc}</div>
             <div className="card-rating">
               <StarIcon fontSize="small" />

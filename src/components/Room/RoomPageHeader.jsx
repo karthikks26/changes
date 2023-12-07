@@ -1,9 +1,9 @@
 import React from "react";
 import HeaderInfo from "./HeaderInfo";
 
-const RoomPageHeader = () => {
+const RoomPageHeader = ({howMuchScrolled}) => {
   return (
-    <nav className="border-b">
+    <nav className="sticky top-0 border-b bg-white z-[22]">
       <div className="max-w-screen-xl px-2 mx-auto flex justify-between align-center">
         <div className="flex items-center">
           <ul className="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
@@ -29,7 +29,13 @@ const RoomPageHeader = () => {
             </li>
           </ul>
         </div>
-        <div><HeaderInfo/></div>
+
+        {
+          howMuchScrolled > 2220 && (
+            <div><HeaderInfo/></div>
+          )
+        }
+       
       </div>
     </nav>
   );
