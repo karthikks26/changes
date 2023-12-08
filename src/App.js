@@ -8,8 +8,6 @@ import Magazine from "./pages/MagazinePage";
 import RoomPage from "./pages/RoomPage";
 import MagazinePage from "./pages/MagazinePage";
 
-
-
 function App() {
   
   return (

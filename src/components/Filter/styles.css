@@ -4,7 +4,6 @@
     position: relative;
 
 }
-
 .Filter-array {
     display: flex;
     justify-content: space-between;
@@ -58,7 +57,9 @@
 .Filter-array .arrow-right {
     position: absolute;
 }
-
+.arrow-left.hidden {
+    display: none;
+  }
 .arrow-right {
     right: 25%;
 }

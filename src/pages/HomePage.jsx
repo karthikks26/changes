@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Splashscreen from '../components/Splashscreen/Splashscreen';
 import "./HomePage.css";
+import PopUp from '../components/PopUp/PopUp';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ const HomePage = () => {
         <Splashscreen />
       ) : (
         <div className='fade-in'>
+          <PopUp/>
           <Header />
           <MobileSeachBar />
           <Filter />

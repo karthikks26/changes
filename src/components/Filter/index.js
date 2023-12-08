@@ -48,7 +48,7 @@ function Filter() {
     >
       <div className="filter">
       <div className="Filter-array" ref={scrl}>
-        <div className=" arrow-left">
+        <div className={`arrow-left ${scrollX === 0 ? 'hidden' : ''}`}>
           <BsArrowLeftCircleFill className="arrow-nav" onClick={() => slide(-250)}/>
         </div>
         {links.map((value, idx) => (
