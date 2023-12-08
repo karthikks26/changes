@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import HTMLFlipBook from "react-pageflip";
 import "./Magazine.css";
 import Header from "../components/Header";
+import Searchmagazine from "../Searchbar/Searchmagzine";
 
 const unsplashImages = [
   "https://images.unsplash.com/photo-1700143418116-d94c3f23b9ab?q=80&w=1370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -30,6 +31,7 @@ const MagazinePage = () => {
   return (<>
   <Header/>
     <div className="magazine-container">
+      <Searchmagazine/>
       <div className="flip-book-container">
         <HTMLFlipBook
           ref={magazineRef}
