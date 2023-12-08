@@ -5,8 +5,6 @@ import HomePage from "./pages/HomePage";
 import MapPage from "./pages/MapPage";
 import ProductPage from "./pages/ProductPage";
 
-
-
 function App() {
   
   return (

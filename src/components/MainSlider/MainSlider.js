@@ -19,7 +19,7 @@ function MainSlider() {
   }, []);
 
   const products = list3.filter((prod) => prod.id === 1 || prod.id === 2 || prod.id === 3);
-  const [scrollX, setScrollX] = useState(1);
+  const [scrollX, setScrollX] = useState(0);
   const scrl = useRef(null);
 
   useEffect(() => {
