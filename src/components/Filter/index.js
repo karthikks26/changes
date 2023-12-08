@@ -6,7 +6,6 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import Skeletonlogo from "../Skeleton/Skeletonlogo";
 import Skeletonicons from "../Skeleton/Skeletonicons";
-
 function Filter() {
   const [selectedFilter, setSelectedFilter] = useState(null);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -90,7 +89,9 @@ function Filter() {
       </div>
       <div className="after-arrow">
       <div className="at">Filters</div>
+        <Link to="/magazine">
         <div className="at">Find the Right Floor</div>
+        </Link>
        
       </div>
       </div>
