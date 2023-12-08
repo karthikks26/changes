@@ -28,15 +28,15 @@ const MagazinePage = () => {
     magazineRef.current.pageFlip().flipNext();
   };
 
-  return (<>
+  return (<div className="overflow-hidden w-full h-screen ">
   <Header/>
-    <div className="magazine-container">
+    <div className="magazine-container  ">
       <Searchmagazine/>
       <div className="flip-book-container">
         <HTMLFlipBook
           ref={magazineRef}
           width={300}
-          height={424}
+          height={400}
           size="stretch"
           minWidth={315}
           maxWidth={1000}
@@ -54,20 +54,20 @@ const MagazinePage = () => {
       </div>
       <div className="pagination">
         <div
-          className="cursor-pointer px-4 py-2 bg-blue-500 text-white mr-2"
+          className="cursor-pointer px-4 py-2 bg-blue-700 rounded-lg font-semibold text-white mr-2"
           onClick={handlePrevPage}
         >
-          &lt; Previous Page
+           Previous Page
         </div>
         <div
-          className="cursor-pointer px-4 py-2 bg-blue-500 text-white"
+          className="cursor-pointer px-4 py-2 bg-blue-700 rounded-lg font-semibold  text-white"
           onClick={handleNextPage}
         >
-          Next Page &gt;
+          Next Page
         </div>
       </div>
     </div>
-    </>
+    </div>
   );
 };
 

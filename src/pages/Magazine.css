@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  overflow: hidden;
 }
 
 .magazine-header {
@@ -12,36 +13,50 @@
 }
 
 .flip-book-container {
-  width: 80%;
-  max-width: 800px;
-  margin: 0 auto;
+position: absolute;
+width: 75vw;
+top: 14%;
+left:24%;
 }
-
+.stf__wrapper.--landscape{
+  padding-bottom:0 !important ;
+}
+.flip-book.stf__parent{
+  height: 80vh !important;
+}
 .flip-book {
-  border: 1px solid #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .flip-book img {
-  width: 100%;
+  width: 80vw !important;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .pagination {
   margin-top: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 89%;
+  left: 1%;
+  width: 25%;
+  
 }
 
 .pagination button {
   font-size: 16px;
-  margin: 0 10px;
+  margin: 0 15px;
   padding: 8px 16px;
   cursor: pointer;
 }
 
 .pagination span {
   font-size: 16px;
+}
+.flip-book{
+  border: none !important;
 }
