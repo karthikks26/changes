@@ -32,7 +32,7 @@ function App() {
     <div className="App">
      {openPopUp1 && (<div className='popup1'>
         <div className='cont1'>
-            <p className='text'>Last step! Tell us what you're interested in.</p>
+            <p className='text'>What are you interested in?</p>
             <p className='text'>Home land</p>
             <div className='row'>
                 <div className='box'></div>

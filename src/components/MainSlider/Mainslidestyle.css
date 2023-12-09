@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   margin-left: 20p;
-  margin-top: 130px;
+  margin-top: 125px;
 }
 
 .slider::-webkit-scrollbar {
@@ -61,7 +61,8 @@
 .arrow-left {
   margin-left: 0.3rem;
 }
-.slider-container > div {
+
+.slider-container>div {
   display: flex;
   justify-content: center;
   align-items: center;

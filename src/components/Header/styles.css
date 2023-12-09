@@ -2,9 +2,8 @@
     display: flex;
     flex-flow: row;
     justify-content: space-between;
-    border: 1px solid #e6e3e3;
-    height: 70px;
-    width: 100vw;
+    height: 64px;
+    width: 100%;
     flex: 1 2 1;
 }
 
