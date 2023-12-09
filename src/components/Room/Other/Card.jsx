@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Card = () => {
   return (
@@ -77,11 +78,13 @@ const Card = () => {
           </div>
         </div>
       </div>
+      <Link to="/checkout">
       <button
         type="button"
         className="change-dates flex justify-center text-center font-semibold rounded-lg border border-transparent w-full">
         Change dates
       </button>
+      </Link>
     </div>
   );
 };

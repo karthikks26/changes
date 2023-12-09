@@ -52,7 +52,7 @@ const MagazinePage = () => {
           ))}
         </HTMLFlipBook>
       </div>
-      <div className="pagination">
+      {/* <div className="pagination">
         <div
           className="cursor-pointer px-4 py-2 bg-blue-700 rounded-lg font-semibold text-white mr-2"
           onClick={handlePrevPage}
@@ -65,7 +65,7 @@ const MagazinePage = () => {
         >
           Next Page
         </div>
-      </div>
+      </div> */}
     </div>
     </div>
   );

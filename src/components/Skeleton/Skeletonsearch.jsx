@@ -11,8 +11,8 @@ const Skeletonsearch = () => {
 
   return (
     <Skeleton
-      height={80}
-      width={500}
+      height={40}
+      width={600}
       count={1}
       className="skeleton custom-shimmer-line"
       style={customCss}
