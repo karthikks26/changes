@@ -3,6 +3,7 @@ import Image1 from "../../../assets/last3/image1.png";
 import Image2 from "../../../assets/last3/image2.png";
 import { CiCirclePlus } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
+import Header from "../../Header";
 const Content1 = () => {
   const navigate = useNavigate()
   const prevHandler = ()=>{
@@ -12,9 +13,14 @@ const Content1 = () => {
    navigate('/virtualexperience/content2')
   }
   return (
-    <div className="w-full h-full bg-orange-50 absolute top-0 right-0 text-sm ">
+    <div className="w-full h-[100vh] bg-orange-50 absolute top-0 right-0 text-sm ">
+      <Header/>
+      <div className="heading flex items-center justify-between m-20">
+    <h1 className="font-bold text-xl text-rose-900" >What Style of FLooring are You <br />Intrested in?</h1>
+    <p className="text-bold text-xl">4 of 6</p>
+      </div>
       {/* card */}
-      <div className="card-container flex flex-row justify-center pt-36 gap-20">
+      <div className="card-container flex flex-row justify-center  gap-20">
         <div className="card-1 max-w-xs relative">
           <img className=" w-44 h-52" src={Image1} alt="None" />
           <h4 className="font-bold">Wood Look</h4>

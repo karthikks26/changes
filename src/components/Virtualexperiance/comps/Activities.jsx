@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { dataActivity } from "./data";
 import { useNavigate } from "react-router-dom";
+import Header from "../../Header";
 const Activities = () => {
   const navigate = useNavigate()
  const prevHandler = ()=>{
@@ -12,7 +13,12 @@ const Activities = () => {
   navigate('/virtualexperience/budget')
  }
   return (
-    <div className="mb-8 py-4 relative w-full h-[100vh] bg-[#f4e3dd]">
+    <div className=" py-4 relative w-full h-[100vh] flex justify-center flex-col bg-[#f4e3dd]">
+      <Header/>
+      <div className="heading flex items-center justify-between m-16">
+    <h1 className="font-bold text-xl text-rose-900" >What Does Your Day-to-Day<br />Activity Level Look Like</h1>
+    <p className="text-bold text-xl">2 of 6</p>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-1  my-0 mx-0 ">
         {dataActivity.map((item) => (
           <div key={item.id} className="relative overflow-hidden m-1">

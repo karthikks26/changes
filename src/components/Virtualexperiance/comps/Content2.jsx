@@ -7,6 +7,7 @@ import image4 from "../../../assets/last3/i (4).webp";
 import image6 from "../../../assets/last3/i (7).webp";  
 import image11 from "../../../assets/last3/i (8).webp"; 
 import { useNavigate } from "react-router-dom";
+import Header from "../../Header";
 
 const Content2 = () => {
   let navigate =  useNavigate()
@@ -18,7 +19,12 @@ const Content2 = () => {
    }
   return (
     <div className="w-full h-full  absolute top-0 right-0 text-sm">
-      <div className="tiles flex justify-center items-center flex-col gap-10 pt-40">
+      <Header/>
+      <div className="heading flex items-center justify-between m-20">
+    <h1 className="font-bold text-xl text-rose-900" >Which Color of Wood Flooring <br />Are You Intrested in?</h1>
+    <p className="text-bold text-xl">5 of 6</p>
+      </div>
+      <div className="tiles flex justify-center items-center flex-col gap-10 ">
         <div className="row-1 flex flex-row gap-20">
           <div>
             <img className="w-12 h-12" src={image1} alt="" />

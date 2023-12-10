@@ -3,6 +3,7 @@ import { CiCirclePlus } from "react-icons/ci";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import Header from "../../Header";
 const Content3 = () => {
   let navigate = useNavigate()
   const prevHandler = ()=>{
@@ -12,7 +13,12 @@ const Content3 = () => {
     navigate('/')
   }
   return (
-    <div className="w-full h-full bg-orange-50 absolute top-0 right-0 text-sm">
+    <div className="w-full h-[100vh] bg-orange-50 absolute top-0 right-0 text-sm">
+      <Header/>
+      <div className="heading flex items-center justify-between mt-20 mx-16">
+    <h1 className="font-bold text-xl text-rose-900" >Which Width of Wood Flooring <br />Would You Prefer</h1>
+    <p className="text-bold text-xl">6 of 6</p>
+      </div>
       <div className="container flex flex-row items-center gap-10 justify-center">
         <div className="w-1/5 h-40 mt-52 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col">
           <div className="w-6 h-20 bg-orange-400 "></div>
