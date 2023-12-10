@@ -14,9 +14,9 @@ const Skeletonprofile = () => {
   return (
     <Skeleton
       height={50}
-      width={60}
+      width={120}
       count={1}
-      className="skeleton custom-shimmer-line"
+      className="skeleton custom-shimmer-line mr-5"
       style={customCss}
     />
   );

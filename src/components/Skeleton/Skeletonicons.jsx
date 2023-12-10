@@ -11,8 +11,8 @@ const Skeletonicons = () => {
 
   return (
     <Skeleton
-      height={30}
-      width={30}
+      height={40}
+      width={40}
       count={1}
       className="skeleton custom-shimmer-line"
       style={customCss}
