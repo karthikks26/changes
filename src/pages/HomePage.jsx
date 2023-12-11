@@ -13,6 +13,16 @@ import PopUp from '../components/PopUp/PopUp';
 const HomePage = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    const hasPopupBeenShown = localStorage.getItem('popupShown');
+
+    if (!hasPopupBeenShown) {
+      setShowPopup(true);
+      localStorage.setItem('popupShown', 'true');
+    }
+  })
 
   useEffect(() => {
     const fakeAsync = () => {
@@ -29,7 +39,7 @@ const HomePage = () => {
         <Splashscreen />
       ) : (
         <div className='fade-in'>
-          <PopUp/>
+          {showPopup && <PopUp />}
           <Header />
           <MobileSeachBar />
           <Filter />
