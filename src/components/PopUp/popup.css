@@ -3,30 +3,27 @@ body {
 }
 
 .App {
-    /* top: 8%; */
-    /* left: 5%; */
-    width: 100vw;
-    /* max-height: 90vh; */
+    top: 8%;
+    left: 5%;
+    width: 90%;
+    max-height: 90vh;
     overflow-y: auto;
     display: flex;
     align-items: center;
     flex-direction: column;
     font-family: "Nunito", sans-serif;
     position: absolute;
-    z-index: 999999;
+    z-index: 99999;
 }
 
 .popup1 {
-    top: 10%;
-    /* left: 5%; */
     width: 100vw;
-    height: 80vh;
-    max-height: 80vh;
+    height: 100vh;
     position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* z-index: 999999; */
+    z-index: 1;
 }
 
 .row {
@@ -65,7 +62,7 @@ body {
 
 .next {
     padding: 8px;
-    width: 34rem;
+    width: 28rem;
     margin-top: 0.5rem;
     background-color: red;
     color: white;
