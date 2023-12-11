@@ -10,13 +10,15 @@ import { FormProvider } from "./components/Checkoutcomp/FormContext";
 import Shipping from "./pages/Shipping";
 import Paymentpage from "./pages/Paymentpage";
 import Virtualexperiance from "./pages/Virtualexperiance";
+import Splashpage from './pages/Splashpage';
 
 function App() {
   return (
     <>
       <FormProvider>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Splashpage />} />
+          <Route path='/home' element={<HomePage/>}/>
           <Route path="/ayatrio-map" element={<MapPage />} />
           <Route path="/products" element={<ProductPage />} />
           <Route path="/magazine" element={<MagazinePage />} />

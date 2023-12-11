@@ -1,4 +1,4 @@
-@keyframes fadeIn {
+/* @keyframes fadeIn {
     from {
       opacity: 0;
     }
@@ -8,6 +8,6 @@
   }
   
   .fade-in {
-    animation: fadeIn 2s ease-in-out;
+    animation: fadeIn 0.5s linear;
   }
-  
+   */

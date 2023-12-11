@@ -15,7 +15,7 @@ function MainSlider() {
   useEffect(() => {
     setTimeout(() => {
       setFakeLoading(true);
-    },2500);
+    },1500);
   }, []);
 
   const products = list3.filter((prod) => prod.id === 1 || prod.id === 2 || prod.id === 3);
