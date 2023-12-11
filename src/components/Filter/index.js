@@ -3,6 +3,11 @@ import "./styles.css";
 import { links } from "../../assets/images-links";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs';
 import { Link } from "react-router-dom";
+import Collections from '../../Dropitems/Collections'
+import Styles from '../../Dropitems/Styles'
+import Colours from '../../Dropitems/Colours'
+import Rooms from '../../Dropitems/Rooms'
+import Featured from '../../Dropitems/Featured'
 
 function Filter() {
   const [selectedFilter, setSelectedFilter] = useState(null);
@@ -63,16 +68,28 @@ function Filter() {
               {value && (
                 <p className="Filter-array-element-lebel">{value.label}</p>
               )}
+              
               {activeDropdown === idx && (
                 <div
                   className="absolute top-7 left-0 mt-4 w-full bg-white border rounded shadow-md flex flex-col"
                   onClick={(event) => event.stopPropagation()} // Prevent clicks inside the dropdown from closing it
                 >
-                  {/* Your dropdown content goes here */}
+                  {/* Your dropdown content goes here
                   <p className="p-4">Dropdown Content for {value.label}</p>
                   <Link className="p-4" to="/products">Another option 1</Link>
                   <Link className="p-4" to="/products">Another option 2</Link>
-                  <Link className="p-4" to="/products">Another option 3</Link>
+                  <Link className="p-4" to="/products">Another option 3</Link> */}
+                  <div className='px-[20px] my-2'>
+      <h2 className='main_heading'>Shop Wallpapers</h2>
+      <div className='filter_container flex gap-32'>
+        <Collections />
+        <Styles />
+        <Colours />
+        <Rooms />
+        <Featured />
+      </div>
+    </div>
+
                 </div>
               )}
             </div>
