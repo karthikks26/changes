@@ -10,7 +10,7 @@ const Content3 = () => {
     navigate('/virtualexperience/content2')
   }
   const donehandler=()=>{
-    navigate('/')
+    navigate('/home')
   }
   return (
     <div className="w-full h-[100vh] bg-orange-50 absolute top-0 right-0 text-sm">

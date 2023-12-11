@@ -3,7 +3,7 @@ import { MdSearch, MdAccessTime } from "react-icons/md";
 import { IoClose,IoHome } from "react-icons/io5";
 import { GoHome } from "react-icons/go";
 const Search = () => {
-  const [toggleDropdown, setToggleDropdown] = useState(false);
+  
   const [hoveredItem, setHoveredItem] = useState(null);
 
   const handleItemHover = (item) => {
@@ -13,7 +13,7 @@ const Search = () => {
   return (
     <div className="main-search absolute shadow-lg z-20 top-[14%] left-3">
       <div
-        onClick={() => setToggleDropdown(!toggleDropdown)}
+        
         className="search flex items-center border-none bg-white"
         style={{
           borderRadius: "10px 10px 0px 10px",
@@ -24,14 +24,14 @@ const Search = () => {
           placeholder="Search Ayatrio Maps"
           className="searchTerm w-[17rem] h-10 border-white p-4 active:border-none focus:outline-none"
           style={{
-            borderRadius: toggleDropdown ? "10px 10px 0px 0px" : "20px",
+            borderRadius:"10px 10px 0px 0px",
           }}
         />
         <div className="searchIcon bg-white flex justify-center items-center w-[2rem]">
           <MdSearch className="text-gray-400 text-xl" />
         </div>
       </div>
-      {toggleDropdown ? (
+
         <div 
           className="dropdown-container bg-white w-[19rem] h-44 border border-gray-200 shadow-md overflow-auto"
           style={{
@@ -59,7 +59,7 @@ const Search = () => {
             </div>
           ))}
         </div>
-      ) : null}
+    
     </div>
   );
 };
