@@ -186,6 +186,8 @@
 .swiper-horizontal>.swiper-scrollbar,
 .swiper-scrollbar.swiper-scrollbar-horizontal {
   transition-duration: 2s !important;
+  width: 35% !important;
+  left: 63% !important;
 }
 
 .fade-in {
@@ -195,4 +197,7 @@
   -o-animation: fadeIn ease 1.5s;
   -ms-animation: fadeIn ease 1.5s;
 
+}
+.swiper-scrollbar-drag{
+  width: 30% !important;
 }

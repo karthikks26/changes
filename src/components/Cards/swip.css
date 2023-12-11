@@ -63,3 +63,8 @@
 .indicator-inactive {
   background-color: grey;
 }
+
+
+.swiper-scrollbar-drag{
+  width: 33% !important;
+}
