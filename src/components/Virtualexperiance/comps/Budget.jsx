@@ -13,7 +13,7 @@ const Budget = () => {
     <div className="flex flex-col  w-full h-[100vh] justify-center  bg-[#f4e3dd]">
       <Header/>
       <div className="heading flex items-center justify-between m-16">
-    <h1 className="font-bold text-xl text-rose-900" >What is Your Budget?</h1>
+    <h1 className="font-bold text-xl text-rose-900" >What is Your Budget? </h1>
     <p className="text-bold text-xl">3 of 6</p>
       </div>
       <div className="grid grid-cols-2 gap-y-4 place-items-center md:grid-cols-2 lg:grid-cols-4 mb-10">

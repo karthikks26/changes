@@ -27,6 +27,7 @@ function App() {
     setOpenPopUp3(false);
     setOpenPopUp2(false);
     setOpenPopUp1(false);
+    localStorage.setItem('popUp', 'true');
   };
   return (
     <div className="App">

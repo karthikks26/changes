@@ -1,26 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./styles.css";
 import { links } from "../../assets/images-links";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs';
-import { useRef } from "react";
 import { Link } from "react-router-dom";
-import Skeletonlogo from "../Skeleton/Skeletonlogo";
-import Skeletonicons from "../Skeleton/Skeletonicons";
+
 function Filter() {
   const [selectedFilter, setSelectedFilter] = useState(null);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollX, setScrollX] = useState(0);
   const scrl = useRef(null);
-  const [fakeLoading,setFakeLoading]=useState(false)
-  useEffect(() => {
-    setTimeout(() => {
-      setFakeLoading(true)
-    }, 2500)
-  }, [])
 
   const handleDropdownClick = (event, idx) => {
-    event.stopPropagation(); 
+    event.stopPropagation();
     if (activeDropdown === idx) {
       setActiveDropdown(null);
     } else {
@@ -47,53 +39,54 @@ function Filter() {
       } `}
     >
       <div className="filter">
-      <div className="Filter-array" ref={scrl}>
-        <div className={`arrow-left ${scrollX === 0 ? 'hidden' : ''}`}>
-          <BsArrowLeftCircleFill className="arrow-nav" onClick={() => slide(-250)}/>
-        </div>
-        {links.map((value, idx) => (
-          <div
-            key={idx}
-            className={`Filter-array-element ${
-              idx === selectedFilter ? "selected-array-element" : ""
-            }`}
-            onClick={(event) => handleDropdownClick(event, idx)}
-            onMouseEnter={() => setActiveDropdown(idx)}
-            onMouseLeave={() => setActiveDropdown(null)}
-          >
-            {
-              value && fakeLoading?<img
-              src={value.imgSrc}
-              alt="NA"
-              className="Filter-array-element-img"
-            />:<Skeletonicons/>
-            }
-            {value && fakeLoading?<p className="Filter-array-element-lebel">{value.label}</p>:""}
-            {activeDropdown === idx && (
-              <div
-                className="absolute top-7 left-0 mt-4 w-full bg-white border rounded shadow-md flex flex-col"
-                onClick={(event) => event.stopPropagation()} // Prevent clicks inside the dropdown from closing it
-                >
-                {/* Your dropdown content goes here */}
-                <p className="p-4">Dropdown Content for {value.label}</p>
-                <Link className="p-4" to="/products">Another option 1</Link>
-                <Link className="p-4" to="/products">Another option 2</Link>
-                <Link className="p-4" to="/products">Another option 3</Link>
-              </div>
-            )}
-            </div>
-        ))}
-        <div className=" arrow-right">
-            <BsArrowRightCircleFill className="arrow-nav arrow-right" onClick={() => slide(+250)} style={{ overflowX: 'auto', scrollBehavior: 'smooth' }}/>
+        <div className="Filter-array" ref={scrl}>
+          <div className={`arrow-left ${scrollX === 0 ? 'hidden' : ''}`}>
+            <BsArrowLeftCircleFill className="arrow-nav" onClick={() => slide(-250)} />
           </div>
-      </div>
-      <div className="after-arrow">
-      <div className="at">Filters</div>
-        <Link to="/magazine">
-        <div className="at">Find the Right Floor</div>
-        </Link>
-       
-      </div>
+          {links.map((value, idx) => (
+            <div
+              key={idx}
+              className={`Filter-array-element ${
+                idx === selectedFilter ? "selected-array-element" : ""
+              }`}
+              onClick={(event) => handleDropdownClick(event, idx)}
+              onMouseEnter={() => setActiveDropdown(idx)}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              {value && (
+                <img
+                  src={value.imgSrc}
+                  alt="NA"
+                  className="Filter-array-element-img"
+                />
+              )}
+              {value && (
+                <p className="Filter-array-element-lebel">{value.label}</p>
+              )}
+              {activeDropdown === idx && (
+                <div
+                  className="absolute top-7 left-0 mt-4 w-full bg-white border rounded shadow-md flex flex-col"
+                  onClick={(event) => event.stopPropagation()} // Prevent clicks inside the dropdown from closing it
+                >
+                  {/* Your dropdown content goes here */}
+                  <p className="p-4">Dropdown Content for {value.label}</p>
+                  <Link className="p-4" to="/products">Another option 1</Link>
+                  <Link className="p-4" to="/products">Another option 2</Link>
+                  <Link className="p-4" to="/products">Another option 3</Link>
+                </div>
+              )}
+            </div>
+          ))}
+          <div className=" arrow-right">
+            <BsArrowRightCircleFill className="arrow-nav arrow-right" onClick={() => slide(+250)} style={{ overflowX: 'auto', scrollBehavior: 'smooth' }} />
+          </div>
+        </div>
+        <div className="after-arrow">
+          <div className="at">Filters</div>
+          <Link to="/magazine">
+            <div className="at">Find the Right Floor</div>
+          </Link>
+        </div>
       </div>
     </header>
   );
