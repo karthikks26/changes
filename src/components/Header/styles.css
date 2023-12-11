@@ -32,7 +32,7 @@
     display: flex;
     gap: 1rem;
     margin-top: 5px;
-    padding: 0.75rem;
+    padding: 0.75rem 0rem;
     border-radius: 2.5rem;
     align-items: center;
     background-color: #efefef;
@@ -110,4 +110,13 @@
         justify-content: space-evenly;
         background-color: #333;
     }
+}
+.seachbar-div2-icon{
+height: 100%;
+border-radius: 20px;
+border: none;
+}
+
+.seachbar-div2-icon:hover{
+    background: #c0bebe;
 }

@@ -50,13 +50,15 @@ function Header({ howMuchScrolled }) {
           </Link>
         </div>
         <div className="right flex items-center gap-4">
-          
-          <div className="searchbar pt-4 w-88 h-10 items-right justify-end">
+          <div className="searchbar pt-4 w-40 h-10 items-right justify-end">
+        <SearchIcon className="seachbar-div2-icon absolute z-10" />
             <input
-              type="text"
-              className="border-b w-full bg-transparent p-2 h-6 border-none"
-            />
-            <SearchIcon className="seachbar-div2-icon mr-2" />
+          type="text"
+          placeholder="Search"
+          className="searchTerm relative w-[13rem] h-10 bg-[#efefef] p-4 rounded-2xl active:border-none focus:outline-none"
+          
+        />
+            
           </div>
           <div className="pro flex">
             <AccountCircleIcon />
