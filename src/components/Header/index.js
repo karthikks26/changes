@@ -114,13 +114,7 @@ function Header({ howMuchScrolled }) {
             <AccountCircleIcon />
           </div>
         ) : (
-          <div
-            className="bg-blue-600 w-12 h-7 shadow-xl text-white text-center font-semibold cursor-pointer rounded-lg "
-            onClick={handleLoginNav}
-          >
-            Login
-          </div>
-        )}
+          <AccountCircleIcon onClick={handleLoginNav}/>)}
        
       </div>
     </div>:<Expandedbar searchText={searchText} onClose={onClose} />
