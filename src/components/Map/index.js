@@ -58,7 +58,7 @@ const Map = ({ setBoundaries, coords, places }) => {
             mapContainerClassName="map-container"
             onLoad={onLoad}
             center={coords}
-            zoom={4} // initial zoom level
+            zoom={5} // initial zoom level
             options={{
               disableDefaultUI: true,
               zoomControl: true,
