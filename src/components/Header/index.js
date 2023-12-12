@@ -7,11 +7,12 @@ import SimpleBottomNavigation from "./bottombar";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Menu from "./menu";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Login } from "@mui/icons-material";
 
 function Header({ howMuchScrolled }) {
   const [isScrolled, setIsScrolled] = useState(false);
-
+ const navigate =  useNavigate();
   useEffect(() => {
     const handleScroll = () => {
       console.log(window.scrollY);
@@ -27,6 +28,15 @@ function Header({ howMuchScrolled }) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [isScrolled]);
+  const handleLoginNav = ()=>{
+    navigate('/login')
+  }
+  const handleProfileNav = ()=>{
+    console.log("Profile")
+    navigate('/profile')
+  }
+  const loginStatus = localStorage.getItem("Login")
+  console.log(loginStatus)
   return (
     <header
       className={`fixed w-full top-0 transition-all ease-in-out duration-300  z-[9999] ${
@@ -60,9 +70,11 @@ function Header({ howMuchScrolled }) {
         />
             
           </div>
-          <div className="pro flex">
+         {loginStatus==="true"?<div className="pro flex  " onClick={handleProfileNav}>
             <AccountCircleIcon />
-          </div>
+          </div>:<div className="bg-blue-600 w-12 h-7 shadow-xl text-white text-center font-semibold cursor-pointer rounded-lg " onClick={handleLoginNav}>
+      Login
+            </div>}
           <div className="h-10 w-10 cursor-pointer">
             <svg
               id="Travel_Abroad"
