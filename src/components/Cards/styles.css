@@ -137,9 +137,7 @@
   opacity: 0.7;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-}
+
 
 /* Add your custom styles for Swiper navigation here */
 .swiper-container {

@@ -6,4 +6,8 @@
   .gmnoprint{
     right: 0px;
     top: 5rem;
+    border-radius: 30px;
+  }
+  .gmnoprint >:first-child{
+    border-radius:14px !important ;
   }
