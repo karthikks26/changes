@@ -30,7 +30,7 @@ function App() {
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </FormProvider>
-    </>
+    </> 
   );
 }
 

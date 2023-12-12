@@ -63,8 +63,10 @@ const Map = ({ setBoundaries, coords, places }) => {
               disableDefaultUI: true,
               zoomControl: true,
               styles: mapStyles,
+              mapId:"2d6636895d6a199d"
             }}
             onBoundsChanged={handleBoundsChanged}
+          
           >
             {places &&
               places.length > 0 &&
