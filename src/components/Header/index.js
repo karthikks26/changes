@@ -82,19 +82,6 @@ function Header({ howMuchScrolled }) {
           />
            <SearchIcon className="seachbar-div2-icon absolute z-10" />
         </div>
-<<<<<<< Updated upstream
-        {loginStatus === "true" ? (
-          <div className="pro flex  " onClick={handleProfileNav}>
-            <AccountCircleIcon />
-          </div>
-        ) : (
-          <div className="pro flex  " onClick={handleLoginNav}>
-            <AccountCircleIcon />
-          </div>
-        )}
-=======
-
->>>>>>> Stashed changes
         <div className="h-10 w-10 cursor-pointer">
           <svg
             id="Travel_Abroad"
