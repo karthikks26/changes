@@ -87,11 +87,8 @@ function Header({ howMuchScrolled }) {
             <AccountCircleIcon />
           </div>
         ) : (
-          <div
-            className="bg-blue-600 w-12 h-7 shadow-xl text-white text-center font-semibold cursor-pointer rounded-lg "
-            onClick={handleLoginNav}
-          >
-            Login
+          <div className="pro flex  " onClick={handleLoginNav}>
+            <AccountCircleIcon />
           </div>
         )}
         <div className="h-10 w-10 cursor-pointer">

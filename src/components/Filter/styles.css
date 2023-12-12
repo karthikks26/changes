@@ -89,33 +89,3 @@
     border-width: 80%;
 }
 
-.Filter-array-element:hover .dropdown-content {
-    display: block;
-    opacity:100% ;
-    animation: fadeIn 0.7s linear;
-    
-}
-.Filter-array-element:not(:hover) .dropdown-content {
-    opacity: 0;
-    animation: fadeOut 0.7s linear; 
-  }
-  .dropdown-content {
-    opacity: 0;
-    transition: opacity 0.7s ease;
-  }
-@keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
