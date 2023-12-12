@@ -33,7 +33,7 @@ const HomePage = () => {
 
   return (
     <>
-      <div className={`fade-in ${isFilterVisible ? 'show-filter' : 'hide-filter'}`}>
+      <div className={`fade-in ${isFilterVisible ? 'show-filter' : 'hide-filter'} overflow-x-hidden`}>
         {popUp === 'true' ? null : <PopUp />}
         <Header />
         <MobileSearchBar />

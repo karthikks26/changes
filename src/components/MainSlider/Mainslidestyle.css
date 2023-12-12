@@ -68,3 +68,6 @@
   align-items: center;
   height: 70vh;
 }
+.slider-cont::-webkit-scrollbar {
+  display: none;
+}

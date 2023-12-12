@@ -41,13 +41,3 @@
 *{
   scroll-behavior: smooth;
 }
-::-webkit-scrollbar{
-  width: 0px;
-  background: transparent;
-color: transparent;  
-}
-::-webkit-scrollbar-track{
-  width: 0px;
-  height: 0px;
-  background: transparent;
-}
