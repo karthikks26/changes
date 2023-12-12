@@ -8,7 +8,7 @@ const LoginComponent = () => {
   const handleGoogleLogin = () => {
     console.log('Google login clicked');
     localStorage.setItem('Login', 'true');
-    navigate('/home');
+    navigate('/profile');
   };
 
   return (
