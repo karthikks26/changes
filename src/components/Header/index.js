@@ -117,7 +117,7 @@ function Header({ howMuchScrolled }) {
               </svg>
             </div>
 
-            <div className="h-10 w-10 cursor-pointer">
+            <div className="h-10 w-10 cursor-pointer" onClick={()=>navigate('/cart')}>
               <svg
                 id="Travel_Abroad"
                 data-name="Travel Abroad"
