@@ -27,9 +27,9 @@ function Cards() {
   const [indexClicked, setClicked] = useState(-1);
   const swiperUseref = useRef(null);
   const swiperOptions = {
-    slidesPerView: 4,
+    slidesPerView: 3.2,
     centeredSlides: false,
-    spaceBetween: 5,
+    spaceBetween: 1,
     modules: [Pagination, Scrollbar,Mousewheel,FreeMode],
     navigation: {
       nextEl: ".custom-next-button",
@@ -53,9 +53,9 @@ useEffect(() => {
 }, [])
 
   return (
-    <div className="pb-20">
+    <div className="pb-20 pl-5">
       <MainSlider />
-      <div className="pt-20 px-10 mb-20  bg-white">
+      <div className="pt-12  mb-20  bg-white">
         <div className="mb-2 w-full flex justify-between items-center">
           <h2 className="text-bold text-2xl font-serif ml-4">
             Beach and resort.
@@ -108,7 +108,6 @@ useEffect(() => {
                <Skeletoncard/>
                <Skeletoncard/>
                <Skeletoncard/>
-               <Skeletoncard/>
 
              </div>
            </SwiperSlide>
@@ -138,7 +137,7 @@ useEffect(() => {
       <div className="w-full h-[80vh] m-1 ">
         <Imagechanger />
       </div>
-      <div className="pt-10 px-10 py-10 bg-white">
+      <div className="pt-12  mb-20  bg-white">
         <div className="mb-2 w-full flex justify-between items-center">
           <h2 className="text-bold text-2xl font-serif ml-4">
             Beach and resort.
