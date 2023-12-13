@@ -37,11 +37,7 @@ function Header({ howMuchScrolled }) {
     }
   };
 
-  // logoout
-  const logout = () => {
-    window.open("http://localhost:8080/logout", "_self");
-  };
-
+  
   useEffect(() => {
     getUser();
   }, []);
