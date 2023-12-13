@@ -29,11 +29,6 @@ const RoomPage = () => {
     <>
     <Header howMuchScrolled={howMuchScrolled} />
     <div className='mx-16'>
-      {
-        howMuchScrolled < 20 ? '' : (
-          <RoomPageHeader howMuchScrolled={howMuchScrolled} />
-        )
-      }
       <RoomImageList/>
       <RoomInfo/>
       <Reviews/>

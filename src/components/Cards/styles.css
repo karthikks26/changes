@@ -1,9 +1,4 @@
-.card-flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* gap: 10px; */
-}
+
 
 .card-flex .review-icon-container {
   margin-top: 220px;
@@ -211,8 +206,9 @@
   justify-content: center;
   align-items: center;
   /* gap: 10px; */
-  width: 380px;
+  width: 100%;
 }
+
 .swiper-wrapper{
   gap: 12px;
 }

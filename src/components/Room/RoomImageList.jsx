@@ -4,9 +4,9 @@ import FavoriteBorderSharpIcon from "@mui/icons-material/FavoriteBorderSharp";
 
 export default function RoomImageList() {
   return (
-    <div className="">
+    <>
       {/* ------------------  room/place heading ------------------  */}
-      <div className="room-heading flex justify-between align-middle my-6 mx-1">
+      <div className="room-heading  flex justify-between align-middle mt-[4.5rem] mb-8 mx-1">
         <h1 className="text-2xl font-semibold">
           Beautiful 4 BHK villa Mountain view,Swimming pool
         </h1>
@@ -68,6 +68,6 @@ export default function RoomImageList() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
