@@ -5,7 +5,7 @@ const Cart = () => {
   return (
     <div className="main flex justify-center items-center min-h-screen bg-gray-100">
       <div className="cartContainer flex w-4/5 h-4/5 bg-white rounded-md shadow-lg p-8">
-        {/* Left Section - Cart Items */}
+     
         <div className="left flex-col flex w-2/3 pr-8">
           <h1 className="text-4xl mb-6 font-semibold">Bag</h1>
           <div className="bagContainer">
@@ -33,11 +33,11 @@ const Cart = () => {
                 </div>
               </div>
             </div>
-            {/* Add more CartItem components if needed */}
+            
           </div>
         </div>
 
-        {/* Right Section - Summary and Checkout */}
+       
         <div className="right flex flex-col w-1/3">
           <h1 className="text-4xl font-semibold mb-6">Order Summary</h1>
           <div className="subtotal flex justify-between items-center mb-4">
