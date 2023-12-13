@@ -25,8 +25,8 @@ function PopUp({ isPopupVisible, setPopupVisible, closePopup }) {
     <div>
       {isPopupVisible && (
         <>
-        <div className="popup"ref={popupRef}>
-            <div className="bg-white px-4 w-[50%] h-[600px] border rounded-3xl shadow-2xl overflow-y-scroll">
+        <div className="popup h-[100vh]"ref={popupRef}>
+            <div className="bg-white px-4 w-[50%] h-full border rounded-3xl shadow-2xl overflow-y-scroll">
             <div className="flex justify-start mt-2 mr-2 cursor-pointer">
             <IoClose onClick={closePopup} className="text-2xl" />
             </div>
