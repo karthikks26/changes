@@ -41,7 +41,7 @@ function Cards() {
 
   };
   const swiperOptions2 = {
-    slidesPerView: 4,
+    slidesPerView: 4.08,
     centeredSlides: false,
     spaceBetween: 1,
     modules: [Pagination, Scrollbar,Mousewheel,FreeMode],
@@ -126,7 +126,7 @@ useEffect(() => {
             list.map((value, idx) => {
               return (
                 <SwiperSlide key={idx} className="">
-                  <div className="grid grid-cols-1 mt-2 w-[310px] h-full fade-in ">
+                  <div className="grid grid-cols-1 mt-2  h-full fade-in ">
                     <Card
                       title={value.title}
                       date={value.date}
@@ -200,7 +200,7 @@ useEffect(() => {
             list.map((value, idx) => {
               return (
                 <SwiperSlide key={idx} className=""> 
-                  <div className="grid grid-cols-1 mt-2 w-[380px] h-full fade-in">
+                  <div className="grid grid-cols-1 mt-2 h-full fade-in">
                     <Card
                       title={value.title}
                       date={value.date}

@@ -209,7 +209,7 @@
   width: 100%;
 }
 .card1flex{
-  height: 290px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -218,5 +218,5 @@
 }
 
 .swiper-wrapper{
-  gap: 12px;
+  gap: 5px;
 }
