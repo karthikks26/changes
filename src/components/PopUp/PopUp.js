@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './popup.css';
 import back from '../../assets/back.png';
 import { FaCheckCircle } from "react-icons/fa";
@@ -88,9 +88,18 @@ function App() {
     { text: 'Hobbies', labels: ['Reading', 'Gaming', 'Traveling'] },
     { text: 'Hobbies', labels: ['Cooking', 'Photography', 'Sports'] },
   ];
-
+  useEffect(() => {
+    document.body.style.overflow = openPopUp1 || openPopUp2 || openPopUp3 ? 'hidden' : 'visible';
+    return () => {
+      document.body.style.overflow = 'visible';
+    };
+  }, [openPopUp1, openPopUp2, openPopUp3]);
   return (
-    <div className="App">
+    <div className="App w-full h-[100vh]  "style={{
+      background:"rgba(0, 0, 0, 0.2)"
+    }}
+    
+    >
      {openPopUp1 && (
   <div className='popup1'>
     <div className='cont1'>
