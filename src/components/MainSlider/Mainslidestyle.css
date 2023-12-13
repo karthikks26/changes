@@ -1,8 +1,8 @@
 .slider-container {
   position: relative;
   overflow: hidden;
-  margin-left: 20px;
-  margin-top: 130px;
+  margin-top: 125px;
+  border-bottom: 1px solid #fafafa;
 }
 
 .slider::-webkit-scrollbar {
@@ -24,7 +24,7 @@
 }
 
 .sd {
-  height: 60vh;
+  height: 100%;
   width: 40rem;
   flex-shrink: 0;
 }
@@ -66,5 +66,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 65vh;
+  height: 70vh;
+}
+.slider-cont::-webkit-scrollbar {
+  display: none;
 }

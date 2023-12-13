@@ -1,0 +1,295 @@
+[33mcommit b3d3b528722f78e4434d1ab4b4e91b8abb4573ae[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: bb5d61e 7c06079
+Author: Sakshi <21051243@kiit.ac.in>
+Date:   Mon Dec 11 18:00:24 2023 +0530
+
+    added
+
+[33mcommit bb5d61e963bd39956a6f46ab56f4b62ab94aca9e[m
+Author: Sakshi <21051243@kiit.ac.in>
+Date:   Mon Dec 11 17:47:30 2023 +0530
+
+    updated
+
+[33mcommit 7c06079a3ac1bb63bab2472bd11d197ee7ec831d[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Mon Dec 11 16:38:35 2023 +0530
+
+    Card Progress bar
+
+[33mcommit f0e844b00b9c38aa1c027823eaa23a153e8af39e[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Mon Dec 11 16:06:43 2023 +0530
+
+    Splash Screen fixed Popup fixed filter bar fixed
+
+[33mcommit 9baf0dcba58861644b0619e50f05ef1f2331d457[m
+Author: isksariful <cessinideveloper@gmail.com>
+Date:   Mon Dec 11 12:56:05 2023 +0530
+
+    padding added
+
+[33mcommit 2eaae303e4715634e663a7c3baa3ff3922c6b1b8[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Sun Dec 10 19:33:52 2023 +0530
+
+    Header Update
+
+[33mcommit bbe736110d57e1b08522711fb22b43fe114a761d[m
+Merge: 3065cc5 d3ee1df
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Sun Dec 10 15:05:27 2023 +0530
+
+    Merge branch 'main' of https://github.com/cessinideveloper/Ayatrio_webapp
+
+[33mcommit 3065cc579e4dfa9a160e4a4cce96a0cd244e5632[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Sun Dec 10 15:05:11 2023 +0530
+
+    Virual Experince Header
+
+[33mcommit d3ee1dfcd7532b866b47ec1f42b23f844b3e057d[m
+Merge: 0a20c52 ad062a1
+Author: isksariful <cessinideveloper@gmail.com>
+Date:   Sat Dec 9 22:45:31 2023 +0530
+
+    Merge branch 'main' of https://github.com/cessinideveloper/Ayatrio_webapp
+
+[33mcommit 0a20c529a31f2aeeaa473160768a671486cd0edb[m
+Author: isksariful <cessinideveloper@gmail.com>
+Date:   Sat Dec 9 22:44:01 2023 +0530
+
+    new ui
+
+[33mcommit ad062a15af78291618e9a9808a05d90ccb734951[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Sat Dec 9 21:34:31 2023 +0530
+
+    Virutal experince
+
+[33mcommit 39ea177193ee63ff16b9a29d9b56fbdb29632000[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Sat Dec 9 16:23:00 2023 +0530
+
+    checkout and payment page
+
+[33mcommit 9335ae2398e51a4df2fca62782a446e7e0056f5c[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Sat Dec 9 01:33:36 2023 +0530
+
+    changes Reverted
+
+[33mcommit 61066b6cc868e2a9998ae2a0e67125aaf1d52aba[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Sat Dec 9 01:19:53 2023 +0530
+
+    magazine css
+
+[33mcommit cb590030a25b2b71482453635c63e796b294d787[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Fri Dec 8 21:20:22 2023 +0530
+
+    magazineSearchbar
+
+[33mcommit bb0637968af0994f98f16d292d483ec13f7e1741[m
+Merge: cd4a4f5 c593c26
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Fri Dec 8 21:15:06 2023 +0530
+
+    Merge branch 'main' of https://github.com/cessinideveloper/Ayatrio_webapp
+
+[33mcommit cd4a4f5137d99acf875ecca37f7ad7fe687d2883[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Fri Dec 8 21:14:45 2023 +0530
+
+    magazineAdded
+
+[33mcommit c593c267a67a5221a19bdbad1f306eebe1eddb70[m
+Merge: 26672db 39bca7c
+Author: Sakshi <21051243@kiit.ac.in>
+Date:   Fri Dec 8 21:09:24 2023 +0530
+
+    Merge branch 'main' of https://github.com/cessinideveloper/Ayatrio_webapp
+
+[33mcommit 26672db4163c25486cd26a2814c6c104b8408df2[m
+Author: Sakshi <21051243@kiit.ac.in>
+Date:   Fri Dec 8 21:08:55 2023 +0530
+
+    updated
+
+[33mcommit 39bca7c0b90217301de99783ed7343ac53abb80a[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Fri Dec 8 20:44:01 2023 +0530
+
+    magazineAdded
+
+[33mcommit f841326bf5154f418b2e664afbe54bd32bf4d615[m
+Author: tahirshaikh85 <tahirshaikhrs7@gmail.com>
+Date:   Fri Dec 8 04:09:43 2023 +0530
+
+    fixed header conflict
+
+[33mcommit ae4958d71436033568d35fd2905aeaf7c921bd0c[m
+Author: tahirshaikh85 <tahirshaikhrs7@gmail.com>
+Date:   Fri Dec 8 03:31:00 2023 +0530
+
+    Hotel room page design completed
+
+[33mcommit efe1993264959e6edfa3681a85b686fbb995276c[m
+Merge: c34fbeb 14d02c9
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Thu Dec 7 21:09:33 2023 +0530
+
+    Merge branch 'main' of https://github.com/cessinideveloper/Ayatrio_webapp
+
+[33mcommit c34fbeb13b99b8bfe3f4ebef9366b98c94fd62f9[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Thu Dec 7 21:07:12 2023 +0530
+
+    search bar in map
+
+[33mcommit 14d02c917ef4fcf24174cda749888517cd0ac113[m
+Author: isksariful <cessinideveloper@gmail.com>
+Date:   Thu Dec 7 16:39:39 2023 +0530
+
+    new  logo added
+
+[33mcommit f8c99d895ac7f2c9d7f1f161d2348db56ee0c071[m
+Merge: b48f0d3 5c2f0f7
+Author: isksariful <cessinideveloper@gmail.com>
+Date:   Thu Dec 7 03:15:12 2023 +0530
+
+    Merge branch 'main' of https://github.com/cessinideveloper/Ayatrio_webapp
+
+[33mcommit b48f0d36c084385e8e2f964d1f30a923bbbc15f8[m
+Author: isksariful <cessinideveloper@gmail.com>
+Date:   Thu Dec 7 03:14:05 2023 +0530
+
+    new
+    
+    new
+
+[33mcommit 5c2f0f7ac1e403887bcfb34e652e060b47d39143[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Thu Dec 7 03:11:25 2023 +0530
+
+    shimmer effect lazy loader
+
+[33mcommit a5ee964b0570e1f80e78db693264f81ff967e6e2[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Thu Dec 7 01:30:00 2023 +0530
+
+    shimmer effect
+
+[33mcommit 29510cca2a0d958bdbdea73abd14e923dc93e4fd[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Thu Dec 7 01:28:58 2023 +0530
+
+    shimmer effect
+
+[33mcommit a96a759c4c4ccc4efa81027b73294ea13cf68d18[m
+Merge: 62009e5 30ecfd4
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Thu Dec 7 01:27:38 2023 +0530
+
+    shimmer effect
+
+[33mcommit 62009e5e453d42ae8d55e6eb5bdf6e05f4493fd7[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Thu Dec 7 01:22:13 2023 +0530
+
+    shimmer effect
+
+[33mcommit 30ecfd4c1ab4904024f1a595ef1dc1c0125f674f[m
+Author: isksariful <cessinideveloper@gmail.com>
+Date:   Wed Dec 6 13:32:07 2023 +0530
+
+    header style
+    
+    header style
+
+[33mcommit 00a93a291f8cd45a26944f84fc2a50d602ad3854[m
+Author: isksariful <cessinideveloper@gmail.com>
+Date:   Wed Dec 6 04:48:33 2023 +0530
+
+    changes on header
+    
+    few new changes on header
+
+[33mcommit d2f8e1ba6005b1b4b297d97709f1518051e07631[m
+Merge: 17e32b6 ff4d060
+Author: Sakshi <21051243@kiit.ac.in>
+Date:   Wed Dec 6 03:28:26 2023 +0530
+
+    Merge branch 'main' of https://github.com/cessinideveloper/Ayatrio_webapp
+
+[33mcommit 17e32b63e200c13f0ea6f34c22fba8b7f9645b1f[m
+Author: Sakshi <21051243@kiit.ac.in>
+Date:   Wed Dec 6 03:27:42 2023 +0530
+
+    updated
+
+[33mcommit 9972eb9d4cd4f935a81f1d0f3773bddc122c32a7[m
+Author: Sakshi <21051243@kiit.ac.in>
+Date:   Wed Dec 6 03:27:17 2023 +0530
+
+    updated
+
+[33mcommit ff4d0608a7d390fb6b62a600477dd2300732093d[m
+Author: isksariful <cessinideveloper@gmail.com>
+Date:   Tue Dec 5 23:39:14 2023 +0530
+
+    new
+    
+    new logo adede
+
+[33mcommit 0a5472a0365f80445db01075da0c2f1c13c1d0c8[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Tue Dec 5 18:15:00 2023 +0530
+
+    SplashScreen Added
+
+[33mcommit 4d5e2358e8c6682b98075d6c84f6bf8d329b523d[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Tue Dec 5 17:42:52 2023 +0530
+
+    card slider scrollable and button positions changed
+
+[33mcommit a2e9284bfd9275443d5770cc8929f0dade64bd40[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Tue Dec 5 02:21:15 2023 +0530
+
+    Text Section Done and card scrollbar with some issues
+
+[33mcommit 3943e84d77d407185421704e041631d2e9edb89e[m
+Author: tahirshaikh85 <tahirshaikhrs7@gmail.com>
+Date:   Sun Dec 3 11:01:18 2023 +0530
+
+    products page & fixed navigation issues
+
+[33mcommit 6eea378d53a44dbe27586ef252219b130e33ce49[m
+Author: Sakshi <21051243@kiit.ac.in>
+Date:   Sat Dec 2 01:36:28 2023 +0530
+
+    updated
+
+[33mcommit 48d50b8f9b127ac4ac5b0f7c3c850c33addfb0e6[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Sat Dec 2 01:19:50 2023 +0530
+
+    changes Reverted in crousal
+
+[33mcommit ee4252a17aaf4b2931ebe287ec3227b8ce7873d4[m
+Merge: a6acd27 a70a425
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Fri Dec 1 23:48:18 2023 +0530
+
+    Merge branch 'main' of https://github.com/cessinideveloper/Ayatrio_webapp
+
+[33mcommit a6acd27d95fdd8eac3c9f358d912d763b0b50658[m
+Author: Ehsan <ctech1699@gmail.com>
+Date:   Fri Dec 1 23:48:01 2023 +0530
+
+    changes Reverted
+
+[33mcommit a70a425cc6a3ed1

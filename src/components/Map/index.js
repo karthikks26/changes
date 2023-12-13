@@ -10,13 +10,30 @@ const Map = ({ setBoundaries, coords, places }) => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: REACT_APP_GMAP_API_KEY,
   });
-
+  const india_zoom = 5;
+  const hotels_zoom= 8;
+  const [zoom, setZoom] = useState(india_zoom);
   const [map, setMap] = useState(null);
-
+  const [selectedCoords, setSelectedCoords] = useState(coords);
+  const handleResultClick = ({ lat, lng }) => {
+    if(lat && lng && lat!==null && lng!==null){
+      const latitude = parseFloat(lat);
+    const longitude = parseFloat(lng);
+    setSelectedCoords({ lat: latitude, lng: longitude });  
+    console.log(selectedCoords);
+    if(selectedCoords.lat==20.593 && selectedCoords.lng==78.96 ){
+      setZoom(india_zoom);
+    }
+    else{
+      setZoom(hotels_zoom)
+    }
+    }
+  };
+  console.log(selectedCoords);
   const onLoad = (map) => {
     setMap(map);
   };
-
+  console.log(coords);
   // Custom overlay component
   const CustomMarker = ({ lat, lng, content }) => (
     <OverlayView
@@ -53,16 +70,17 @@ const Map = ({ setBoundaries, coords, places }) => {
       ) : (
         <>
           {/* <Sidebar places={places} /> */}
-          <Search />
+          <Search places={places} onResultClick={handleResultClick} />
           <GoogleMap
             mapContainerClassName="map-container"
             onLoad={onLoad}
-            center={coords}
-            zoom={4} // initial zoom level
+            center={selectedCoords || coords}
+            zoom={zoom} // initial zoom level
             options={{
               disableDefaultUI: true,
               zoomControl: true,
               styles: mapStyles,
+              mapId: "2d6636895d6a199d",
             }}
             onBoundsChanged={handleBoundsChanged}
           >
@@ -77,6 +95,7 @@ const Map = ({ setBoundaries, coords, places }) => {
                 />
               ))}
           </GoogleMap>
+
           <div />
         </>
       )}

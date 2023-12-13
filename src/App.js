@@ -11,6 +11,8 @@ import Shipping from "./pages/Shipping";
 import Paymentpage from "./pages/Paymentpage";
 import Virtualexperiance from "./pages/Virtualexperiance";
 import Splashpage from './pages/Splashpage';
+import LoginPage from './pages/LoginPage';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
   return (
@@ -26,11 +28,13 @@ function App() {
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path='/shipping' element={<Shipping />} />
           <Route path='/payment' element={<Paymentpage />} />
+          <Route path='/login' element={<LoginPage/>}/>
+          <Route path ='/profile' element={<ProfilePage/>}/>
           <Route path='/virtualexperience/*' element={<Virtualexperiance />} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </FormProvider>
-    </>
+    </> 
   );
 }
 

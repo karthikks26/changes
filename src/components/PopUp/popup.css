@@ -3,27 +3,30 @@ body {
 }
 
 .App {
-    top: 8%;
-    left: 5%;
-    width: 90%;
-    max-height: 90vh;
+    /* top: 8%; */
+    /* left: 5%; */
+    width: 100vw;
+    /* max-height: 90vh; */
     overflow-y: auto;
     display: flex;
     align-items: center;
     flex-direction: column;
     font-family: "Nunito", sans-serif;
     position: absolute;
-    z-index: 99999;
+    z-index: 999999;
 }
 
 .popup1 {
+    top: 10%;
+    /* left: 5%; */
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
+    max-height: 80vh;
     position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    /* z-index: 999999; */
 }
 
 .row {
@@ -35,7 +38,16 @@ body {
     width: 120px;
     height: 120px;
     background-color: #efefef;
-    border-radius: 1px;
+    border-radius: 20px;
+/* padding: 2px; */
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    
+    cursor: pointer;
+    margin: 5px;
+    position: relative;
+    
 }
 
 .cont1 {
@@ -62,7 +74,7 @@ body {
 
 .next {
     padding: 8px;
-    width: 28rem;
+    width: 34rem;
     margin-top: 0.5rem;
     background-color: red;
     color: white;
@@ -86,7 +98,9 @@ body {
 
 .bel {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
 }
 
 .head {
@@ -98,4 +112,46 @@ body {
     height: auto;
     margin-right: 10px;
     cursor: pointer;
+}
+.selected {
+    border: 2px solid rgb(32, 32, 32);
+    border-radius: 20px;
+}
+
+.box:hover {
+    background-color: #ddd;
+}
+.bel b {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.box img{
+    border-radius: inherit;
+}
+.secondbox{
+    background: url("https://images.pexels.com/photos/2837909/pexels-photo-2837909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-position: center;
+    margin: 3px;
+    background-size: cover;
+    color: lightyellow;
+}
+.thirdbox{
+    background: url("https://images.pexels.com/photos/2837909/pexels-photo-2837909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-position: center;
+    margin: 3px;
+    background-size: cover;
+    color: lightyellow;
+}
+.firstbox{
+    background: url("https://images.pexels.com/photos/2837909/pexels-photo-2837909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-position: center;
+    margin: 3px;
+    background-size: cover;
+    color: lightyellow;
+}
+.tickicon{
+    top: 5%;
+    right: 2%;
 }

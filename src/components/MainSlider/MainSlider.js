@@ -41,7 +41,7 @@ function MainSlider() {
     }
   };
 
-  if (fakeLoading) {
+  if (fakeLoading && products.length > 0) {
     return (
       <div className='slider-container'>
         <div className='arrow-left' onClick={() => slide(-380)}>

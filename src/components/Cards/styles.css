@@ -6,10 +6,12 @@
 }
 
 .card-flex .review-icon-container {
-  margin-top: 205px;
-  margin-right: 200px;
-  /* margin-bottom: 10px; */
+  margin-top: 220px;
+  margin-right: 220px;
   position: absolute;
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
 }
 
 .card {
@@ -117,28 +119,25 @@
 .indicators {
   display: flex;
   position: absolute;
-  bottom: 3rem;
+  bottom: 1rem;
 }
 
 .indicator {
   background-color: white;
-  height: 0.5rem;
-  width: 0.5rem;
-  border-radius: 100%;
+  height: 0.15rem;
+  width: 1.3rem;
   border: none;
   outline: none;
-  box-shadow: 0px 0px 5px #555;
   margin: 0 0.2rem;
   cursor: pointer;
 }
 
 .indicator-inactive {
-  background-color: grey;
+  background-color: #ccc;
+  opacity: 0.7;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-}
+
 
 /* Add your custom styles for Swiper navigation here */
 .swiper-container {
@@ -198,6 +197,7 @@
   -ms-animation: fadeIn ease 1.5s;
 
 }
-.swiper-scrollbar-drag{
+
+.swiper-scrollbar-drag {
   width: 30% !important;
 }
