@@ -40,6 +40,20 @@ function Cards() {
     allowSlideNext: true,
 
   };
+  const swiperOptions2 = {
+    slidesPerView: 4,
+    centeredSlides: false,
+    spaceBetween: 1,
+    modules: [Pagination, Scrollbar,Mousewheel,FreeMode],
+    navigation: {
+      nextEl: ".custom-next-button",
+      prevEl: ".custom-prev-button",
+    },
+    noSwiping: true,
+    allowSlidePrev: true,
+    allowSlideNext: true,
+
+  };
   const closePopup = () => {
     setPopupVisible(false);
   };
@@ -53,7 +67,7 @@ useEffect(() => {
 }, [])
 
   return (
-    <div className="pb-20 pl-5">
+    <div className="pb-20">
       <MainSlider />
       <div className="pt-12  mb-20  bg-white">
         <div className="mb-2 w-full flex justify-between items-center">
@@ -78,7 +92,7 @@ useEffect(() => {
         <PopUp isPopupVisible={isPopupVisible} closePopup={closePopup} />
         <Swiper
           ref={swiper1Ref}
-          {...swiperOptions}
+          {...swiperOptions2}
           scrollbar={{
             hide: false,
             draggable: true,
@@ -116,7 +130,7 @@ useEffect(() => {
             list.map((value, idx) => {
               return (
                 <SwiperSlide key={idx} className="">
-                  <div className="grid grid-cols-1 mt-2 h-fit fade-in ">
+                  <div className="grid grid-cols-1 mt-2 w-[310px] h-fit fade-in ">
                     <Card
                       title={value.title}
                       date={value.date}
@@ -175,17 +189,12 @@ useEffect(() => {
           ref={swiper2Ref}
           onSwiper={setSwiperRef}
           {...swiperOptions}
-          className="mySwiper"
+          className="mySwiper  pl-5"
         >
           {isLoading ? (
              <SwiperSlide>
              <div className="flex">
-             
-               <Skeletoncard/>
-               <Skeletoncard/>
-               <Skeletoncard/>
-               <Skeletoncard/>
-
+              ""
              </div>
            </SwiperSlide>
         
@@ -193,7 +202,7 @@ useEffect(() => {
             list.map((value, idx) => {
               return (
                 <SwiperSlide key={idx} className=""> 
-                  <div className="grid grid-cols-1 mt-2 h-fit fade-in">
+                  <div className="grid grid-cols-1 mt-2 w-[380px] h-fit fade-in">
                     <Card
                       title={value.title}
                       date={value.date}
