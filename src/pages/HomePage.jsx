@@ -35,9 +35,13 @@ const HomePage = () => {
     <>
       <div className={`fade-in ${isFilterVisible ? 'show-filter' : 'hide-filter'} overflow-x-hidden`}>
         {popUp === 'true' ? null : <PopUp />}
-        <Header />
-        <MobileSearchBar />
-        {isFilterVisible && <Filter />}
+        {/* <Header /> */}
+        {/* <MobileSearchBar /> */}
+        {isFilterVisible && <> 
+          <Header />
+
+          <MobileSearchBar />
+        <Filter /></>}
         <Cards />
         <button
           type="button"

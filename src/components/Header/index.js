@@ -49,7 +49,7 @@ function Header({ howMuchScrolled }) {
   const navigate = useNavigate();
   useEffect(() => {
     const handleScroll = () => {
-      console.log(window.scrollY);
+      // console.log(window.scrollY);
       if (window.scrollY > 0) {
         setIsScrolled(true);
       } else {

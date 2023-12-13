@@ -3,57 +3,68 @@ export const dataRooms = [
     {
         title:'Kitchen',
         img:'/kitchen.jpg',
-        id:'kitchen'
+        id:'kitchen',
+        price:200
     },
     {
         title:'Bathroom',
         img:'/bathroom.jpg',
-        id:'bathroom'
+        id:'bathroom',
+        price:200
     },
     {
         title:'Bedroom',
         img:'/bedroom.jpg',
-        id:'bedroom'
+        id:'bedroom',
+        price:200
     },
     {
         title:'Foyer/Entry',
         img:'/foyer.jpg',
-        id:'foyerentry'
+        id:'foyerentry',
+        price:200
     },
     {
         title:'Living Family Room',
         img:'/livingroom.jpg',
-        id:'livingfamilyroom'
+        id:'livingfamilyroom',
+        price:400
     },
     {
         title:'Dining Room',
         img:'/diningroom.jpg',
-        id:'diningroom'
+        id:'diningroom',
+        price:260
     },
     {
         title:'Basement',
         img:'/basement.jpg',
-        id:'basement'
+        id:'basement',
+        price:400
     },
     {
         title:'Laundry Room',
         img:'/laundryroom.jpg',
-        id:'laundryroom'
+        id:'laundryroom',
+        price:200
     },
     {
         title:'Mudroom',
         img:'/mudroom.jpg',
-        id:'mudroom'
+        id:'mudroom',
+        price:300
     },
     {
         title:'Home Office',
         img:'/HomeOffice.jpg',
-        id:'homeoffice'
+        id:'homeoffice',
+        price:400
     },
     {
         title:'Hallway',
         img:'/hallway.jpg',
-        id:'hallway'
+        id:'hallway',
+        price:500
     },
 ]
 

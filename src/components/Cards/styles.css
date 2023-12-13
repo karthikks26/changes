@@ -61,8 +61,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 280px;
-  width: 350px;
+  height: 100%;
+  width: 100%
 }
 
 @media only screen and (max-width: 866px) {
@@ -78,7 +78,7 @@
 
 .slide {
   border-radius: 0.1rem;
-  width: 95%;
+  width: 105%;
   height: 97%;
 }
 
@@ -200,4 +200,19 @@
 
 .swiper-scrollbar-drag {
   width: 30% !important;
+}
+.swiper-slide{
+  width: 400px;
+  height: 500px;
+}
+.card-flex {
+  height: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* gap: 10px; */
+  width: 380px;
+}
+.swiper-wrapper{
+  gap: 12px;
 }
