@@ -118,11 +118,7 @@ useEffect(() => {
           {isLoading ? (
              <SwiperSlide>
              <div className="flex">
-             
-               <Skeletoncard/>
-               <Skeletoncard/>
-               <Skeletoncard/>
-
+              ""
              </div>
            </SwiperSlide>
         
