@@ -9,10 +9,6 @@
   display: none;
 }
 
-.sd {
-  width: 500px;
-  height: 90vh;
-}
 
 .slider-cont {
   display: flex;
@@ -66,8 +62,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: 67vh;
 }
+
 .slider-cont::-webkit-scrollbar {
   display: none;
 }
