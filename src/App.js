@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from "./pages/HomePage";
 import MapPage from "./pages/MapPage";
@@ -16,6 +16,26 @@ import ProfilePage from './pages/ProfilePage';
 import CartPage from './pages/CartPage';
 
 function App() {
+
+  const [deviceId,setDeviceId] = useState(null)
+
+  const generateDeviceId = ()=> {
+    const existingDeviceId = localStorage.getItem("deviceId");
+    if(existingDeviceId){
+      setDeviceId(existingDeviceId);
+    }else{
+      const navigatorInfo = `${navigator.userAgent}${navigator.language}${navigator.platform}`;
+      const hash = btoa(navigatorInfo);
+      setDeviceId(hash);
+      localStorage.setItem("deviceid", deviceId);
+    }
+  }
+
+  useEffect(()=>{
+    generateDeviceId();
+  },[])
+  
+  console.log("Device ID:", deviceId);
   return (
     <>
       <FormProvider>
