@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import "./popup.css";
 import back from "../../assets/back.png";
-=======
-import React, { useEffect, useState } from 'react';
-import './popup.css';
-import back from '../../assets/back.png';
->>>>>>> refs/remotes/origin/main
 import { FaCheckCircle } from "react-icons/fa";
 import axios from "axios";
 
@@ -101,56 +95,16 @@ function App() {
     console.log("Selected Items PopUp3:", selectedItems3);
   };
 
-  const data1 = [
-    { text: "What are you interested in?" },
-    {
-      text: "Step 1",
-      boxes: [
-        { id: "box1_1", label: "Label 1" },
-        { id: "box1_2", label: "Label 2" },
-        { id: "box1_3", label: "Label 3" },
-        { id: "box1_4", label: "Label 4" },
-      ],
-    },
-    {
-      text: "Step 2",
-      boxes: [
-        { id: "box2_1", label: "Label A" },
-        { id: "box2_2", label: "Label B" },
-        { id: "box2_3", label: "Label C" },
-        { id: "box2_4", label: "Label D" },
-      ],
-    },
-    {
-      text: "Step 3",
-      boxes: [
-        { id: "box3_1", label: "Choice X" },
-        { id: "box3_2", label: "Choice Y" },
-        { id: "box3_3", label: "Choice Z" },
-        { id: "box3_4", label: "Choice W" },
-      ],
-    },
-  ];
-
-  const data2 = [
-    { text: "Next step! Choose your favorite city." },
-    { text: "City", labels: ["New York", "London", "Tokyo"] },
-    { text: "City", labels: ["Paris", "Sydney", "Berlin"] },
-  ];
-
-  const data3 = [
-    { text: "Last step! Tell us your hobbies." },
-    { text: "Hobbies", labels: ["Reading", "Gaming", "Traveling"] },
-    { text: "Hobbies", labels: ["Cooking", "Photography", "Sports"] },
-  ];
+  
   useEffect(() => {
     document.body.style.overflow = openPopUp1 || openPopUp2 || openPopUp3 ? 'hidden' : 'visible';
     return () => {
       document.body.style.overflow = 'visible';
     };
   }, [openPopUp1, openPopUp2, openPopUp3]);
+
+  
   return (
-<<<<<<< HEAD
     <div className="App">
       {openPopUp1 && (
         <div className="popup1">
@@ -179,62 +133,6 @@ function App() {
                             }`}
                           />
                           <b className="bel">{subcategory.name}</b>
-=======
-    <div className="App w-full h-[100vh]  "style={{
-      background:"rgba(0, 0, 0, 0.2)"
-    }}
-    
-    >
-     {openPopUp1 && (
-  <div className='popup1'>
-    <div className='cont1'>
-      {data1.map((item, index) => (
-        <React.Fragment key={index}>
-          <p className='text'>{item.text}</p>
-          {item.boxes && (
-            <div className='row'>
-              {item.boxes.map((box, boxIndex) => (
-                <div
-                  className={`box firstbox ${selectedItems1.includes(box.id) ? 'selected' : ''}`}
-                  key={box.id}
-                  onClick={() => toggleItemSelection1(box.id)}
-                >
-                  {/* <img src="https://images.pexels.com/photos/2837909/pexels-photo-2837909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className='w-full h-full' alt="" /> */}
-                  {/* <b className='bel'>{label}</b> */}
-                  <FaCheckCircle className={`absolute tickicon ${selectedItems1.includes(box.id)?"block":"hidden"}`}/>
-                </div>
-              ))}
-            </div>
-          )}
-        </React.Fragment>
-      ))}
-      <button className='next' onClick={handleNext}>
-        Next
-      </button>
-    </div>
-  </div>
-)}
-      {openPopUp2 && (
-        <div className='popup1'>
-          <div className='cont1'>
-            {data2.map((item, index) => (
-              <React.Fragment key={index}>
-                <p className='text'>{item.text}</p>
-                {item.labels && (
-                  <div className='row'>
-                    {item.labels.map((label, labelIndex) => (
-                      <div
-                        className={`below ${selectedItems2.includes(label) ? 'selected' : ''}`}
-                        key={labelIndex}
-                        onClick={() => toggleItemSelection2(label)}
-                      >
-                        <div className='box secondbox' >
-                          {/* <img src="https://images.pexels.com/photos/2837909/pexels-photo-2837909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" /> */}
-                  <FaCheckCircle className={`absolute tickicon ${selectedItems2.includes(label)?"block":"hidden"}`}/>
-                        
-                        <b className='bel'>{label}</b>
-
->>>>>>> refs/remotes/origin/main
                         </div>
                       ))}
                     </div>
