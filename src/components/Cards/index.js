@@ -41,7 +41,7 @@ function Cards() {
 
   };
   const swiperOptions2 = {
-    slidesPerView: 4,
+    slidesPerView: 4.08,
     centeredSlides: false,
     spaceBetween: 1,
     modules: [Pagination, Scrollbar,Mousewheel,FreeMode],
@@ -118,11 +118,7 @@ useEffect(() => {
           {isLoading ? (
              <SwiperSlide>
              <div className="flex">
-             
-               <Skeletoncard/>
-               <Skeletoncard/>
-               <Skeletoncard/>
-
+              ""
              </div>
            </SwiperSlide>
         
@@ -130,7 +126,7 @@ useEffect(() => {
             list.map((value, idx) => {
               return (
                 <SwiperSlide key={idx} className="">
-                  <div className="grid grid-cols-1 mt-2 w-[310px] h-fit fade-in ">
+                  <div className="grid grid-cols-1 mt-2  h-full fade-in ">
                     <Card
                       title={value.title}
                       date={value.date}
@@ -140,6 +136,8 @@ useEffect(() => {
                       rating={value.rating}
                       key={idx}
                       setPopupVisible={setPopupVisible}
+                      cssClass={'card1flex'}
+
                     />
                   </div>
                 </SwiperSlide>
@@ -202,7 +200,7 @@ useEffect(() => {
             list.map((value, idx) => {
               return (
                 <SwiperSlide key={idx} className=""> 
-                  <div className="grid grid-cols-1 mt-2 w-[380px] h-fit fade-in">
+                  <div className="grid grid-cols-1 mt-2 h-full fade-in">
                     <Card
                       title={value.title}
                       date={value.date}
@@ -212,6 +210,8 @@ useEffect(() => {
                       rating={value.rating}
                       key={idx}
                       setPopupVisible={setPopupVisible}
+                      cssClass={'card2flex'}
+
                     />
                   </div>
                 </SwiperSlide>

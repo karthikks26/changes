@@ -1,5 +1,5 @@
 import { IoCheckmark } from "react-icons/io5";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Card from "../Cards/card";
 import rev from "../../assets/rev.webp";
 import { IoIosArrowDropright } from "react-icons/io";
@@ -12,14 +12,21 @@ import { BsStars } from "react-icons/bs";
 import { MdOutlineFastfood } from "react-icons/md";
 import { BsBalloon } from "react-icons/bs";
 import "./styles.css";
-
 function PopUp({ isPopupVisible, setPopupVisible, closePopup }) {
+  const popupRef = useRef(null);
+  useEffect(() => {
+    
+    document.body.style.overflow = isPopupVisible ? 'hidden' : 'visible';
+    return () => {
+      document.body.style.overflow = 'visible';
+    };
+  }, [isPopupVisible]);
   return (
     <div>
       {isPopupVisible && (
         <>
-        <div className="popup">
-            <div className="bg-white px-4 w-[50%] h-[600px] border rounded-3xl shadow-2xl overflow-y-scroll">
+        <div className="popup h-[100vh]"ref={popupRef}>
+            <div className="bg-white px-4 w-[50%] h-full border rounded-3xl shadow-2xl overflow-y-scroll">
             <div className="flex justify-start mt-2 mr-2 cursor-pointer">
             <IoClose onClick={closePopup} className="text-2xl" />
             </div>

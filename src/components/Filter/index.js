@@ -77,7 +77,7 @@ function Filter() {
                   onClick={(event) => event.stopPropagation()} // Prevent clicks inside the dropdown from closing it
                 >
 
-                  <div className='px-[20px] my-2'>
+      <div className='px-[20px] my-2'>
       <h2 className='main_heading'>Shop Wallpapers</h2>
       <div className='filter_container flex gap-32'>
         <Collections />

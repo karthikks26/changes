@@ -1,14 +1,13 @@
-import React,{ useEffect, useState } from "react";
-import RoomPageHeader from '../components/Room/RoomPageHeader'
-import '../components/Room/styles.css'
-import RoomImageList from '../components/Room/RoomImageList'
-import RoomInfo from '../components/Room/RoomInfo'
-import Reviews from '../components/Room/Other/Reviews'
-import Header from '../components/Header'
+import React, { useEffect, useState } from "react";
+import RoomPageHeader from '../components/Room/RoomPageHeader';
+import '../components/Room/styles.css';
+import RoomImageList from '../components/Room/RoomImageList';
+import RoomInfo from '../components/Room/RoomInfo';
+import Reviews from '../components/Room/Other/Reviews';
+import Header from '../components/Header';
 
 const RoomPage = () => {
-
-  const [howMuchScrolled,setHowMuchScrolled] = useState(0);
+  const [howMuchScrolled, setHowMuchScrolled] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,21 +19,28 @@ const RoomPage = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [howMuchScrolled]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0); 
+  }, []);
+
   return (
     <>
-    <Header howMuchScrolled={howMuchScrolled} />
-    <div className='mx-16'>
-      <RoomImageList/>
-      <RoomInfo/>
-      <Reviews/>
-    </div>
+      <div className="container">
+        <Header />
+        <div className='mx-16'>
+          <RoomImageList/>
+          <RoomInfo/>
+          <Reviews/>
+        </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default RoomPage
+export default RoomPage;
