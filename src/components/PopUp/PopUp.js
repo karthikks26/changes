@@ -3,25 +3,35 @@ import "./popup.css";
 import back from "../../assets/back.png";
 import { FaCheckCircle } from "react-icons/fa";
 import axios from "axios";
+import { useDispatch} from "react-redux";
+import { recomendProduct, recomendationLoader } from "../../Features/recommendation/recommendationSlice";
 
 function App() {
   
   const [fetchedCategories, setFetchedCategories] = useState(null);
   const [fetchCities, setFetchedCities] = useState(null);
   const [fetchHobbies, setFetchedHobbies] = useState(null);
+  const dispatch = useDispatch();
 
   const fetchCategories = async () => {
-    const response = await axios.get("http://localhost:8080/api/categories");
-    setFetchedCategories(response.data[0].categories);
+    try {
+      const response = await axios.get("http://localhost:8080/api/categories");
+      setFetchedCategories(response.data[0].categories);
+    } catch (error) {
+      console.error("Error fetching categories:", error.message);
+    }
   };
-
+  
   const fetchCitiesAndHobbies = async () => {
-    const response = await axios.get(
-      "http://localhost:8080/api/citiesAndHobbies"
-    );
-    setFetchedCities(response.data[0].cities);
-    setFetchedHobbies(response.data[0].hobbies);
+    try {
+      const response = await axios.get("http://localhost:8080/api/citiesAndHobbies");
+      setFetchedCities(response.data[0].cities);
+      setFetchedHobbies(response.data[0].hobbies);
+    } catch (error) {
+      console.error("Error fetching cities and hobbies:", error.message);
+    }
   };
+  
 
   useEffect(() => {
     fetchCategories();
@@ -36,6 +46,7 @@ function App() {
   const [selectedItems3, setSelectedItems3] = useState([]);
 
   const handleNext = () => {
+    // call backend api for fetching cities and hobbies
     fetchCitiesAndHobbies();
     setOpenPopUp1(false);
     setOpenPopUp2(true);
@@ -161,6 +172,8 @@ function App() {
     console.log("Selected Items PopUp2:", selectedItems2);
     console.log("Selected Items PopUp3:", selectedItems3);
 
+    dispatch(recomendationLoader(true));
+
     try {
       const response = await axios.post(
         "http://localhost:8080/api/preferences",
@@ -174,6 +187,11 @@ function App() {
 
       const data = response.data;
       console.log(data);
+      
+      // set the recommended product in the global state
+      dispatch(recomendProduct(data));
+      dispatch(recomendationLoader(false));
+
     } catch (error) {
       console.error(error);
 

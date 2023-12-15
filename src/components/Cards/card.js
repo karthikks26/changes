@@ -21,7 +21,7 @@ function Card(props) {
   const toggleFullBio = () => {
     setFullBioVisible(!isFullBioVisible);
   };
-console.log(props)
+
   return (
     <>
         <div className="card m-2"style={{
@@ -41,13 +41,13 @@ console.log(props)
             </div>
           </div>
           <div className="card-title" onClick={()=>navigate('/rooms')}> 
-            <div className="card-title-desc">{props.desc}</div>
+            <div className="card-title-desc">{props.title}</div>
             <div className="card-rating">
               <StarIcon fontSize="small" />
               {props.rating}
             </div>
           </div>
-          <div className="card-date">{props.date}</div>
+          <div className="card-date">{props.desc}</div>
           <div className="card-price">
             <strong>₹{props.price}</strong>
           </div>

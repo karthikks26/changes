@@ -8,10 +8,15 @@ import { useNavigate } from 'react-router-dom';
 import Splashscreen from '../components/Splashscreen/Splashscreen';
 import './HomePage.css';
 import PopUp from '../components/PopUp/PopUp';
+import { useSelector } from 'react-redux';
+import { selectRecommendationLoader } from '../Features/recommendation/recommendationSlice';
+import { Oval } from 'react-loader-spinner';
 
 const HomePage = () => {
   const navigate = useNavigate();
   const [isFilterVisible, setIsFilterVisible] = useState(true);
+
+  const loader = useSelector(selectRecommendationLoader);
 
   useEffect(() => {
     let prevScrollPos = window.scrollY;
@@ -30,7 +35,25 @@ const HomePage = () => {
   }, []);
 
   const popUp = localStorage.getItem('popUp');
-  
+
+  if(loader)  {
+    return (
+      <div className='loader slider-container'>
+        <Oval
+          height={100}
+          width={100}
+          color="#FF0000"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          ariaLabel='Creating your Ayatrio Experience'
+          secondaryColor="#4fa94d"
+          strokeWidth={2}
+          strokeWidthSecondary={2}
+        />
+      </div>
+    )
+  }
 
   return (
     <>
