@@ -5,6 +5,7 @@ import { FaCheckCircle } from "react-icons/fa";
 import axios from "axios";
 
 function App() {
+  
   const [fetchedCategories, setFetchedCategories] = useState(null);
   const [fetchCities, setFetchedCities] = useState(null);
   const [fetchHobbies, setFetchedHobbies] = useState(null);
@@ -155,26 +156,28 @@ function App() {
     setOpenPopUp2(false);
     setOpenPopUp1(false);
     localStorage.setItem("popUp", "true");
-  
+
     console.log("Selected Items PopUp1:", selectedItems1);
     console.log("Selected Items PopUp2:", selectedItems2);
     console.log("Selected Items PopUp3:", selectedItems3);
-  
+
     try {
-      const response = await axios.post("http://localhost:8080/api/preferences", {
-        deviceId: localStorage.getItem("deviceid"),
-        preferredCities: preferencesDataToSendToBackend.preferredCities,
-        preferredHobbies: preferencesDataToSendToBackend.preferredHobbies,
-        preferredCategories: preferencesDataToSendToBackend.preferredCategories,
-      });
-  
+      const response = await axios.post(
+        "http://localhost:8080/api/preferences",
+        {
+          deviceId: localStorage.getItem("deviceid"),
+          userPreferredCities: preferencesDataToSendToBackend.preferredCities,
+          userPreferredHobbies: preferencesDataToSendToBackend.preferredHobbies,
+          userPreferredCategories:preferencesDataToSendToBackend.preferredCategories,
+        }
+      );
+
       const data = response.data;
-      console.log(data.message);
+      console.log(data);
     } catch (error) {
       console.error(error);
-  
+
       if (error.response) {
-        
         console.error("Response data:", error.response.data);
         console.error("Response status:", error.response.status);
       } else if (error.request) {
@@ -186,7 +189,6 @@ function App() {
       }
     }
   };
-  
 
   return (
     <div className="App">

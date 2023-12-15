@@ -30,6 +30,7 @@ const HomePage = () => {
   }, []);
 
   const popUp = localStorage.getItem('popUp');
+  
 
   return (
     <>
