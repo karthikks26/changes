@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   status: "idle",
-  recommendedProductData: null,
+  recommendedProductData: JSON.parse(localStorage.getItem("recommendedProducts")) || null,
+  loader:false
 };
 
 export const recommendationSlice = createSlice({
@@ -10,13 +11,17 @@ export const recommendationSlice = createSlice({
   initialState,
   reducers: {
     recomendProduct: (state, action) => {
-      state.recommendedProduct = action.payload;
+      state.recommendedProductData = action.payload;
     },
+    recomendationLoader:(state,action)=>{
+        state.loader = action.payload;
+    }
   },
 });
 
-export const { recomendProduct } = recommendationSlice.actions;
+export const { recomendProduct,recomendationLoader } = recommendationSlice.actions;
 
 export const selectRecommendedProduct = (state) => state.recommendedProduct.recommendedProductData;
+export const selectRecommendationLoader = (state) => state.recommendedProduct.recomendationLoader;
 
 export default recommendationSlice.reducer;
