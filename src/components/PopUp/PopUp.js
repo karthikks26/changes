@@ -21,7 +21,6 @@ function App() {
     setFetchedCities(response.data[0].cities);
     setFetchedHobbies(response.data[0].hobbies);
   };
-  console.log(fetchCities);
 
   useEffect(() => {
     fetchCategories();
@@ -57,12 +56,18 @@ function App() {
     setOpenPopUp2(true);
   };
 
-  const toggleItemSelection1 = (label) => {
-    const isSelected = selectedItems1.includes(label);
+  const toggleItemSelection1 = (label, parentCategory) => {
+    const isSelected = selectedItems1.some(
+      (item) => item.label === label && item.parentCategory === parentCategory
+    );
+
     setSelectedItems1((prevSelectedItems) =>
       isSelected
-        ? prevSelectedItems.filter((item) => item !== label)
-        : [...prevSelectedItems, label]
+        ? prevSelectedItems.filter(
+            (item) =>
+              !(item.label === label && item.parentCategory === parentCategory)
+          )
+        : [...prevSelectedItems, { label, parentCategory }]
     );
   };
 
@@ -84,26 +89,105 @@ function App() {
     );
   };
 
-  const done = () => {
+  useEffect(() => {
+    document.body.style.overflow =
+      openPopUp1 || openPopUp2 || openPopUp3 ? "hidden" : "visible";
+    return () => {
+      document.body.style.overflow = "visible";
+    };
+  }, [openPopUp1, openPopUp2, openPopUp3]);
+
+  function segregateData(data) {
+    const segregatedData = {};
+
+    // Iterate through the data array
+    data.forEach((item) => {
+      const parentCategory = item.parentCategory;
+
+      // If the parent category doesn't exist in the segregatedData, create an array for it
+      if (!segregatedData[parentCategory]) {
+        segregatedData[parentCategory] = [];
+      }
+
+      // Add the current item to the array corresponding to its parent category
+      segregatedData[parentCategory].push(item.label.name);
+    });
+
+    return segregatedData;
+  }
+
+  const selectedCategoriesData = segregateData(selectedItems1);
+
+  const convertToPreferencesSchema = (categories, cities, hobbies) => {
+    const preferences = {
+      preferredCities: [],
+      preferredHobbies: [],
+      preferredCategories: [],
+    };
+
+    // Convert hobbies data
+    preferences.preferredHobbies = hobbies.map((hobby) => hobby.name);
+
+    // convert cities data
+    preferences.preferredCities = cities.map((city) => city.name);
+
+    // Convert categories data
+    for (const categoryName in categories) {
+      const category = {
+        name: categoryName,
+        subcategories: categories[categoryName],
+      };
+
+      preferences.preferredCategories.push(category);
+    }
+
+    return preferences;
+  };
+
+  const preferencesDataToSendToBackend = convertToPreferencesSchema(
+    selectedCategoriesData,
+    selectedItems2,
+    selectedItems3
+  );
+
+  const done = async () => {
     setOpenPopUp3(false);
     setOpenPopUp2(false);
     setOpenPopUp1(false);
     localStorage.setItem("popUp", "true");
-    // You can now use the selectedItems1, selectedItems2, selectedItems3 arrays as needed
+  
     console.log("Selected Items PopUp1:", selectedItems1);
     console.log("Selected Items PopUp2:", selectedItems2);
     console.log("Selected Items PopUp3:", selectedItems3);
+  
+    try {
+      const response = await axios.post("http://localhost:8080/api/preferences", {
+        deviceId: localStorage.getItem("deviceid"),
+        preferredCities: preferencesDataToSendToBackend.preferredCities,
+        preferredHobbies: preferencesDataToSendToBackend.preferredHobbies,
+        preferredCategories: preferencesDataToSendToBackend.preferredCategories,
+      });
+  
+      const data = response.data;
+      console.log(data.message);
+    } catch (error) {
+      console.error(error);
+  
+      if (error.response) {
+        
+        console.error("Response data:", error.response.data);
+        console.error("Response status:", error.response.status);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error("No response received from the server");
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.error("Error during request setup:", error.message);
+      }
+    }
   };
-
   
-  useEffect(() => {
-    document.body.style.overflow = openPopUp1 || openPopUp2 || openPopUp3 ? 'hidden' : 'visible';
-    return () => {
-      document.body.style.overflow = 'visible';
-    };
-  }, [openPopUp1, openPopUp2, openPopUp3]);
 
-  
   return (
     <div className="App">
       {openPopUp1 && (
@@ -118,12 +202,18 @@ function App() {
                       {category.subcategories.map((subcategory, subIndex) => (
                         <div
                           className={`box firstbox ${
-                            selectedItems1.includes(subcategory)
+                            selectedItems1.some(
+                              (item) =>
+                                item.label === subcategory &&
+                                item.parentCategory === category.name
+                            )
                               ? "selected"
                               : ""
                           }`}
                           key={subIndex}
-                          onClick={() => toggleItemSelection1(subcategory)}
+                          onClick={() =>
+                            toggleItemSelection1(subcategory, category.name)
+                          }
                           style={{ background: `url('${subcategory.img}')` }}>
                           <FaCheckCircle
                             className={`absolute tickicon ${
@@ -156,17 +246,17 @@ function App() {
                   <React.Fragment key={index}>
                     <div
                       className={`box firstbox ${
-                        selectedItems1.includes(city) ? "selected" : ""
+                        selectedItems2.includes(city) ? "selected" : ""
                       }`}
                       key={index}
-                      onClick={() => toggleItemSelection1(city)}
+                      onClick={() => toggleItemSelection2(city)}
                       style={{
                         background: `url('${city.img}')`,
                         backgroundSize: "center",
                       }}>
                       <FaCheckCircle
                         className={`absolute tickicon ${
-                          selectedItems1.includes(city) ? "block" : "hidden"
+                          selectedItems2.includes(city) ? "block" : "hidden"
                         }`}
                       />
                       <b className="bel">{city.name}</b>
@@ -180,49 +270,46 @@ function App() {
           </div>
         </div>
       )}
-     {openPopUp3 && (
-  <div className="popup1">
-    <div className="cont1">
-      <div className="head">
-        <img src={back} className="back" onClick={goTo2} alt="Back" />
-        <p className="text">{data3[0].text}</p>
-      </div>
       {openPopUp3 && (
-        <>
-          <p className="text mb-4">Hobbies</p>
-          <div className="grid grid-cols-3 gap-x-4">
-            {fetchHobbies &&
-              fetchHobbies.map((hobbie, index) => (
-                <div
-                  className={`box firstbox ${
-                    selectedItems1.includes(hobbie) ? "selected" : ""
-                  }`}
-                  key={index}
-                  onClick={() => toggleItemSelection1(hobbie)}
-                  style={{
-                    background: `url('${hobbie.img}')`,
-                    backgroundSize: "center",
-                  }}
-                >
-                  <FaCheckCircle
-                    className={`absolute tickicon ${
-                      selectedItems1.includes(hobbie) ? "block" : "hidden"
-                    }`}
-                  />
-                  <b className="bel">{hobbie.name}</b>
+        <div className="popup1">
+          <div className="cont1">
+            <div className="head">
+              <img src={back} className="back" onClick={goTo2} alt="Back" />
+              <p className="text">Last Step! Choose your hobbies</p>
+            </div>
+            {openPopUp3 && (
+              <>
+                <p className="text mb-4">Hobbies</p>
+                <div className="grid grid-cols-3 gap-x-4">
+                  {fetchHobbies &&
+                    fetchHobbies.map((hobbie, index) => (
+                      <div
+                        className={`box firstbox ${
+                          selectedItems3.includes(hobbie) ? "selected" : ""
+                        }`}
+                        key={index}
+                        onClick={() => toggleItemSelection3(hobbie)}
+                        style={{
+                          background: `url('${hobbie.img}')`,
+                          backgroundSize: "center",
+                        }}>
+                        <FaCheckCircle
+                          className={`absolute tickicon ${
+                            selectedItems3.includes(hobbie) ? "block" : "hidden"
+                          }`}
+                        />
+                        <b className="bel">{hobbie.name}</b>
+                      </div>
+                    ))}
                 </div>
-              ))}
+                <button className="next mt-6" onClick={done}>
+                  Done
+                </button>
+              </>
+            )}
           </div>
-          <button className="next mt-6" onClick={done}>
-            Done
-          </button>
-        </>
+        </div>
       )}
-    </div>
-  </div>
-)}
-
-    
     </div>
   );
 }

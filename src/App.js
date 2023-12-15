@@ -27,7 +27,7 @@ function App() {
       const navigatorInfo = `${navigator.userAgent}${navigator.language}${navigator.platform}`;
       const hash = btoa(navigatorInfo);
       setDeviceId(hash);
-      localStorage.setItem("deviceid", deviceId);
+      localStorage.setItem("deviceid", hash);
     }
   }
 
@@ -41,7 +41,7 @@ function App() {
       <FormProvider>
         <Routes>
           <Route path="/" element={<Splashpage />} />
-          <Route path='/home' element={<HomePage/>}/>
+          <Route path='/home' element={<HomePage />}/>
           <Route path="/ayatrio-map" element={<MapPage />} />
           <Route path="/products" element={<ProductPage />} />
           <Route path="/magazine" element={<MagazinePage />} />
