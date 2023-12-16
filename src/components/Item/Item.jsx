@@ -32,15 +32,15 @@ const Item = () => {
       "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1e4673c-ca2e-48a2-8527-bd9a92e3d20e/zoom-mercurial-superfly-9-elite-km-fg-high-top-football-boot-RbvQKW.png",
     ],
     green: [
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1e4673c-ca2e-48a2-8527-bd9a92e3d20e/zoom-mercurial-superfly-9-elite-km-fg-high-top-football-boot-RbvQKW.png",
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/137cd799-0bbe-4b4a-af8e-4d24ea4e71ef/zoom-mercurial-superfly-9-elite-km-fg-high-top-football-boot-RbvQKW.png",
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/722b1721-b5e5-464e-91d2-cf597ebc1ec1/zoom-mercurial-superfly-9-elite-km-fg-high-top-football-boot-RbvQKW.png",
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/22598587-c4b5-446b-bc01-69bf80681cdf/zoom-mercurial-superfly-9-elite-km-fg-high-top-football-boot-RbvQKW.png",
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/990689bb-506e-4435-9b9d-0a4ea4296125/zoom-mercurial-superfly-9-elite-km-fg-high-top-football-boot-RbvQKW.png",
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/e2818c6c-2df0-4860-88dc-2f10abcc5a36/zoom-mercurial-superfly-9-elite-km-fg-high-top-football-boot-RbvQKW.png",
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/e2818c6c-2df0-4860-88dc-2f10abcc5a36/zoom-mercurial-superfly-9-elite-km-fg-high-top-football-boot-RbvQKW.png",
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/137cd799-0bbe-4b4a-af8e-4d24ea4e71ef/zoom-mercurial-superfly-9-elite-km-fg-high-top-football-boot-RbvQKW.png",
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1e4673c-ca2e-48a2-8527-bd9a92e3d20e/zoom-mercurial-superfly-9-elite-km-fg-high-top-football-boot-RbvQKW.png",
+      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/51971fe1-512d-4cb5-8c2b-67c44c19de09/mercurial-vapor-15-elite-low-top-football-boot-9Mbrnv.png",
+      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/6a16c51c-d2e3-430b-8e47-b0aed425ad2b/mercurial-vapor-15-elite-low-top-football-boot-9Mbrnv.png",
+      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3b49ed36-ab47-4da1-aeb2-9b530f73de29/mercurial-vapor-15-elite-low-top-football-boot-9Mbrnv.png",
+      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/e7c2768b-2762-47c6-b4a3-313499358ce8/mercurial-vapor-15-elite-low-top-football-boot-9Mbrnv.png",
+      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/751088e3-bb53-41c1-9929-97929df146ab/mercurial-vapor-15-elite-low-top-football-boot-9Mbrnv.png",
+      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aefbcd20-56e5-4971-8fd3-d96ec3ddcdda/mercurial-vapor-15-elite-low-top-football-boot-9Mbrnv.png",
+      "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/83ccaa96-74f6-4ece-b7c0-09a96f827894/custom-mercurial-vapor-15-elite-shoes-by-you.png",
+      "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/966c4711-775f-4235-ac9b-f9b185bfb37a/custom-mercurial-vapor-15-elite-shoes-by-you.png",
+      "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/3e0c3f4d-676a-4d97-8df1-4427a9111ba4/custom-mercurial-vapor-15-elite-shoes-by-you.png",
     ],
   };
 
@@ -52,7 +52,18 @@ const Item = () => {
   const changeColor = (color) => {
     setImgColor(color);
     setSelectedImage(imgSets[color][0]);
+    priceCal()
+    if (color==="red") {
+        setcoststate(7000)
+      }
+      else if(color==="blue") {
+        setcoststate(8000)
+      }
+      else{
+        setcoststate(3000)
+      }
   };
+
   return (
     <>
       <div className="main h-[100vh] w-full">
@@ -88,7 +99,7 @@ const Item = () => {
               <h3 className="mb-2 font-semibold">
                 Collection: Metropolitan Stories Travel Styles
               </h3>
-              <h3 className="mb-4 font-semibold">Pattern Number: 77siu7Cr7</h3>
+              <h3 className="mb-4 font-semibold">Pattern Number: 77siu7Cr7-{imgColor}</h3>
 
             
               <div className="price">
