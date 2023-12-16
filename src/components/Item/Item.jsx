@@ -47,7 +47,7 @@ const Item = () => {
   const [selectedImage, setSelectedImage] = useState(imgSets[imgColor][0]);
   const priceCal = ()=>{
   setpricestate((widthstate*heightstate/50)*coststate);
-
+setrollstate((widthstate*heightstate/50));
   }
   const changeColor = (color) => {
     setImgColor(color);
@@ -115,15 +115,15 @@ const Item = () => {
               <div className="colors flex gap-3">
                 <div
                   onClick={() => changeColor("red")}
-                  className="color1 w-[50px] h-[50px] rounded-full bg-red-500"
+                  className={`color1 w-[50px] h-[50px] rounded-full ${imgColor==="red"?"border border-slate-800":''}   bg-red-500`}
                 ></div>
                 <div
                   onClick={() => changeColor("blue")}
-                  className="color1 w-[50px] h-[50px] rounded-full bg-blue-500"
+                  className={`color1 w-[50px] h-[50px] rounded-full ${imgColor==="blue"?"border border-slate-800":''}  bg-blue-500`}
                 ></div>
                 <div
                   onClick={() => changeColor("green")}
-                  className="color1 w-[50px] h-[50px] rounded-full bg-green-500"
+                  className={`color1 w-[50px] h-[50px] rounded-full  ${imgColor==="green"?"border border-slate-800":''} bg-green-500`}
                 ></div>
               </div>
             </div>
@@ -178,12 +178,7 @@ const Item = () => {
                   }}
                 >
                   <h3 className="mb-2 font-semibold">Price</h3>
-                  <input
-                    editable={false}
-                    value={pricestate}
-                    type="text"
-                    className="input-field focus:outline-none w-full h-full active:border-none"
-                  />
+                  <h2>{pricestate} ({rollstate})</h2>
                 </div>
               </div>
             </div>

@@ -16,7 +16,7 @@ const Imagechanger = () => {
 
   return (
     <>
-      <div className="main w-full h-full bg-gray-100 rounded-[50px] m-2 flex p-2">
+      <div className="main w-full h-full bg-gray-100 rounded-[50px] flex p-2">
         <div className="left text-container flex flex-col items-center justify-center w-1/2 h-full  p-1">
           {Heading.map((value, idx) => (
             <div key={idx} className='mb-7'>
