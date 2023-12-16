@@ -90,7 +90,7 @@ function Header({ howMuchScrolled }) {
           </div>
           <div className="middle">
             <Link to="/home">
-              <img src={mainlogo} alt="logo" className="w-44 m-2" />
+              <img src={mainlogo} alt="logo" className="w-48 m-2" />
             </Link>
           </div>
           <div className="right flex items-center gap-4">

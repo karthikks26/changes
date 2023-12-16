@@ -65,20 +65,21 @@ function Filter() {
               
               {activeDropdown === idx && (
                 <div
-                  className="absolute dropdown-content top-7 left-0 mt-4 w-full bg-white border rounded shadow-md flex flex-col
+                  className="absolute dropdown-content top-7 left-0 mt-8 w-full bg-white shadow-md flex flex-col
                  transition-all ease-linear duration-2000 
                   "
                   onClick={(event) => event.stopPropagation()} // Prevent clicks inside the dropdown from closing it
                 >
 
-      <div className='px-[20px] my-2'>
+      <div className='px-[50px] my-5'>
       <h2 className='main_heading'>Shop Wallpapers</h2>
       <div className='filter_container flex gap-32'>
+        <Featured />
         <Collections />
         <Styles />
         <Colours />
         <Rooms />
-        <Featured />
+       
       </div>
     </div>
 
