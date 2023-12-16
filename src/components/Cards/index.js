@@ -19,6 +19,7 @@ import Skeleton from "react-loading-skeleton";
 import Skeletoncard from "../Skeleton/Skeletoncard";
 import { useSelector } from "react-redux";
 import { selectRecommendedProduct } from "../../Features/recommendation/recommendationSlice";
+import Doublecard from "../Doublecard/Doublecard";
 
 function Cards() {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -177,7 +178,9 @@ const sportsAndGymProducts = filterProductsByCategory(recommendedProductsDataFro
       <div className="w-full h-[80vh] m-1 ">
         <Imagechanger />
       </div>
-
+      <div className="w-full h-[70vh] m-1 ">
+        <Doublecard />
+      </div>
       <div className="pt-12  mb-20  bg-white">
         <div className="mb-2 w-full flex justify-between items-center">
           <h2 className="text-bold text-2xl font-serif ml-4">
