@@ -12,7 +12,7 @@ const Doublecard = () => {
         <div className="left text-container flex flex-col items-center justify-center w-1/2 h-full  p-1">
         <div className="flex w-full h-full justify-center items-center">
            <div className='relative flex justify-center items-center  w-full h-full'>
-            <h1 className='text-white font-bold text-2xl absolute'>Ayatrio</h1>
+            <h1 className=' text-white z-20 font-bold text-2xl absolute'>Ayatrio</h1>
            <img src={img[0]} alt="" className="w-[100%] h-[100%]" />
            </div>
           </div>
@@ -20,7 +20,7 @@ const Doublecard = () => {
         <div className="right image-container flex w-1/2 h-full p-1">
           <div className="flex w-full h-full justify-center items-center">
           <div className='relative flex justify-center items-center  w-full h-full'>
-            <h1 className='text-white font-bold text-2xl absolute'>Ayatrio</h1>
+            <h1 className=' text-white z-20 font-bold text-2xl absolute'>Ayatrio</h1>
             <img src={img[1]} alt="" className="w-[100%] h-[100%]" />
             </div>
           </div>

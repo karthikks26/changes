@@ -14,6 +14,7 @@ import Splashpage from './pages/Splashpage';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import CartPage from './pages/CartPage';
+import ItemPage from './pages/ItemPage';
 
 function App() {
 
@@ -54,6 +55,7 @@ function App() {
           <Route path='/virtualexperience/*' element={<Virtualexperiance />} />
           <Route path="*" element={<h1>Not Found</h1>} />
           <Route path='/cart' element={<CartPage/>}/> 
+          <Route path='/item' element={<ItemPage/>}/>
         </Routes>
       </FormProvider>
     </> 

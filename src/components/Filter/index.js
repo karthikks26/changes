@@ -58,14 +58,8 @@ function Filter() {
               onMouseEnter={() => setActiveDropdown(idx)}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              {value && (
-                <img
-                  src={value.imgSrc}
-                  alt="NA"
-                  className="Filter-array-element-img"
-                />
-              )}
-              {value && (
+              {value
+              && (
                 <p className="Filter-array-element-lebel">{value.label}</p>
               )}
               
