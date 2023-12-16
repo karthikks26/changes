@@ -20,7 +20,7 @@
 }
 
 .sd {
-  height: 100%;
+  height: 67vh;
   width: 40rem;
   flex-shrink: 0;
 }
@@ -62,7 +62,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 67vh;
 }
 
 .slider-cont::-webkit-scrollbar {

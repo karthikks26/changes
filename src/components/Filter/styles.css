@@ -22,7 +22,7 @@
 .Filter-array-element {
     display: flex;
     gap: 0.55rem;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     margin: 0;
     align-items: center;
     border-bottom-style: solid;
@@ -70,15 +70,11 @@
 }
 
 .Filter-array-element-lebel {
-    margin-right: 14px;
     white-space: nowrap;
 }
 
 .Filter-array-element:hover {
-    opacity: 100%;
-    border-bottom-style: solid;
-    border-color: rgb(131, 131, 131);
-    border-width: 80%;
+    border-bottom: 2px solid #000;
 }
 
 .selected-array-element {
