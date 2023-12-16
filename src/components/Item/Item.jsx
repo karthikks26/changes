@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Item.css";
 const Item = () => {
   const [imgColor, setImgColor] = useState("red");
@@ -45,10 +45,15 @@ const Item = () => {
   };
 
   const [selectedImage, setSelectedImage] = useState(imgSets[imgColor][0]);
-  const priceCal = ()=>{
-  setpricestate((widthstate*heightstate/50)*coststate);
-setrollstate((widthstate*heightstate/50));
-  }
+  const priceCal = () => {
+    const area = (widthstate * heightstate) / 50;
+    const calculatedPrice = area * coststate;
+    setpricestate(calculatedPrice.toFixed(2));
+    setrollstate(area.toFixed(2));
+  };
+  useEffect(() => {
+    priceCal();
+  }, [widthstate, heightstate, coststate]);
   const changeColor = (color) => {
     setImgColor(color);
     setSelectedImage(imgSets[color][0]);
@@ -160,7 +165,8 @@ setrollstate((widthstate*heightstate/50));
                   >
                     <h3 className="mb-2 font-semibold">Width (Meters)</h3>
                     <input
-                    onChange={(e)=>{setwidthstate(e.target.value)
+                    onChange={(e)=>{
+                        setwidthstate(e.target.value);
                         priceCal();
                     }}
                     value={widthstate}
@@ -170,7 +176,6 @@ setrollstate((widthstate*heightstate/50));
                   </div>
                 </div>
 
-                {/* Price Input */}
                 <div
                   className="price border border-slate-500  w-full p-2 flex flex-col"
                   style={{
@@ -178,7 +183,7 @@ setrollstate((widthstate*heightstate/50));
                   }}
                 >
                   <h3 className="mb-2 font-semibold">Price</h3>
-                  <h2>{pricestate} ({rollstate})</h2>
+                  <h2>{pricestate} ({rollstate} Rolls Requires)</h2>
                 </div>
               </div>
             </div>
