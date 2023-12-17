@@ -120,10 +120,5 @@
 
 .seachbar-div2-icon {
     height: 100%;
-    border-radius: 20px;
-    border: none;
-}
-
-.seachbar-div2-icon:hover {
-    background: #c0bebe;
+    margin-right: 10px;
 }
