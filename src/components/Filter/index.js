@@ -65,7 +65,7 @@ function Filter() {
               
               {activeDropdown === idx && (
                 <div
-                  className="absolute dropdown-content top-7 left-0 mt-8 w-full bg-white shadow-md flex flex-col
+                  className="absolute dropdown-content top-7 left-0 mt-10 w-full bg-white shadow-md flex flex-col
                  transition-all ease-linear duration-2000 
                   "
                   onClick={(event) => event.stopPropagation()} // Prevent clicks inside the dropdown from closing it
