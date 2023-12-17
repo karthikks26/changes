@@ -122,3 +122,19 @@
     height: 25px;
     margin-right: 10px;
 }
+
+.cart-notification {
+    position: static;
+    width: 20px;
+    height: 20px;
+    background-color: #000;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 15px;
+    font-size: 10px;
+    font-weight: 700;
+    border: 1.5px solid #fff;
+    margin-top: -30px;
+    margin-left: 20px;
+}

@@ -3,6 +3,7 @@ import React from "react";
 import mainlogo from "../../assets/ayatriologo.png";
 import adtocart from "../../assets/icon/adtocart.svg"
 import liketocart from "../../assets/icon/like.svg"
+import userprofile from "../../assets/icon/profile.svg"
 import search from "../../assets/icon/search.svg"
 import SimpleBottomNavigation from "./bottombar";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -108,18 +109,21 @@ function Header({ howMuchScrolled }) {
             <div className="h-10 w-10 cursor-pointer">
 
                     <img src={liketocart} alt="" className="seachbar-div2-icon"/>
-             
+                     <div className="cart-notification">12</div>
+
             </div>
 
             <div className="h-10 w-10 cursor-pointer" onClick={()=>navigate('/cart')}>
                     <img src={adtocart} alt="" className="seachbar-div2-icon" />
+                    <div className="cart-notification">3</div>
             </div>
             {loginStatus === "true" ? (
               <div className="pro flex  " onClick={handleProfileNav}>
-                <AccountCircleIcon />
+                 <img src={userprofile} alt="" className="seachbar-div2-icon"/>
               </div>
             ) : (
-              <AccountCircleIcon onClick={handleLoginNav} />
+              <img src={userprofile} onClick={handleLoginNav} alt="" className="seachbar-div2-icon"/>
+             
             )}
           </div>
         </div>
