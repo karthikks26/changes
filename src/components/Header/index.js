@@ -106,15 +106,13 @@ function Header({ howMuchScrolled }) {
               <img src={search} alt="" className="seachbar-div2-icon absolute z-10" />
             </div>
             <div className="h-10 w-10 cursor-pointer">
-            <Link to='./'>
-                    <img src={liketocart} alt="" />
-                </Link>
+
+                    <img src={liketocart} alt="" className="seachbar-div2-icon"/>
+             
             </div>
 
             <div className="h-10 w-10 cursor-pointer" onClick={()=>navigate('/cart')}>
-            <Link to='./'>
-                    <img src={adtocart} alt="" />
-                </Link>
+                    <img src={adtocart} alt="" className="seachbar-div2-icon" />
             </div>
             {loginStatus === "true" ? (
               <div className="pro flex  " onClick={handleProfileNav}>

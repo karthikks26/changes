@@ -24,7 +24,7 @@ export default function BasicMenu() {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <img src={manue} alt="" className="seachbar-div2-icon absolute z-10" />
+        <img src={manue} alt="" className="seachbar-div2-icon" />
       </div>
       <Menu
         id="basic-menu"
