@@ -8,6 +8,12 @@
     padding: 0px 20px;
 }
 
+.text-costom-co {
+    color: #707072;
+    font-size: 15px;
+    font-weight: 500;
+}
+
 .between {
     flex: 3;
 }
@@ -111,12 +117,13 @@
         background-color: #333;
     }
 }
-.seachbar-div2-icon{
-height: 100%;
-border-radius: 20px;
-border: none;
+
+.seachbar-div2-icon {
+    height: 100%;
+    border-radius: 20px;
+    border: none;
 }
 
-.seachbar-div2-icon:hover{
+.seachbar-div2-icon:hover {
     background: #c0bebe;
 }

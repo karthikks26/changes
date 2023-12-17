@@ -83,10 +83,10 @@ function Header({ howMuchScrolled }) {
               <Menu />
             </div>
             <Link to="/virtualexperience/vrooms">
-              <div className="font-bold text-lg">Virtual Exprience </div>
+              <div className=" text-costom-co">Virtual Exprience </div>
             </Link>
 
-            <div className="font-bold text-lg ">New Arivals</div>
+            <div className=" text-costom-co">New Arivals</div>
           </div>
           <div className="middle">
             <Link to="/home">
