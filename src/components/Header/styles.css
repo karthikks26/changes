@@ -18,6 +18,17 @@
     flex: 3;
 }
 
+.icon_container {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 7px
+}
+
+.icon_container:hover {
+    background-color: #efefef;
+    border-radius: 50%;
+}
+
 .navbar-left {
     flex: 1;
 }

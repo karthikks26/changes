@@ -23,6 +23,7 @@ export default function BasicMenu() {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
+        className="icon_container"
       >
         <img src={manue} alt="" className="seachbar-div2-icon" />
       </div>
