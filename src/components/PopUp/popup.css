@@ -141,15 +141,15 @@ body {
     background: url("https://images.pexels.com/photos/2837909/pexels-photo-2837909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
     background-position: center;
     margin: 3px;
-    background-size: cover;
+    background-size: contain;
     color: lightyellow;
 }
 .firstbox{
-    background: url("https://images.pexels.com/photos/2837909/pexels-photo-2837909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-    background-position: center;
+    background-position: center !important;
     margin: 3px;
-    background-size: cover;
+    background-size: contain !important;
     color: lightyellow;
+    width: 100%;
 }
 .tickicon{
     top: 5%;

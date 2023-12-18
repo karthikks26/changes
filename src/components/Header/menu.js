@@ -2,7 +2,7 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import MenuIcon from "@mui/icons-material/Menu";
+import manue from "../../assets/icon/manue.svg"
 import "./styles.css";
 
 export default function BasicMenu() {
@@ -23,8 +23,9 @@ export default function BasicMenu() {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
+        className="icon_container"
       >
-        <MenuIcon />
+        <img src={manue} alt="" className="header-div-icon" />
       </div>
       <Menu
         id="basic-menu"

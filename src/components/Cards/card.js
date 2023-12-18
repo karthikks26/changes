@@ -28,7 +28,7 @@ function Card(props) {
           width: "100%",
           height: "100%",
         }}>
-          <div className="card-flex">
+          <div className={`card-flex ${props.cssClass} `}>
             <Carousel  data={props.imgSrc} className="card-img"/>
             <div className="review-icon-container">
               <img
@@ -41,13 +41,13 @@ function Card(props) {
             </div>
           </div>
           <div className="card-title" onClick={()=>navigate('/rooms')}> 
-            <div className="card-title-desc">{props.desc}</div>
+            <div className="card-title-desc">{props.title}</div>
             <div className="card-rating">
               <StarIcon fontSize="small" />
               {props.rating}
             </div>
           </div>
-          <div className="card-date">{props.date}</div>
+          <div className="card-date">{props.desc}</div>
           <div className="card-price">
             <strong>₹{props.price}</strong>
           </div>

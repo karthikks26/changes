@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from "./pages/HomePage";
 import MapPage from "./pages/MapPage";
@@ -13,14 +13,36 @@ import Virtualexperiance from "./pages/Virtualexperiance";
 import Splashpage from './pages/Splashpage';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
+import CartPage from './pages/CartPage';
+import ItemPage from './pages/ItemPage';
 
 function App() {
+
+  const [deviceId,setDeviceId] = useState(null)
+
+  const generateDeviceId = ()=> {
+    const existingDeviceId = localStorage.getItem("deviceId");
+    if(existingDeviceId){
+      setDeviceId(existingDeviceId);
+    }else{
+      const navigatorInfo = `${navigator.userAgent}${navigator.language}${navigator.platform}`;
+      const hash = btoa(navigatorInfo);
+      setDeviceId(hash);
+      localStorage.setItem("deviceid", hash);
+    }
+  }
+
+  useEffect(()=>{
+    generateDeviceId();
+  },[])
+  
+  console.log("Device ID:", deviceId);
   return (
     <>
       <FormProvider>
         <Routes>
           <Route path="/" element={<Splashpage />} />
-          <Route path='/home' element={<HomePage/>}/>
+          <Route path='/home' element={<HomePage />}/>
           <Route path="/ayatrio-map" element={<MapPage />} />
           <Route path="/products" element={<ProductPage />} />
           <Route path="/magazine" element={<MagazinePage />} />
@@ -32,6 +54,8 @@ function App() {
           <Route path ='/profile' element={<ProfilePage/>}/>
           <Route path='/virtualexperience/*' element={<Virtualexperiance />} />
           <Route path="*" element={<h1>Not Found</h1>} />
+          <Route path='/cart' element={<CartPage/>}/> 
+          <Route path='/item' element={<ItemPage/>}/>
         </Routes>
       </FormProvider>
     </> 

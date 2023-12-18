@@ -1,8 +1,42 @@
-import React, { useState } from 'react';
-import './popup.css';
-import back from '../../assets/back.png';
+import React, { useState, useEffect } from "react";
+import "./popup.css";
+import back from "../../assets/back.png";
 import { FaCheckCircle } from "react-icons/fa";
+import axios from "axios";
+import { useDispatch} from "react-redux";
+import { recomendProduct, recomendationLoader } from "../../Features/recommendation/recommendationSlice";
+
 function App() {
+  
+  const [fetchedCategories, setFetchedCategories] = useState(null);
+  const [fetchCities, setFetchedCities] = useState(null);
+  const [fetchHobbies, setFetchedHobbies] = useState(null);
+  const dispatch = useDispatch();
+
+  const fetchCategories = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/api/categories");
+      setFetchedCategories(response.data[0].categories);
+    } catch (error) {
+      console.error("Error fetching categories:", error.message);
+    }
+  };
+  
+  const fetchCitiesAndHobbies = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/api/citiesAndHobbies");
+      setFetchedCities(response.data[0].cities);
+      setFetchedHobbies(response.data[0].hobbies);
+    } catch (error) {
+      console.error("Error fetching cities and hobbies:", error.message);
+    }
+  };
+  
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
   const [openPopUp1, setOpenPopUp1] = useState(true);
   const [openPopUp2, setOpenPopUp2] = useState(false);
   const [openPopUp3, setOpenPopUp3] = useState(false);
@@ -12,6 +46,8 @@ function App() {
   const [selectedItems3, setSelectedItems3] = useState([]);
 
   const handleNext = () => {
+    // call backend api for fetching cities and hobbies
+    fetchCitiesAndHobbies();
     setOpenPopUp1(false);
     setOpenPopUp2(true);
   };
@@ -32,12 +68,18 @@ function App() {
     setOpenPopUp2(true);
   };
 
-  const toggleItemSelection1 = (label) => {
-    const isSelected = selectedItems1.includes(label);
+  const toggleItemSelection1 = (label, parentCategory) => {
+    const isSelected = selectedItems1.some(
+      (item) => item.label === label && item.parentCategory === parentCategory
+    );
+
     setSelectedItems1((prevSelectedItems) =>
       isSelected
-        ? prevSelectedItems.filter((item) => item !== label)
-        : [...prevSelectedItems, label]
+        ? prevSelectedItems.filter(
+            (item) =>
+              !(item.label === label && item.parentCategory === parentCategory)
+          )
+        : [...prevSelectedItems, { label, parentCategory }]
     );
   };
 
@@ -59,133 +101,232 @@ function App() {
     );
   };
 
-  const done = () => {
+  useEffect(() => {
+    document.body.style.overflow =
+      openPopUp1 || openPopUp2 || openPopUp3 ? "hidden" : "visible";
+    return () => {
+      document.body.style.overflow = "visible";
+    };
+  }, [openPopUp1, openPopUp2, openPopUp3]);
+
+  function segregateData(data) {
+    const segregatedData = {};
+
+    // Iterate through the data array
+    data.forEach((item) => {
+      const parentCategory = item.parentCategory;
+
+      // If the parent category doesn't exist in the segregatedData, create an array for it
+      if (!segregatedData[parentCategory]) {
+        segregatedData[parentCategory] = [];
+      }
+
+      // Add the current item to the array corresponding to its parent category
+      segregatedData[parentCategory].push(item.label.name);
+    });
+
+    return segregatedData;
+  }
+
+  const selectedCategoriesData = segregateData(selectedItems1);
+
+  const convertToPreferencesSchema = (categories, cities, hobbies) => {
+    const preferences = {
+      preferredCities: [],
+      preferredHobbies: [],
+      preferredCategories: [],
+    };
+
+    // Convert hobbies data
+    preferences.preferredHobbies = hobbies.map((hobby) => hobby.name);
+
+    // convert cities data
+    preferences.preferredCities = cities.map((city) => city.name);
+
+    // Convert categories data
+    for (const categoryName in categories) {
+      const category = {
+        name: categoryName,
+        subcategories: categories[categoryName],
+      };
+
+      preferences.preferredCategories.push(category);
+    }
+
+    return preferences;
+  };
+
+  const preferencesDataToSendToBackend = convertToPreferencesSchema(
+    selectedCategoriesData,
+    selectedItems2,
+    selectedItems3
+  );
+
+  const done = async () => {
     setOpenPopUp3(false);
     setOpenPopUp2(false);
     setOpenPopUp1(false);
-    localStorage.setItem('popUp', 'true');
-    // You can now use the selectedItems1, selectedItems2, selectedItems3 arrays as needed
-    console.log('Selected Items PopUp1:', selectedItems1);
-    console.log('Selected Items PopUp2:', selectedItems2);
-    console.log('Selected Items PopUp3:', selectedItems3);
+    localStorage.setItem("popUp", "true");
+
+    console.log("Selected Items PopUp1:", selectedItems1);
+    console.log("Selected Items PopUp2:", selectedItems2);
+    console.log("Selected Items PopUp3:", selectedItems3);
+
+    dispatch(recomendationLoader(true));
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/preferences",
+        {
+          deviceId: localStorage.getItem("deviceid"),
+          userPreferredCities: preferencesDataToSendToBackend.preferredCities,
+          userPreferredHobbies: preferencesDataToSendToBackend.preferredHobbies,
+          userPreferredCategories:preferencesDataToSendToBackend.preferredCategories,
+        }
+      );
+
+      const data = response.data;
+      console.log(data);
+      
+      // set the recommended product in the global state
+      dispatch(recomendProduct(data));
+      dispatch(recomendationLoader(false));
+
+    } catch (error) {
+      console.error(error);
+
+      if (error.response) {
+        console.error("Response data:", error.response.data);
+        console.error("Response status:", error.response.status);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error("No response received from the server");
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.error("Error during request setup:", error.message);
+      }
+    }
   };
-
-  const data1 = [
-    { text: 'What are you interested in?' },
-    { text: 'Step 1', boxes: [{ id: 'box1_1', label: 'Label 1' }, { id: 'box1_2', label: 'Label 2' }, { id: 'box1_3', label: 'Label 3' }, { id: 'box1_4', label: 'Label 4' }] },
-    { text: 'Step 2', boxes: [{ id: 'box2_1', label: 'Label A' }, { id: 'box2_2', label: 'Label B' }, { id: 'box2_3', label: 'Label C' }, { id: 'box2_4', label: 'Label D' }] },
-    { text: 'Step 3', boxes: [{ id: 'box3_1', label: 'Choice X' }, { id: 'box3_2', label: 'Choice Y' }, { id: 'box3_3', label: 'Choice Z' }, { id: 'box3_4', label: 'Choice W' }] },
-  ];
-
-  const data2 = [
-    { text: 'Next step! Choose your favorite city.' },
-    { text: 'City', labels: ['New York', 'London', 'Tokyo'] },
-    { text: 'City', labels: ['Paris', 'Sydney', 'Berlin'] },
-  ];
-
-  const data3 = [
-    { text: 'Last step! Tell us your hobbies.' },
-    { text: 'Hobbies', labels: ['Reading', 'Gaming', 'Traveling'] },
-    { text: 'Hobbies', labels: ['Cooking', 'Photography', 'Sports'] },
-  ];
 
   return (
     <div className="App">
-     {openPopUp1 && (
-  <div className='popup1'>
-    <div className='cont1'>
-      {data1.map((item, index) => (
-        <React.Fragment key={index}>
-          <p className='text'>{item.text}</p>
-          {item.boxes && (
-            <div className='row'>
-              {item.boxes.map((box, boxIndex) => (
-                <div
-                  className={`box firstbox ${selectedItems1.includes(box.id) ? 'selected' : ''}`}
-                  key={box.id}
-                  onClick={() => toggleItemSelection1(box.id)}
-                >
-                  {/* <img src="https://images.pexels.com/photos/2837909/pexels-photo-2837909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className='w-full h-full' alt="" /> */}
-                  {/* <b className='bel'>{label}</b> */}
-                  <FaCheckCircle className={`absolute tickicon ${selectedItems1.includes(box.id)?"block":"hidden"}`}/>
-                </div>
-              ))}
-            </div>
-          )}
-        </React.Fragment>
-      ))}
-      <button className='next' onClick={handleNext}>
-        Next
-      </button>
-    </div>
-  </div>
-)}
-      {openPopUp2 && (
-        <div className='popup1'>
-          <div className='cont1'>
-            {data2.map((item, index) => (
-              <React.Fragment key={index}>
-                <p className='text'>{item.text}</p>
-                {item.labels && (
-                  <div className='row'>
-                    {item.labels.map((label, labelIndex) => (
-                      <div
-                        className={`below ${selectedItems2.includes(label) ? 'selected' : ''}`}
-                        key={labelIndex}
-                        onClick={() => toggleItemSelection2(label)}
-                      >
-                        <div className='box secondbox' >
-                          {/* <img src="https://images.pexels.com/photos/2837909/pexels-photo-2837909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" /> */}
-                  <FaCheckCircle className={`absolute tickicon ${selectedItems2.includes(label)?"block":"hidden"}`}/>
-                        
-                        <b className='bel'>{label}</b>
-
+      {openPopUp1 && (
+        <div className="popup1">
+          <div className="cont1">
+            {fetchedCategories &&
+              fetchedCategories.map((category, index) => (
+                <React.Fragment key={index}>
+                  <p className="text">{category.name}</p>
+                  {category.subcategories && (
+                    <div className="row">
+                      {category.subcategories.map((subcategory, subIndex) => (
+                        <div
+                          className={`box firstbox ${
+                            selectedItems1.some(
+                              (item) =>
+                                item.label === subcategory &&
+                                item.parentCategory === category.name
+                            )
+                              ? "selected"
+                              : ""
+                          }`}
+                          key={subIndex}
+                          onClick={() =>
+                            toggleItemSelection1(subcategory, category.name)
+                          }
+                          style={{ background: `url('${subcategory.img}')` }}>
+                          <FaCheckCircle
+                            className={`absolute tickicon ${
+                              selectedItems1.includes(subcategory)
+                                ? "block"
+                                : "hidden"
+                            }`}
+                          />
+                          <b className="bel">{subcategory.name}</b>
                         </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </React.Fragment>
-            ))}
-            <button className='next' onClick={goTo}>
+                      ))}
+                    </div>
+                  )}
+                </React.Fragment>
+              ))}
+
+            <button className="next" onClick={handleNext}>
+              Next
+            </button>
+          </div>
+        </div>
+      )}
+      {openPopUp2 && (
+        <div className="popup1">
+          <div className="cont1">
+            <p className="text mb-4">Cities</p>
+            <div className="grid grid-cols-3 gap-x-4">
+              {fetchCities &&
+                fetchCities.map((city, index) => (
+                  <React.Fragment key={index}>
+                    <div
+                      className={`box firstbox ${
+                        selectedItems2.includes(city) ? "selected" : ""
+                      }`}
+                      key={index}
+                      onClick={() => toggleItemSelection2(city)}
+                      style={{
+                        background: `url('${city.img}')`,
+                        backgroundSize: "center",
+                      }}>
+                      <FaCheckCircle
+                        className={`absolute tickicon ${
+                          selectedItems2.includes(city) ? "block" : "hidden"
+                        }`}
+                      />
+                      <b className="bel">{city.name}</b>
+                    </div>
+                  </React.Fragment>
+                ))}
+            </div>
+            <button className="next mt-8" onClick={goTo}>
               Next
             </button>
           </div>
         </div>
       )}
       {openPopUp3 && (
-        <div className='popup1'>
-          <div className='cont1'>
-            <div className='head'>
-              <img src={back} className='back' onClick={goTo2} alt='Back' />
-              <p className='text'>{data3[0].text}</p>
+        <div className="popup1">
+          <div className="cont1">
+            <div className="head">
+              <img src={back} className="back" onClick={goTo2} alt="Back" />
+              <p className="text">Last Step! Choose your hobbies</p>
             </div>
-            {data3.slice(1).map((item, index) => (
-              <React.Fragment key={index}>
-                <p className='text'>{item.text}</p>
-                {item.labels && (
-                  <div className='row'>
-                    {item.labels.map((label, labelIndex) => (
+            {openPopUp3 && (
+              <>
+                <p className="text mb-4">Hobbies</p>
+                <div className="grid grid-cols-3 gap-x-4">
+                  {fetchHobbies &&
+                    fetchHobbies.map((hobbie, index) => (
                       <div
-                        className={`below ${selectedItems3.includes(label) ? 'selected' : ''}`}
-                        key={labelIndex}
-                        onClick={() => toggleItemSelection3(label)}
-                      >
-                        <div className='box thirdbox'>
-                  <FaCheckCircle className={`absolute tickicon ${selectedItems3.includes(label)?"block":"hidden"}`}/>
-
-                        <b className='bel'>{label}</b>
-                        </div>
-                     
+                        className={`box firstbox ${
+                          selectedItems3.includes(hobbie) ? "selected" : ""
+                        }`}
+                        key={index}
+                        onClick={() => toggleItemSelection3(hobbie)}
+                        style={{
+                          background: `url('${hobbie.img}')`,
+                          backgroundSize: "center",
+                        }}>
+                        <FaCheckCircle
+                          className={`absolute tickicon ${
+                            selectedItems3.includes(hobbie) ? "block" : "hidden"
+                          }`}
+                        />
+                        <b className="bel">{hobbie.name}</b>
                       </div>
                     ))}
-                  </div>
-                )}
-              </React.Fragment>
-            ))}
-            <button className='next' onClick={done}>
-              Done
-            </button>
+                </div>
+                <button className="next mt-6" onClick={done}>
+                  Done
+                </button>
+              </>
+            )}
           </div>
         </div>
       )}
