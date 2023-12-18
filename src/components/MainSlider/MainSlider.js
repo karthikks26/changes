@@ -45,7 +45,10 @@ function MainSlider() {
     return (
       <div className='slider-container'>
         <div className='arrow-left' onClick={() => slide(-380)}>
-          <BsArrowLeftCircleFill className='arrow-nav' />
+          {scrollX > 0 && (
+            <BsArrowLeftCircleFill className='arrow-nav' />
+          )}
+          {/* <BsArrowLeftCircleFill className='arrow-nav' /> */}
         </div>
         <div className='slider-cont' ref={scrl}>
           {products.map((prod, i) => (
