@@ -61,16 +61,16 @@ const HomePage = () => {
         {popUp === 'true' ? null : <PopUp />}
         {/* <Header /> */}
         {/* <MobileSearchBar /> */}
-        
-          <Header />
-          {isFilterVisible && <>
+
+        <Header />
+        {isFilterVisible && <>
           <MobileSearchBar />
           <Filter /></>}
         <Cards />
         <div>
           <button
             type="button"
-            className="fixed left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 flex bottom-0 text-white bg-black hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+            className="fixed left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 flex -bottom-3 text-white bg-black hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
             onClick={() => navigate('/ayatrio-map')}
           >
             Near Ayotrio <img src={ayatrio_store} alt="" className="header-div-sStore-icon" />

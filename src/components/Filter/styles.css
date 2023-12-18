@@ -38,6 +38,7 @@
     border: 1px solid #dddd;
     padding: 8px 15px;
     border-radius: 20px;
+    display: flex;
 }
 
 .arrow-nav {
@@ -58,7 +59,14 @@
 }
 
 .arrow-right {
-    right: 25%;
+    right: 26%;
+}
+
+.riht-arrow-sty {
+    width: 1.6rem;
+    height: 1.8rem;
+    padding-left: 0.6rem;
+    cursor: pointer;
 }
 
 .Filter-array-element-img {
@@ -87,7 +95,8 @@
 .slider_lr_container {
     width: 30px;
     height: 30px;
-    background: #fff;
-    filter: drop-shadow(rgba(0, 0, 0, 0.05) 0px 0px 2px);
+    background: rgba(255, 255, 255);
     border-radius: 50%;
+    margin-top: 8px;
+    border: 1px solid #dddd;
 }
