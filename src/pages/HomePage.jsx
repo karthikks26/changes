@@ -61,9 +61,9 @@ const HomePage = () => {
         {popUp === 'true' ? null : <PopUp />}
         {/* <Header /> */}
         {/* <MobileSearchBar /> */}
-        {isFilterVisible && <>
+        
           <Header />
-
+          {isFilterVisible && <>
           <MobileSearchBar />
           <Filter /></>}
         <Cards />
