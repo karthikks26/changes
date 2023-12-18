@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import "./Item.css";
 const Item = () => {
   const [imgColor, setImgColor] = useState("red");
-    const [widthstate,setwidthstate]=useState(0);
-    const [heightstate,setheightstate]=useState(0);
-    const [pricestate,setpricestate]=useState(0);
-    const [coststate,setcoststate]=useState(7000);
-    const [rollstate,setrollstate]=useState(0);
-
+  const [widthstate, setwidthstate] = useState(0);
+  const [heightstate, setheightstate] = useState(0);
+  const [pricestate, setpricestate] = useState(0);
+  const [coststate, setcoststate] = useState(7000);
+  const [rollstate, setrollstate] = useState(0);
+  const [dropdownOpen1, setDropdownOpen1] = useState(false);
+  const [dropdownOpen2, setDropdownOpen2] = useState(false);
+  const [dropdownOpen3, setDropdownOpen3] = useState(false);
   const imgSets = {
     red: [
       "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/36a7d256-5bf5-4eb8-a73a-26c483bd7329/superfly-9-elite-mercurial-dream-speed-fg-high-top-football-boot-1SKm9k.png",
@@ -51,27 +55,35 @@ const Item = () => {
     setpricestate(calculatedPrice.toFixed(2));
     setrollstate(area.toFixed(2));
   };
+  const dropdownHeadings = [
+    "Dropdown Text 1",
+    "Dropdown Text 2",
+    "Dropdown Text 3",
+  ];
+  const dropdownTexts = [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  ];
   useEffect(() => {
     priceCal();
   }, [widthstate, heightstate, coststate]);
   const changeColor = (color) => {
     setImgColor(color);
     setSelectedImage(imgSets[color][0]);
-    priceCal()
-    if (color==="red") {
-        setcoststate(7000)
-      }
-      else if(color==="blue") {
-        setcoststate(8000)
-      }
-      else{
-        setcoststate(3000)
-      }
+    priceCal();
+    if (color === "red") {
+      setcoststate(7000);
+    } else if (color === "blue") {
+      setcoststate(8000);
+    } else {
+      setcoststate(3000);
+    }
   };
 
   return (
     <>
-      <div className="main h-[100vh] w-full">
+      <div className="main h-[110vh] w-full">
         <div className="flex top-6 m-[10%] justify-evenly gap-12">
           <div className="left h-[50%] w-[70%] flex flex-row">
             <div className="prevImg h-full flex flex-col w-fit gap-[0.8rem] mx-2">
@@ -98,15 +110,15 @@ const Item = () => {
             </div>
           </div>
           <div className="right mt-3  overflow-y-auto w-1/2 h-[100vh]">
-   
             <div className="textHolders flex flex-col">
               <h1 className="text-2xl font-bold mb-2">Football Shoe</h1>
               <h3 className="mb-2 font-semibold">
                 Collection: Metropolitan Stories Travel Styles
               </h3>
-              <h3 className="mb-4 font-semibold">Pattern Number: 77siu7Cr7-{imgColor}</h3>
+              <h3 className="mb-4 font-semibold">
+                Pattern Number: 77siu7Cr7-{imgColor}
+              </h3>
 
-            
               <div className="price">
                 <h2 className="font-bold mb-1">MRP: ₹{coststate}/Shoe</h2>
                 <h5 className="">incl. Of taxes</h5>
@@ -114,27 +126,32 @@ const Item = () => {
               </div>
             </div>
 
-
             <div className="colorContainer flex flex-col items-start mt-4">
               <h1 className="mb-2 font-bold">Other Colorways</h1>
               <div className="colors flex gap-3">
                 <div
                   onClick={() => changeColor("red")}
-                  className={`color1 w-[50px] h-[50px] rounded-full ${imgColor==="red"?"border border-slate-800":''}   bg-red-500`}
+                  className={`color1 w-[50px] h-[50px] rounded-full ${
+                    imgColor === "red" ? "border border-slate-800" : ""
+                  }   bg-red-500`}
                 ></div>
                 <div
                   onClick={() => changeColor("blue")}
-                  className={`color1 w-[50px] h-[50px] rounded-full ${imgColor==="blue"?"border border-slate-800":''}  bg-blue-500`}
+                  className={`color1 w-[50px] h-[50px] rounded-full ${
+                    imgColor === "blue" ? "border border-slate-800" : ""
+                  }  bg-blue-500`}
                 ></div>
                 <div
                   onClick={() => changeColor("green")}
-                  className={`color1 w-[50px] h-[50px] rounded-full  ${imgColor==="green"?"border border-slate-800":''} bg-green-500`}
+                  className={`color1 w-[50px] h-[50px] rounded-full  ${
+                    imgColor === "green" ? "border border-slate-800" : ""
+                  } bg-green-500`}
                 ></div>
               </div>
             </div>
 
             <div className="calculation-container mt-2 ">
-              <h1 className="text-xl mb-4 font-bold">
+              <h1 className="text-xl my-6 font-bold">
                 Calculate Your Requirements
               </h1>
               <div className="calc flex flex-col">
@@ -148,11 +165,11 @@ const Item = () => {
                   >
                     <h3 className="mb-2 font-semibold">Height (Meters)</h3>
                     <input
-                   onChange={(e) => {
-                    setheightstate(e.target.value);
-                    priceCal();
-                  }}
-                    value={heightstate}
+                      onChange={(e) => {
+                        setheightstate(e.target.value);
+                        priceCal();
+                      }}
+                      value={heightstate}
                       type="text"
                       className="input-field focus:outline-none w-full h-full active:border-none"
                     />
@@ -165,11 +182,11 @@ const Item = () => {
                   >
                     <h3 className="mb-2 font-semibold">Width (Meters)</h3>
                     <input
-                    onChange={(e)=>{
+                      onChange={(e) => {
                         setwidthstate(e.target.value);
                         priceCal();
-                    }}
-                    value={widthstate}
+                      }}
+                      value={widthstate}
                       type="text"
                       className="input-field focus:outline-none w-full h-full active:border-none"
                     />
@@ -183,7 +200,9 @@ const Item = () => {
                   }}
                 >
                   <h3 className="mb-2 font-semibold">Price</h3>
-                  <h2>{pricestate} ({rollstate} Rolls Requires)</h2>
+                  <h2>
+                    {pricestate} ({rollstate} Rolls Requires)
+                  </h2>
                 </div>
               </div>
             </div>
@@ -197,6 +216,75 @@ const Item = () => {
                 <button className="bg-black text-white w-full h-16 rounded-3xl hover:bg-gray-900 transition duration-300">
                   Contact
                 </button>
+              </div>
+            </div>
+            <div className="textdropdown1 mt-3">
+              {/* Dropdown 1 */}
+              <div className="dropdown  border-t-2  border-slate-300">
+                <div
+                  onClick={() => setDropdownOpen1(!dropdownOpen1)}
+                  className="dropdown-header flex items-center cursor-pointer"
+                >
+                  <div className="dropdown-header gap-[13rem] flex items-center cursor-pointer">
+                    <h1 className="text-xl my-6 font-bold">
+                      {dropdownHeadings[0]}
+                    </h1>
+                    <FontAwesomeIcon
+                      icon={dropdownOpen1 ? faChevronUp : faChevronDown}
+                    />
+                  </div>
+                </div>
+                {dropdownOpen1 && (
+                  <div className="dropdown-content">
+                    <p>{dropdownTexts[0]}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="textdropdown2">
+              {/* Dropdown 2 */}
+              <div className="dropdown  border-t-2  border-slate-300">
+                <div
+                  onClick={() => setDropdownOpen2(!dropdownOpen2)}
+                  className="dropdown-header flex items-center cursor-pointer"
+                >
+                  <div className="dropdown-header gap-[13rem] flex items-center cursor-pointer">
+                    <h1 className="text-xl my-6 font-bold">
+                      {dropdownHeadings[1]}
+                    </h1>
+                    <FontAwesomeIcon
+                      icon={dropdownOpen2 ? faChevronUp : faChevronDown}
+                    />
+                  </div>
+                </div>
+                {dropdownOpen2 && (
+                  <div className="dropdown-content">
+                    <p>{dropdownTexts[1]}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="textdropdown3">
+              {/* Dropdown 3 */}
+              <div className="dropdown  border-t-2 border-b-2 border-slate-300">
+                <div
+                  onClick={() => setDropdownOpen3(!dropdownOpen3)}
+                  className="dropdown-header flex items-center cursor-pointer"
+                >
+                  <div className="dropdown-header gap-[13rem] flex items-center cursor-pointer">
+                    <h1 className="text-xl my-6 font-bold">
+                      {dropdownHeadings[2]}
+                    </h1>
+                    <FontAwesomeIcon
+                      icon={dropdownOpen3 ? faChevronUp : faChevronDown}
+                    />
+                  </div>
+                </div>
+                {dropdownOpen3 && (
+                  <div className="dropdown-content">
+                    <p>{dropdownTexts[2]}</p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
