@@ -25,7 +25,7 @@ export default function BasicMenu() {
         onClick={handleClick}
         className="icon_container"
       >
-        <img src={manue} alt="" className="seachbar-div2-icon" />
+        <img src={manue} alt="" className="header-div-icon" />
       </div>
       <Menu
         id="basic-menu"

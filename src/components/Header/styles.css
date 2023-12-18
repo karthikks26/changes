@@ -134,6 +134,15 @@
     margin-right: 10px;
 }
 
+.header-div-icon {
+    height: 25px;
+}
+
+.header-div-sStore-icon {
+    height: 25px;
+    margin-left: 10px;
+}
+
 .cart-notification {
     position: static;
     width: 20px;
