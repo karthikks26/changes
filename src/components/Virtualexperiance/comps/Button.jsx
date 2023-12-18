@@ -4,24 +4,20 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { CiCirclePlus } from "react-icons/ci";
 import { GoCircle } from "react-icons/go";
 import { TiTick } from "react-icons/ti";
-const Button = ({ isSelected, onSelect }) => {
-  // Use state to track whether the tick is visible
-  const [showTick, setShowTick] = useState(false);
+const Button = () => {
+  // // Use state to track whether the tick is visible
+  // const [showTick, setShowTick] = useState(false);
 
-  const handleClick = () => {
-    // Toggle the showTick state based on the current selection
-    setShowTick(!showTick);
-    // Call the onSelect function to update the selected state
-    onSelect();
-  };
+  // const handleClick = () => {
+  //   // Toggle the showTick state based on the current selection
+  //   setShowTick(!showTick);
+  //   // Call the onSelect function to update the selected state
+  //   onSelect();
+  // };
   return (
     <div>
-      <button
-        onClick={handleClick}
-        className="absolute top-5 text-center right-5 bg-white border-none rounded-[50%] z-100 "
-      >
-        {showTick && <TiTick size={25} color="#2F4F4F" />}
-        {!showTick && <GoCircle size={30} color="white" />}
+      <button className="absolute top-0 text-center right-0 border-none rounded-[50%] z-100 ">
+        <CiCirclePlus size={30}/>
       </button>
     </div>
   );
