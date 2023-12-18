@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import backarrow from "../../assets/icon/backarrow.svg"
 import rightarrow from "../../assets/icon/backarrowRevarce.svg"
 import filter from "../../assets/icon/filter.svg"
+import choserightfloor from "../../assets/icon/choserightfloor.svg"
 import Collections from '../../Dropitems/Collections'
 import Styles from '../../Dropitems/Styles'
 import Colours from '../../Dropitems/Colours'
@@ -99,7 +100,7 @@ function Filter() {
           <img src={filter} alt="" className="seachbar-div2-icon" />
             Filters</div>
           <Link to="/magazine">
-            <div className="at">Find the Right Floor</div>
+            <div className="at"> <img src={choserightfloor} alt="" className="seachbar-div2-icon" /> Find the Right Floor</div>
           </Link>
         </div>
       </div>
