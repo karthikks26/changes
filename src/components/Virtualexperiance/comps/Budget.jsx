@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../../Header";
 import { TiTick } from "react-icons/ti";
 import Sidebar from "./sidebar";
+import { FaCircle } from "react-icons/fa";
 const Budget = () => {
   const navigate = useNavigate();
   const prevHandler = () => {
@@ -11,33 +12,96 @@ const Budget = () => {
   const nextHandler = () => {
     navigate("/virtualexperience/content1");
   };
-  const [showTick1, setShowTick1] = useState(false);
-  const [showTick2, setShowTick2] = useState(false);
-  const [showTick3, setShowTick3] = useState(false);
-  const [showTick4, setShowTick4] = useState(false);
+  const [selectedPage, setSelectedPage] = useState("budget");
+
+  const handleSelectPage = (page) => {
+    setSelectedPage(page);
+  };
+  const [selectedActivity, setSelectedActivity] = useState({});
+  // const [showCircle, setShowCircle] = useState(false);
+  const [showbuttoncontent, setShowbuttoncontent] = useState(false);
+
+  // const handleSelect = () => {
+  //   setShowCircle(!showCircle);
+  // };
+
+  // const handleClick = (index) => {
+  //   setSelectedActivity((prevSelectedRooms) => {
+  //     const updatedSelectedRooms = {
+  //       ...prevSelectedRooms,
+  //       [index]: !prevSelectedRooms[index],
+  //     };
+  //     return updatedSelectedRooms;
+  //   });
+  //   // setShowCircle(!showCircle);
+  //   setShowbuttoncontent(true);
+  // };
+
+  const handleClick = (index) => {
+    setSelectedActivity((prevSelectedActivities) => {
+      const updatedSelectedActivities = { ...prevSelectedActivities };
+      updatedSelectedActivities[index] = !prevSelectedActivities[index];
+      return updatedSelectedActivities;
+    });
+  };
+  // const [showTick1, setShowTick1] = useState(false);
+  // const [showTick2, setShowTick2] = useState(false);
+  // const [showTick3, setShowTick3] = useState(false);
+  // const [showTick4, setShowTick4] = useState(false);
 
   return (
     <div className="pt-4 pb-28 flex flex-col  w-full h-full justify-center  bg-[#f4e3dd]">
       <Header />
-      <Sidebar />
+      <Sidebar selectedPage={selectedPage} onSelectPage={handleSelectPage} />
       <div className="grid grid-cols-2 gap-y-4 place-items-center md:grid-cols-2 lg:grid-cols-4 mb-10">
         {[
-          { label: "$", showTick: showTick1, setShowTick: setShowTick1 },
-          { label: "$$", showTick: showTick2, setShowTick: setShowTick2 },
-          { label: "$$$", showTick: showTick3, setShowTick: setShowTick3 },
-          { label: "$$$$", showTick: showTick4, setShowTick: setShowTick4 },
-        ].map(({ label, showTick, setShowTick }) => (
+          { label: "$", index: "first" },
+          { label: "$$", index: "second" },
+          { label: "$$$", index: "third" },
+          { label: "$$$$", index: "fourth" },
+        ].map(({ label, index }) => (
           <div
-            key={label}
-            className="flex flex-col min-h-[12rem] w-[5rem] justify-between items-center bg-white mx-6 px-5 py-5 rounded-t-full rounded-b-full"
+            onClick={() => {
+              handleClick(index);
+              // handleSelect();
+            }}
+            key={index}
+            className={` relative flex flex-col min-h-[12rem] w-[5rem] justify-between items-center bg-white mx-6 p-5 rounded-t-full rounded-b-full
+            ${selectedActivity[index] ? " border-2 border-red-500" : ""}
+            `}
           >
+            {selectedActivity[index] && (
+              <div className="overlay rounded-full absolute top-0 left-0 w-full h-full opacity-50 bg-black"></div>
+            )}
+            {selectedActivity[label.id] && (
+              <div className="overlay rounded-t-full rounded-b-full absolute top-0 left-0 w-full h-full opacity-50 bg-black"></div>
+            )}
+
             <p className="text-lg">{label}</p>
-            <div
+            {/* <div
               className="relative w-4 h-4 border border-solid border-gray-500 rounded-full flex items-center justify-center"
               onClick={() => setShowTick(!showTick)}
             >
               {showTick && <TiTick size={25} color="#2F4F4F" className="" />}
-            </div>
+            </div> */}
+
+            {selectedActivity[index] && (
+              <div
+                className="room-item absolute bottom-4  z-10  flex items-center opacity-50 justify-center"
+                // style={{ zIndex: 10 }}
+              >
+                <div className="circle-container relative flex justify-center items-center">
+                  <FaCircle size={30} color="black" className="opacity-100" />
+
+                  <TiTick
+                    className="opacity-100 absolute"
+                    color="white"
+                    size={30}
+                    style={{ opacity: 100 }}
+                  />
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>

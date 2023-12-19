@@ -1,115 +1,97 @@
-import React from "react";
-
-import image1 from "../../../assets/last3/i (1).webp";
-import image2 from "../../../assets/last3/i (2).webp";
-import image3 from "../../../assets/last3/i (3).webp";
-import image4 from "../../../assets/last3/i (4).webp";
-import image6 from "../../../assets/last3/i (7).webp";
-import image11 from "../../../assets/last3/i (8).webp";
+import React, { useState } from "react";
+import { colorTiles } from "./data";
 import { useNavigate } from "react-router-dom";
 import Header from "../../Header";
 import Sidebar from "./sidebar";
+import { TiTick } from "react-icons/ti";
+import { FaCircle } from "react-icons/fa";
 const Content2 = () => {
   let navigate = useNavigate();
   const prevHandler = () => {
-    navigate("/virtualexperience/budget");
+    navigate("/virtualexperience/content1");
   };
   const nextHandler = () => {
     navigate("/virtualexperience/content3");
   };
+  const [selectedActivity, setSelectedActivity] = useState({});
+  const [showCircle, setShowCircle] = useState(false);
+  const [showbuttoncontent, setShowbuttoncontent] = useState(false);
+
+  const handleSelect = () => {
+    setShowCircle(!showCircle);
+  };
+  const handleClick = (roomId) => {
+    setSelectedActivity((prevSelectedRooms) => {
+      const updatedSelectedRooms = {
+        ...prevSelectedRooms,
+        [roomId]: !prevSelectedRooms[roomId],
+      };
+      return updatedSelectedRooms;
+    });
+    setShowCircle(!showCircle);
+    setShowbuttoncontent(!showbuttoncontent);
+  };
+
+  const [selectedPage, setSelectedPage] = useState("content5");
+
+  const handleSelectPage = (page) => {
+    setSelectedPage(page);
+  };
+  const [selected, setSelected] = useState(null);
+  const handleImageClick = (image) => {
+    setSelected(image === selected ? null : image);
+  };
   return (
     <div className="py-4 w-full h-full pb-4 bg-[#f4e3dd] text-sm">
       <Header />
-      <Sidebar />
+      <Sidebar selectedPage={selectedPage} onSelectPage={handleSelectPage} />
 
-      <div className="tiles flex justify-center items-center flex-col gap-10 ">
-        <div className="row-1 flex flex-row gap-20">
-          <div>
-            <img className="w-12 h-12" src={image1} alt="" />
-            <p>Off white</p>
-          </div>
+      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-x-20 gap-y-10  m-4 items-center justify-center ">
+        {colorTiles.map((item) => (
+          <div
+            key={item.title}
+            className="relative  overflow-hidden flex items-center justify-center flex-col"
+          >
+            {selectedActivity[item.title] && (
+              <div className="overlay rounded-2xl absolute top-0 left-0 w-full h-full opacity-50 bg-black"></div>
+            )}
+            <img
+              src={item.img}
+              alt={item.title}
+              onClick={() => {
+                handleClick(item.title);
+                handleSelect();
+              }}
+              className={`flex items-center justify-center rounded-full  relative p-1  w-12 h-12 
+              
+                    ${
+                      selectedActivity[item.title]
+                        ? " border-2 border-red-500"
+                        : ""
+                    }
+              `}
+            />
+            <p>{item.title}</p>
 
-          <div>
-            <img className="w-12 h-12" src={image2} alt="" />
-            <p>Natural</p>
-          </div>
-          <div>
-            <img className="w-12 h-12" src={image3} alt="" />
-            <p>Taupe</p>
-          </div>
-          <div>
-            <img className="w-12 h-12" src={image4} alt="" />
-            <p>
-              Medium <br /> Brown
-            </p>
-          </div>
-          <div>
-            <img className="w-12 h-12" src={image6} alt="" />
-            <p>Grey</p>
-          </div>
-          <div>
-            <img className="w-12 h-12" src={image11} alt="" />
-            <p>Smoke</p>
-          </div>
-        </div>
-        <div className="row-1 flex flex-row gap-20">
-          <div>
-            <img className="w-12 h-12" src={image1} alt="" />
-            <p>Off white</p>
-          </div>
+            {selectedActivity[item.title] && (
+              <div
+                className="room-item absolute top-2 right-12 z-10  flex items-center opacity-50 justify-center"
+                // style={{ zIndex: 10 }}
+              >
+                <div className="circle-container relative flex justify-center items-center">
+                  <FaCircle size={20} color="black" className="opacity-100" />
 
-          <div>
-            <img className="w-12 h-12" src={image2} alt="" />
-            <p>Natural</p>
+                  <TiTick
+                    className="opacity-100 absolute"
+                    color="white"
+                    size={20}
+                    style={{ opacity: 100 }}
+                  />
+                </div>
+              </div>
+            )}
           </div>
-          <div>
-            <img className="w-12 h-12" src={image3} alt="" />
-            <p>Taupe</p>
-          </div>
-          <div>
-            <img className="w-12 h-12" src={image4} alt="" />
-            <p>
-              Medium <br /> Brown
-            </p>
-          </div>
-          <div>
-            <img className="w-12 h-12" src={image6} alt="" />
-            <p>Grey</p>
-          </div>
-          <div>
-            <img className="w-12 h-12" src={image11} alt="" />
-            <p>Smoke</p>
-          </div>
-        </div>
-        <div className="row-1 flex flex-row gap-20">
-          <div>
-            <img className="w-12 h-12" src={image1} alt="" />
-            <p>Off white</p>
-          </div>
-
-          <div>
-            <img className="w-12 h-12" src={image2} alt="" />
-            <p>Natural</p>
-          </div>
-          <div>
-            <img className="w-12 h-12" src={image3} alt="" />
-            <p>Taupe</p>
-          </div>
-          <div>
-            <img className="w-12 h-12" src={image4} alt="" />
-            <p>
-              Medium <br /> Brown
-            </p>
-          </div>
-          <div>
-            <img className="w-12 h-12" src={image6} alt="" />
-            <p>Grey</p>
-          </div>
-          <div>
-            <img className="w-12 h-12" src={image11} alt="" />
-            <p>Smoke</p>
-          </div>
-        </div>
+        ))}
       </div>
 
       <div className="flex flex-col md:flex-row justify-between gap-5 px-10 mt-10">

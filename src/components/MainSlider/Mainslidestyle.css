@@ -28,6 +28,7 @@
 .arrow-left {
   position: absolute;
   top: 50%;
+  left: 10px;
   transform: translateY(-50%);
   display: flex;
   align-items: center;
@@ -66,4 +67,33 @@
 
 .slider-cont::-webkit-scrollbar {
   display: none;
+}
+
+.circle{
+  position: absolute;
+}
+
+.hover-box {
+  position: absolute;
+  top: 15px; /* Adjust the position as needed */
+  left: -5px;
+  /* transform: translateX(-50%); */
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: none; /* Initially hide the box */
+}
+
+.circle:hover .hover-box {
+  display: flex; /* Show the box on hover */
+  flex-direction: row;
+  gap: 10px;
+}
+
+.top-condition {
+  top: -100px;
+}
+
+.left-condition {
+  left: -100px;
 }

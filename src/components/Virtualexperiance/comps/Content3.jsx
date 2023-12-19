@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { CiCirclePlus } from "react-icons/ci";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Header from "../../Header";
 import Sidebar from "./sidebar";
+import { TiTick } from "react-icons/ti";
+import { FaCircle } from "react-icons/fa";
 const Content3 = () => {
   let navigate = useNavigate();
   const prevHandler = () => {
@@ -13,40 +15,138 @@ const Content3 = () => {
   const donehandler = () => {
     navigate("/home");
   };
+
+  const [selectedPage, setSelectedPage] = useState("content6");
+
+  const handleSelectPage = (page) => {
+    setSelectedPage(page);
+  };
+
+  const [selectedActivity, setSelectedActivity] = useState({});
+
+  const handleClick = (index) => {
+    setSelectedActivity((prevSelectedActivities) => {
+      const updatedSelectedActivities = { ...prevSelectedActivities };
+      updatedSelectedActivities[index] = !prevSelectedActivities[index];
+      return updatedSelectedActivities;
+    });
+  };
+
   return (
     <div className=" py-4 w-full h-full bg-[#f4e3dd]  text-sm">
       <Header />
-      <Sidebar />
-      <div className="container flex flex-row items-center gap-10 justify-center">
-        <div className="w-1/5 h-40 my-20 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col">
+      <Sidebar selectedPage={selectedPage} onSelectPage={handleSelectPage} />
+      <div className="relative container flex flex-row items-center gap-10 justify-center">
+        <div
+          onClick={() => handleClick(0)}
+          className={`w-1/5 h-40 my-20 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col
+selectedActivity(index) ? "" :""}
+         
+         `}
+        >
+          {selectedActivity[0] && (
+            <div className="overlay  absolute top-0 left-0 w-full h-full opacity-50 bg-black"></div>
+          )}
           <div className="w-6 h-20 bg-orange-400 "></div>
           <div className="flex items-center gap-2">
             <FaLongArrowAltLeft />
             3" -4" <FaLongArrowAltRight />
           </div>
           <p className="absolute -bottom-5 left-0">3"-4" Widths</p>
-          <CiCirclePlus className="w-7 h-7 absolute -top-4 -right-6" />
-        </div>
+          {selectedActivity[0] && (
+            <div
+              className="room-item absolute bottom-4  z-10  flex items-center opacity-50 justify-center"
+              // style={{ zIndex: 10 }}
+            >
+              <div className="circle-container relative flex justify-center items-center">
+                <FaCircle size={30} color="black" className="opacity-100" />
 
-        <div className="w-1/5 h-40 my-20 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col">
+                <TiTick
+                  className="opacity-100 absolute"
+                  color="white"
+                  size={30}
+                  style={{ opacity: 100 }}
+                />
+              </div>
+            </div>
+          )}
+        </div>
+        {/* 2 */}
+        <div
+          onClick={() => handleClick(1)}
+          className="w-1/5 h-40 my-20 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col"
+        >
+          {selectedActivity[1] && (
+            <div className="overlay  absolute top-0 left-0 w-full h-full opacity-50 bg-black"></div>
+          )}
           <div className="w-8 h-20 bg-orange-400"></div>
           <div className="flex items-center gap-2">
             <FaLongArrowAltLeft />
             5"- 6" <FaLongArrowAltRight />
           </div>
           <p className="absolute -bottom-5 left-0">5"-6" Widths</p>
-          <CiCirclePlus className="w-7 h-7 absolute -top-4 -right-6" />
+          {/* <CiCirclePlus className="w-7 h-7 absolute -top-4 -right-6" /> */}
+          {selectedActivity[1] && (
+            <div
+              className="room-item absolute bottom-4  z-10  flex items-center opacity-50 justify-center"
+              // style={{ zIndex: 10 }}
+            >
+              <div className="circle-container relative flex justify-center items-center">
+                <FaCircle size={30} color="black" className="opacity-100" />
+
+                <TiTick
+                  className="opacity-100 absolute"
+                  color="white"
+                  size={30}
+                  style={{ opacity: 100 }}
+                />
+              </div>
+            </div>
+          )}
         </div>
-        <div className="w-1/5 h-40 my-20 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col">
+
+        {/* 3 */}
+        <div
+          onClick={() => handleClick(2)}
+          className="w-1/5 h-40 my-20 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col"
+        >
+          {selectedActivity[2] && (
+            <div className="overlay  absolute top-0 left-0 w-full h-full opacity-50 bg-black"></div>
+          )}
           <div className="w-10 h-20 bg-orange-400"></div>
           <div className="flex items-center gap-2">
             <FaLongArrowAltLeft />
             7"- 9" <FaLongArrowAltRight />
           </div>
           <p className="absolute -bottom-5 left-0">7"-9" Widths</p>
-          <CiCirclePlus className="w-7 h-7 absolute -top-4 -right-6" />
+          {/* <CiCirclePlus className="w-7 h-7 absolute -top-4 -right-6" /> */}
+
+          {selectedActivity[2] && (
+            <div
+              className="room-item absolute bottom-4  z-10  flex items-center opacity-50 justify-center"
+              // style={{ zIndex: 10 }}
+            >
+              <div className="circle-container relative flex justify-center items-center">
+                <FaCircle size={30} color="black" className="opacity-100" />
+
+                <TiTick
+                  className="opacity-100 absolute"
+                  color="white"
+                  size={30}
+                  style={{ opacity: 100 }}
+                />
+              </div>
+            </div>
+          )}
         </div>
-        <div className="w-1/5 h-40 my-20 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col">
+        {/* 4 */}
+        <div
+          onClick={() => handleClick(3)}
+          className="w-1/5 h-40 my-20 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col"
+        >
+          {selectedActivity[3] && (
+            <div className="overlay  absolute top-0 left-0 w-full h-full opacity-50 bg-black"></div>
+          )}
           <div className="flex flex-row items-center gap-1">
             <div className="w-8 h-20 bg-orange-400"></div>
             <div className="w-6 h-20 bg-orange-400"></div>
@@ -57,7 +157,25 @@ const Content3 = () => {
             Multiple Widths <FaLongArrowAltRight />
           </div>
           <p className="absolute -bottom-5 left-0">Multiple Widths</p>
-          <CiCirclePlus className="w-7 h-7 absolute -top-4 -right-6" />
+          {/* <CiCirclePlus className="w-7 h-7 absolute -top-4 -right-6" /> */}
+
+          {selectedActivity[3] && (
+            <div
+              className="room-item absolute bottom-4  z-10  flex items-center opacity-50 justify-center"
+              // style={{ zIndex: 10 }}
+            >
+              <div className="circle-container relative flex justify-center items-center">
+                <FaCircle size={30} color="black" className="opacity-100" />
+
+                <TiTick
+                  className="opacity-100 absolute"
+                  color="white"
+                  size={30}
+                  style={{ opacity: 100 }}
+                />
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <div className="flex flex-col md:flex-row justify-between gap-5 px-10 mt-10">
