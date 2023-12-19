@@ -62,10 +62,11 @@ const HomePage = () => {
         {/* <Header /> */}
         {/* <MobileSearchBar /> */}
         
-          <Header />
           {isFilterVisible && <>
+          <Header />
           <MobileSearchBar />
-          <Filter /></>}
+         </>}
+         <Filter />
         <Cards />
         <div>
           <button

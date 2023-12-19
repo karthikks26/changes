@@ -12,6 +12,18 @@ const Item = () => {
   const [dropdownOpen1, setDropdownOpen1] = useState(false);
   const [dropdownOpen2, setDropdownOpen2] = useState(false);
   const [dropdownOpen3, setDropdownOpen3] = useState(false);
+  const [fixer, setfixer] = useState(false);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", () => {
+  //     if (window.scrollY > 100 && window.scrollY < 500) {
+  //       setfixer(true);
+  //     } else {
+  //       setfixer(false);
+  //     }
+  //   });
+  // }, []);
+
+
   const imgSets = {
     red: [
       "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/36a7d256-5bf5-4eb8-a73a-26c483bd7329/superfly-9-elite-mercurial-dream-speed-fg-high-top-football-boot-1SKm9k.png",
@@ -73,11 +85,11 @@ const Item = () => {
     setSelectedImage(imgSets[color][0]);
     priceCal();
     if (color === "red") {
-      setcoststate(7000);
+      setcoststate(17000);
     } else if (color === "blue") {
-      setcoststate(8000);
+      setcoststate(18000);
     } else {
-      setcoststate(3000);
+      setcoststate(13000);
     }
   };
 
@@ -85,7 +97,7 @@ const Item = () => {
     <>
       <div className="main h-[110vh] w-full">
         <div className="flex top-6 m-[10%] justify-evenly gap-12">
-          <div className="left h-[50%] w-[70%] flex flex-row">
+          <div className={`left ${fixer?'fixed':''}  h-[50%] w-[70%] flex flex-row`}>
             <div className="prevImg h-full flex flex-col w-fit gap-[0.8rem] mx-2">
               {imgSets[imgColor].map((image, i) => (
                 <div
@@ -109,7 +121,7 @@ const Item = () => {
               />
             </div>
           </div>
-          <div className="right mt-3  overflow-y-auto w-1/2 h-[100vh]">
+          <div className="right mt-3 h-[100vh] overflow-y-auto   w-1/2">
             <div className="textHolders flex flex-col">
               <h1 className="text-2xl font-bold mb-2">Football Shoe</h1>
               <h3 className="mb-2 font-semibold">

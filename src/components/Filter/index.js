@@ -39,7 +39,7 @@ function Filter() {
 
   return (
     <header
-      className={`fixed top-16 w-full  filter-array transition-all ease-in-out duration-300  z-[20] ${
+      className={`absolute top-16 w-full  filter-array transition-all ease-in-out duration-300  z-[20] ${
         isScrolled ? "bg-white" : "bg-white"
       } `}
     >
