@@ -3,9 +3,9 @@ import React from "react";
 
 const Cart = () => {
   return (
-    <div className="main flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="cartContainer flex w-4/5 h-4/5 bg-white rounded-md shadow-lg p-8">
-     
+    <div className="main flex justify-center items-center min-h-screen">
+      <div className="cartContainer flex w-4/5 h-4/5 bg-white">
+
         <div className="left flex-col flex w-2/3 pr-8">
           <h1 className="text-4xl mb-6 font-semibold">Bag</h1>
           <div className="bagContainer">
@@ -28,16 +28,16 @@ const Cart = () => {
                   </div>
                   <div className="icons flex items-center space-x-2 mt-4">
                     <Delete className="hover:text-slate-500 cursor-pointer" />
-                    <HeartBroken  className="text-red-700 hover:text-red-500 cursor-pointer"  />
+                    <HeartBroken className="text-red-700 hover:text-red-500 cursor-pointer" />
                   </div>
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
 
-       
+
         <div className="right flex flex-col w-1/3">
           <h1 className="text-4xl font-semibold mb-6">Order Summary</h1>
           <div className="subtotal flex justify-between items-center mb-4">
@@ -54,12 +54,12 @@ const Cart = () => {
             <div className="text-xl font-semibold">₹31,491,699</div>
           </div>
           <div className="guestCheckout">
-            <button className="bg-black text-white w-full h-16 rounded-xl hover:bg-gray-900 transition duration-300">
+            <button className="bg-black text-white w-full h-14 rounded-full	 hover:bg-gray-900 transition duration-300">
               Guest Checkout
             </button>
           </div>
           <div className="memberCheckout mt-4">
-            <button className="bg-black text-white w-full h-16 rounded-xl hover:bg-gray-900 transition duration-300">
+            <button className="bg-black text-white w-full h-14 rounded-full	 hover:bg-gray-900 transition duration-300">
               Member Checkout
             </button>
           </div>

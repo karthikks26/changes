@@ -61,11 +61,12 @@ const HomePage = () => {
         {popUp === 'true' ? null : <PopUp />}
         {/* <Header /> */}
         {/* <MobileSearchBar /> */}
-
-        <Header />
-        {isFilterVisible && <>
+        
+          {isFilterVisible && <>
+          <Header />
           <MobileSearchBar />
-          <Filter /></>}
+         </>}
+         <Filter />
         <Cards />
         <div>
           <button
