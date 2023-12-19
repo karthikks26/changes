@@ -4,23 +4,21 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Header from "../../Header";
+import Sidebar from "./sidebar";
 const Content3 = () => {
-  let navigate = useNavigate()
-  const prevHandler = ()=>{
-    navigate('/virtualexperience/content2')
-  }
-  const donehandler=()=>{
-    navigate('/home')
-  }
+  let navigate = useNavigate();
+  const prevHandler = () => {
+    navigate("/virtualexperience/content2");
+  };
+  const donehandler = () => {
+    navigate("/home");
+  };
   return (
-    <div className="w-full h-[100vh] bg-orange-50 absolute top-0 right-0 text-sm">
-      <Header/>
-      <div className="heading flex items-center justify-between mt-20 mx-16">
-    <h1 className="font-bold text-xl text-rose-900" >Which Width of Wood Flooring <br />Would You Prefer</h1>
-    <p className="text-bold text-xl">6 of 6</p>
-      </div>
+    <div className=" py-4 w-full h-full bg-[#f4e3dd]  text-sm">
+      <Header />
+      <Sidebar />
       <div className="container flex flex-row items-center gap-10 justify-center">
-        <div className="w-1/5 h-40 mt-52 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col">
+        <div className="w-1/5 h-40 my-20 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col">
           <div className="w-6 h-20 bg-orange-400 "></div>
           <div className="flex items-center gap-2">
             <FaLongArrowAltLeft />
@@ -30,7 +28,7 @@ const Content3 = () => {
           <CiCirclePlus className="w-7 h-7 absolute -top-4 -right-6" />
         </div>
 
-        <div className="w-1/5 h-40 mt-52 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col">
+        <div className="w-1/5 h-40 my-20 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col">
           <div className="w-8 h-20 bg-orange-400"></div>
           <div className="flex items-center gap-2">
             <FaLongArrowAltLeft />
@@ -39,7 +37,7 @@ const Content3 = () => {
           <p className="absolute -bottom-5 left-0">5"-6" Widths</p>
           <CiCirclePlus className="w-7 h-7 absolute -top-4 -right-6" />
         </div>
-        <div className="w-1/5 h-40 mt-52 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col">
+        <div className="w-1/5 h-40 my-20 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col">
           <div className="w-10 h-20 bg-orange-400"></div>
           <div className="flex items-center gap-2">
             <FaLongArrowAltLeft />
@@ -48,7 +46,7 @@ const Content3 = () => {
           <p className="absolute -bottom-5 left-0">7"-9" Widths</p>
           <CiCirclePlus className="w-7 h-7 absolute -top-4 -right-6" />
         </div>
-        <div className="w-1/5 h-40 mt-52 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col">
+        <div className="w-1/5 h-40 my-20 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col">
           <div className="flex flex-row items-center gap-1">
             <div className="w-8 h-20 bg-orange-400"></div>
             <div className="w-6 h-20 bg-orange-400"></div>
@@ -62,20 +60,30 @@ const Content3 = () => {
           <CiCirclePlus className="w-7 h-7 absolute -top-4 -right-6" />
         </div>
       </div>
-
-      <button onClick={prevHandler} className="mt-12 w-40 absolute left-16 rounded-2xl p-1 border-solid border-2 border-slate-400">
-        Previous Question
-      </button>
-
-      <div className="mt-12   flex flex-row absolute right-16 gap-4  text-gray-400">
-        <p>
-          {" "}
-          Products available (728){" "}
-          <span className=" underline ">Skip to results</span>
-        </p>
-        <button onClick={donehandler} className=" w-40 rounded-2xl p-1 border-solid border-2 bg-slate-500 text-white border-slate-500">
-         Done
+      <div className="flex flex-col md:flex-row justify-between gap-5 px-10 mt-10">
+        <button
+          onClick={prevHandler}
+          className="rounded-2xl px-3 py-1 text-center text-black font-normal bg-white"
+        >
+          Previous Question
         </button>
+        <div className="flex flex-col md:flex-row gap-3 items-center">
+          <p>
+            Products Available (728){" "}
+            <span>
+              {" "}
+              <a href="/" className="text-underline underline">
+                Skip to results
+              </a>{" "}
+            </span>
+          </p>
+          <button
+            onClick={donehandler}
+            className="rounded-2xl px-3 py-1 text-center text-white font-normal bg-[#2F4F4F] "
+          >
+            Next Question
+          </button>
+        </div>
       </div>
     </div>
   );

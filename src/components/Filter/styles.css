@@ -23,15 +23,13 @@
     gap: 0.55rem;
     margin: 0;
     align-items: center;
-    border-bottom-style: solid;
-    border-color: rgb(255, 255, 255);
 }
 
 .after-arrow {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 5px;
     flex: 1 1;
     font-size: 14px;
 }
@@ -40,6 +38,7 @@
     border: 1px solid #dddd;
     padding: 8px 15px;
     border-radius: 20px;
+    display: flex;
 }
 
 .arrow-nav {
@@ -60,7 +59,14 @@
 }
 
 .arrow-right {
-    right: 25%;
+    right: 26%;
+}
+
+.riht-arrow-sty {
+    width: 1.6rem;
+    height: 1.8rem;
+    padding-left: 0.6rem;
+    cursor: pointer;
 }
 
 .Filter-array-element-img {
@@ -84,4 +90,17 @@
     font-weight: 600;
     border-color: rgb(0, 0, 0);
     border-width: 80%;
+}
+
+.slider_lr_container {
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255);
+    border-radius: 50%;
+    margin-top: 8px;
+    border: 1px solid #dddd;
+}
+
+.slider_lr_container:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }

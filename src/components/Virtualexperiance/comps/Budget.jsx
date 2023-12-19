@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../Header";
 import { TiTick } from "react-icons/ti";
+import Sidebar from "./sidebar";
 const Budget = () => {
   const navigate = useNavigate();
   const prevHandler = () => {
@@ -16,14 +17,9 @@ const Budget = () => {
   const [showTick4, setShowTick4] = useState(false);
 
   return (
-    <div className="flex flex-col  w-full h-[100vh] justify-center  bg-[#f4e3dd]">
+    <div className="pt-4 pb-28 flex flex-col  w-full h-full justify-center  bg-[#f4e3dd]">
       <Header />
-      <div className="heading flex items-center justify-between m-16">
-        <h1 className="font-bold text-xl text-rose-900">
-          What is Your Budget?{" "}
-        </h1>
-        <p className="text-bold text-xl">3 of 6</p>
-      </div>
+      <Sidebar />
       <div className="grid grid-cols-2 gap-y-4 place-items-center md:grid-cols-2 lg:grid-cols-4 mb-10">
         {[
           { label: "$", showTick: showTick1, setShowTick: setShowTick1 },

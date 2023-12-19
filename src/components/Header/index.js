@@ -102,7 +102,7 @@ function Header({ howMuchScrolled }) {
                 onChange={handleSearchChange}
                 value={searchText}
                 placeholder="Search"
-                className="searchTerm relative w-[13rem] h-10 bg-[#efefef] p-4 rounded-full active:border-none focus:outline-none"
+                className="searchTerm relative font-semibold placeholder-gray-400 w-[13rem] h-10 bg-[#efefef] p-4 rounded-full active:border-none focus:outline-none"
               />
               <img src={search} alt="" className="seachbar-div2-icon absolute z-10" />
             </div>

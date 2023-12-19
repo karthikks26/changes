@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faL, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { dataActivity } from "./data";
 import { useNavigate } from "react-router-dom";
 import Header from "../../Header";
 import Button from "./Button";
+import ActivityModal from "./ActivityModal";
+import { TiTick } from "react-icons/ti";
+import Sidebar from "./sidebar";
 const Activities = () => {
   const navigate = useNavigate();
   const prevHandler = () => {
@@ -13,59 +16,31 @@ const Activities = () => {
   const nextHandler = () => {
     navigate("/virtualexperience/budget");
   };
-  const [selectedRooms, setSelectedRooms] = useState([]);
 
-  const [showbuttoncontent, setShowbuttoncontent] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const [showCircle, setShowCircle] = useState(true);
+  const [selectedActivity, setSelectedActivity] = useState({});
 
-  const handleClick = () => {
-    setShowCircle(!showCircle);
-  };
-  const handleSelect = (roomId, roomPrice, roomTitle) => {
-    setSelectedRooms((prevSelectedRooms) => {
-      // if (prevSelectedRooms.length > 0 && prevSelectedRooms[0].id === 0) {
-      //   // Remove the first element if it exists
-      //   return prevSelectedRooms.slice(1);
-      // }
-
-      if (prevSelectedRooms.some((room) => room.id === roomId)) {
-        // Remove the room if it was already selected
-        return prevSelectedRooms.filter((room) => room.id !== roomId);
-      } else {
-        // Add the room to the selected rooms
-        return [
-          ...prevSelectedRooms,
-          { id: roomId, price: roomPrice, title: roomTitle },
-        ];
-      }
+  const handleClick = (roomId) => {
+    setSelectedActivity((prevSelectedRooms) => {
+      const updatedSelectedRooms = {
+        ...prevSelectedRooms,
+        [roomId]: !prevSelectedRooms[roomId],
+      };
+      return updatedSelectedRooms;
     });
-
-    setShowbuttoncontent(true);
-    setShowCircle(!showCircle);
   };
 
   return (
     <div className=" py-4 relative w-full h-full flex justify-center flex-col bg-[#f4e3dd]">
       <Header />
-      <div className="heading flex items-center justify-between m-16">
+      <Sidebar />
+      {/* <div className="heading flex items-center justify-between m-16">
         <h1 className="font-bold text-xl text-rose-900">
           What Does Your Day-to-Day
           <br />
           Activity Level Look Like
         </h1>
-        <p className="text-bold text-xl">2 of 6</p>
-      </div>
-
-      <button
-        className="choose bg-red-400 rounded-md w-20 relative top-0 left-10 h-10"
-        onClick={() => {
-          handleSelect();
-          handleClick();
-        }}
-      >
-        Select
-      </button>
+        {/* <p className="text-bold text-xl">2 of 6</p> 
+       </div> */}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-1  my-0 mx-0 ">
         {dataActivity.map((item) => (
@@ -76,28 +51,29 @@ const Activities = () => {
             <img
               src={item.img}
               alt={item.title}
-              className="object-cover w-full h-full block p-6"
+              onClick={() => handleClick(item.id)}
+              className={`object-cover w-full h-full block p-6
+              ${selectedActivity[item.id] ? " border border-red-500" : ""}
+              `}
             />
             <h3 className="bg-white p-1 rounded-sm absolute right-6 bottom-6">
               {item.title}
             </h3>
 
-            {showbuttoncontent && (
-              <Button
-                isSelected={selectedRooms.includes(
-                  item.id,
-                  item.price,
-                  item.title
-                )}
-                onSelect={() => handleSelect(item.id, item.price, item.title)}
-              />
+            {selectedActivity[item.id] && (
+              <div
+                className="room-item absolute inset-6 z-10  flex items-center opacity-50 bg-sky-500 justify-center"
+                // style={{ zIndex: 10 }}
+              >
+                <TiTick
+                  className="opacity-100"
+                  color="red"
+                  size={300}
+                  style={{ zIndex: 11, opacity: 100 }}
+                />
+              </div>
             )}
-
-            <div className=" object-cover border border-x-22 curtain absolute bottom-6 left-0 w-full h-0 bg-red-400 transition-all duration-300 ease-in-out opacity-0 group-hover:h-1/2 group-hover:opacity-70 flex items-center justify-center">
-              <button className="bg-white px-4 py-2 rounded-md">
-                Show more
-              </button>
-            </div>
+            <Button />
           </div>
         ))}
       </div>

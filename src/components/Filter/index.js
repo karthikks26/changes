@@ -3,6 +3,10 @@ import "./styles.css";
 import { links } from "../../assets/images-links";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs';
 import { Link } from "react-router-dom";
+import backarrow from "../../assets/icon/backarrow.svg"
+import rightarrow from "../../assets/icon/backarrowRevarce.svg"
+import filter from "../../assets/icon/filter.svg"
+import choserightfloor from "../../assets/icon/choserightfloor.svg"
 import Collections from '../../Dropitems/Collections'
 import Styles from '../../Dropitems/Styles'
 import Colours from '../../Dropitems/Colours'
@@ -45,8 +49,8 @@ function Filter() {
     >
       <div className="filter">
         <div className="Filter-array" ref={scrl}>
-          <div className={`arrow-left ${scrollX === 0 ? 'hidden' : ''}`}>
-            <BsArrowLeftCircleFill className="arrow-nav" onClick={() => slide(-250)} />
+          <div className={` slider_lr_container arrow-left ${scrollX === 0 ? 'hidden' : ''}`}>
+            <img src={backarrow} alt="" className="riht-arrow-sty"  onClick={() => slide(-250)} style={{ overflowX: 'auto', scrollBehavior: 'smooth' }} />
           </div>
           {links.map((value, idx) => (
             <div
@@ -58,8 +62,14 @@ function Filter() {
               onMouseEnter={() => setActiveDropdown(idx)}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              {value
-              && (
+              {/* {value && (
+                <img
+                  src={value.imgSrc}
+                  alt="NA"
+                  className="Filter-array-element-img"
+                />
+              )} */}
+              {value && (
                 <p className="Filter-array-element-lebel">{value.label}</p>
               )}
               
@@ -87,14 +97,16 @@ function Filter() {
               )}
             </div>
           ))}
-          <div className=" arrow-right">
-            <BsArrowRightCircleFill className="arrow-nav arrow-right" onClick={() => slide(+250)} style={{ overflowX: 'auto', scrollBehavior: 'smooth' }} />
+          <div className="slider_lr_container arrow-right">
+          <img src={rightarrow} alt="" className="riht-arrow-sty arrow-right" onClick={() => slide(+250)} style={{ overflowX: 'auto', scrollBehavior: 'smooth' }} />
           </div>
         </div>
         <div className="after-arrow">
-          <div className="at">Filters</div>
+          <div className="at">
+          <img src={filter} alt="" className="seachbar-div2-icon" />
+            Filters</div>
           <Link to="/magazine">
-            <div className="at">Find the Right Floor</div>
+            <div className="at"> <img src={choserightfloor} alt="" className="seachbar-div2-icon" /> Find the Right Floor</div>
           </Link>
         </div>
       </div>
