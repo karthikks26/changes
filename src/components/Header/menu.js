@@ -28,7 +28,7 @@ export default function BasicMenu() {
       {anchorEl ? (
         <>
           <div
-            className="absolute dropdown-content z-50 h-[82vh] overflow-auto top-20 left-0 mt-10 w-full bg-white shadow-md flex flex-col
+            className="absolute dropdown-content z-50 h-[90vh] overflow-auto top-16 left-0 w-full bg-white shadow-md flex flex-col
 transition-all ease-linear duration-2000 
 "
             onClick={(event) => event.stopPropagation()} // Prevent clicks inside the dropdown from closing it
