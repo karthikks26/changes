@@ -147,7 +147,7 @@ const ItemPage = () => {
 
         <Item fixer={showFilter} />
 
-       <div className="swiper1 mt-5">
+       <div className="swiper1 mt-10">
        <Swiper {...swiperOptions} onSwiper={(swiper) => (swiperRef.current = swiper)}>
           {isLoading ? (
             <SwiperSlide>
