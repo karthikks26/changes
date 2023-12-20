@@ -9,7 +9,6 @@
   display: none;
 }
 
-
 .slider-cont {
   display: flex;
   overflow: scroll;
@@ -59,7 +58,7 @@
   margin-left: 0.3rem;
 }
 
-.slider-container>div {
+.slider-container > div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,7 +68,7 @@
   display: none;
 }
 
-.circle{
+.circle {
   position: absolute;
 }
 
@@ -85,7 +84,7 @@
 }
 
 .circle:hover .hover-box {
-  display: flex; /* Show the box on hover */
+  display: block; /* Show the box on hover */
   flex-direction: row;
   gap: 10px;
 }
@@ -96,4 +95,12 @@
 
 .left-condition {
   left: -100px;
+}
+
+.circle-container:hover .circle {
+  display: block;
+}
+
+.circle {
+  display: none;
 }

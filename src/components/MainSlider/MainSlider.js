@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./Mainslidestyle.css";
 import { list3 } from "../../assets/mainslide-list";
+import _debounce from "lodash/debounce";
 
 function MainSlider() {
   // const [fakeLoading, setFakeLoading] = useState(false);
@@ -17,6 +18,23 @@ function MainSlider() {
   //     setFakeLoading(true);
   //   },1500);
   // }, []);
+
+  // const [isHovered, setIsHovered] = useState(false);
+  // const [showCircle, setShowCircle] = useState(false);
+
+  // const debounceShowCircles = _debounce(() => {
+  //   setShowCircle(true);
+  // }, 0);
+
+  // const handleMouseEnter = () => {
+  //   setIsHovered(true);
+  //   debounceShowCircles();
+  // };
+
+  // const handleMouseLeave = () => {
+  //   setIsHovered(false);
+  //   setShowCircle(false);
+  // };
 
   const products = list3.filter(
     (prod) => prod.id === 1 || prod.id === 2 || prod.id === 3
@@ -43,6 +61,7 @@ function MainSlider() {
     }
   };
 
+
   if (products.length > 0) {
     return (
       <div className="slider-container">
@@ -53,39 +72,43 @@ function MainSlider() {
         <div className="slider-cont" ref={scrl}>
           {products.map((prod, i) => (
             <div key={i}>
-              <div className="relative items-center justify-center flex sd">
+              <div className="circle-container relative items-center justify-center flex sd">
                 <img
                   className="sd rounded-sm"
                   src={prod.imgSrc}
                   alt="Product"
+                  // onMouseEnter={handleMouseEnter}
+                  // onMouseLeave={handleMouseLeave}
                 />
-                {prod.circles.map((circle, index) => (
-                  <div
-                    key={index}
-                    className={`circle absolute w-5 h-5 bg-white border-4 border-slate-400 rounded-full
+                {/* isHovered &&
+                  showCircle && */}
+                  {prod.circles.map((circle, index) => (
+                    <div
+                      key={index}
+                      className={`circle absolute w-5 h-5 bg-white border-4 border-slate-400 rounded-full
                   
                   
                   `}
-                    style={{ top: `${circle.top}%`, left: `${circle.left}%` }}
-                  >
-                    <div
-                      className={`hover-box flex-row z-10 w-56 rounded-2xl flex items-center
-                     ${circle.top > 75 ? "top-condition" : ""} ${
-                        circle.left > 65 ? "left-condition" : ""
-                      }
-                    `}
+                      style={{ top: `${circle.top}%`, left: `${circle.left}%` }}
                     >
-                      <div className="flex flex-col">
-                        <h2 className=" font-normal">{circle.text1}</h2>
-                        <p className=" text-slate-400">{circle.text2}</p>
-                        <p className="font-semibold">₹ {circle.price}</p>
-                      </div>
-                      <div className="relative flex items-center justify-center">
-                        <BsArrowRightCircleFill className="flex items-center justify-center" />
+                      <div
+                        className={`hover-box flex-row z-10 w-56 rounded-2xl flex items-center
+                     ${circle.top > 75 ? "top-condition" : ""} ${
+                          circle.left > 65 ? "left-condition" : ""
+                        }
+                    `}
+                      >
+                        <div className="flex flex-col">
+                          <h2 className=" font-normal">{circle.text1}</h2>
+                          <p className=" text-slate-400">{circle.text2}</p>
+                          <p className="font-semibold">₹ {circle.price}</p>
+                        </div>
+                        <div className="relative flex items-center justify-center">
+                          <BsArrowRightCircleFill className="flex items-center justify-center" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
           ))}
