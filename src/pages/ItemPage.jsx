@@ -16,7 +16,7 @@ import ItemCard from '../components/Item/ItemCard';
 
 
 const ItemPage = () => {
-  const [showFilter, setShowFilter] = useState(false);
+  const [showFilter, setShowFilter] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [wallpaperProducts, setWallpaperProducts] = useState([]);
   const [popupVisible, setPopupVisible] = useState(false);
