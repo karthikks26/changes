@@ -104,11 +104,11 @@ function Filter() {
               )}
             </div>
           ))}
-          <div className="slider_lr_container arrow-right">
+          <div className="slider_lr_container arrow-right-filter">
             <img
               src={rightarrow}
               alt=""
-              className="riht-arrow-sty arrow-right"
+              className="riht-arrow-sty"
               onClick={() => slide(+250)}
               style={{ overflowX: "auto", scrollBehavior: "smooth" }}
             />
