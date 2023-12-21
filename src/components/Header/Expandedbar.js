@@ -23,7 +23,7 @@ const Expandedbar = ({ searchText, onClose, onSearch }) => {
             ref={inputRef}
               type="text"
               placeholder="Search"
-              className="search-input  border px-4 h-full w-full ml-8 bg-transparent focus:outline-none"
+              className="search-input px-4 h-full w-full ml-8 bg-transparent focus:outline-none"
               value={searchTexte}
               onChange={(e) => setSearchText(e.target.value)}
             />
