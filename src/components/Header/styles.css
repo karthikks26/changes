@@ -170,3 +170,10 @@
     box-shadow: none !important;
 
 }
+.MuiBackdrop-root.MuiBackdrop-invisible.MuiModal-backdrop.css-g3hgs1-MuiBackdrop-root-MuiModal-backdrop::-webkit-scrollbar{
+
+        width: 10px !important;
+        background-color: #333 !important;
+    
+
+}
