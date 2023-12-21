@@ -20,6 +20,8 @@ import Skeletoncard from "../Skeleton/Skeletoncard";
 import { useSelector } from "react-redux";
 import { selectRecommendedProduct } from "../../Features/recommendation/recommendationSlice";
 import Doublecard from "../Doublecard/Doublecard";
+import Multicard from "../Imagechanger/Multicard";
+
 
 function Cards() {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -486,7 +488,7 @@ const sportsAndGymProducts = filterProductsByCategory(recommendedProductsDataFro
       )
     }
 
-      
+      <Multicard/>
     </div>
   );
 }
