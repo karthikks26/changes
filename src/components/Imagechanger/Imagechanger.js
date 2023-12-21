@@ -3,7 +3,7 @@ import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 const Imagechanger = () => {
   const [index, setIndex] = useState(0);
-  const [openStates, setOpenStates] = useState([true, false, false]); // State to track open/close state
+  const [openStates, setOpenStates] = useState([false, false, false]); // State to track open/close state
 
   const text = [
     "dsadasdorem ipsum dolor sit amet, consectetur adipissit amet, consect eiusmod tempor incididunt ut labore et dolore magnasit amet, consect eiusmod tempor incididunt ut labore et dolore magnacing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,",
@@ -25,29 +25,29 @@ const Imagechanger = () => {
   };
 
   return (
-    <>
+<>
       <div className="main w-full h-full bg-gray-100 rounded-[50px] flex p-2">
-        <div className="left text-container flex flex-col items-center justify-center w-1/2 h-full  p-1">
-         <div className="text-container ">
-         <h1 className="font-bold text-3xl">Get to know your <br />health</h1>
-          <h3 className='font-bold  text-gray-500 '>Bands shown may be sold seperately and may not be <br />available in all countries</h3>
-         </div>
+        <div className="left text-container flex flex-col items-center justify-center w-1/2 h-full p-1">
+          <div className="text-container">
+            <h1 className="font-bold text-3xl">Get to know your <br />health</h1>
+            <h3 className='font-bold text-gray-500 mb-4'>Bands shown may be sold separately and may not be <br />available in all countries</h3>
+          </div>
           {Heading.map((value, idx) => (
             <div key={idx} className="mb-7">
-              {idx === 1 && <div className="line-horizontal dark-black-line h-1 w-full   bg-gray-300 " />}
-              <div onClick={() => handleToggle(idx)} className="flex  items-center justify-between">
+              {idx === 1 && <div className="line-horizontal dark-black-line h-1 w-full bg-gray-300 mb-4" />}
+              <div onClick={() => handleToggle(idx)} className="flex items-center justify-between">
                 <h1 className={`text-2xl mb-2 font-bold text-left cursor-pointer ${openStates[idx] && 'open'}`}>
                   {value}
                 </h1>
                 {openStates[idx] ? (
-                  <FaChevronUp className="text-2xl my-4 text-gray-500 text-left cursor-pointer" />
+                  <FaChevronUp className="text-2xl text-gray-500 cursor-pointer" />
                 ) : (
-                  <FaChevronDown className="text-2xl my-4 text-gray-500 text-left cursor-pointer" />
+                  <FaChevronDown className="text-2xl text-gray-500 cursor-pointer" />
                 )}
               </div>
               <div className={`w-[23rem] ${openStates[idx] ? 'open' : ''}`}>
                 <p className={`${idx + 1}text`}>{openStates[idx] ? text[idx] : ''}</p>
-                {idx === 1 && <hr className="line-horizontal dark-black-line h-1 w-full bg-gray-300" />}
+                {idx === 1 && <hr className="line-horizontal dark-black-line h-1 w-full bg-gray-300 mt-4 mb-2" />}
               </div>
             </div>
           ))}
