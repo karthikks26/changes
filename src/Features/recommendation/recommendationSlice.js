@@ -15,11 +15,18 @@ export const recommendationSlice = createSlice({
     },
     recomendationLoader:(state,action)=>{
         state.loader = action.payload;
-    }
+    },
+    fetchRecommendationRequest: (state) => {
+      state.status = 'loading';
+    },
   },
 });
 
-export const { recomendProduct,recomendationLoader } = recommendationSlice.actions;
+export const {
+  recomendProduct,
+  recomendationLoader,
+  fetchRecommendationRequest,
+} = recommendationSlice.actions;
 
 export const selectRecommendedProduct = (state) => state.recommendedProduct.recommendedProductData;
 export const selectRecommendationLoader = (state) => state.recommendedProduct.recomendationLoader;

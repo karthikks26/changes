@@ -8,15 +8,21 @@ import { useNavigate } from 'react-router-dom';
 import Splashscreen from '../components/Splashscreen/Splashscreen';
 import './HomePage.css';
 import PopUp from '../components/PopUp/PopUp';
-import { useSelector } from 'react-redux';
-import { selectRecommendationLoader } from '../Features/recommendation/recommendationSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchRecommendationRequest, selectRecommendationLoader, selectRecommendedProduct } from '../Features/recommendation/recommendationSlice';
 import { Oval } from 'react-loader-spinner';
 
 const HomePage = () => {
+  const dispatch = useDispatch();
+  const recommendedProductData = useSelector(selectRecommendedProduct);
+  const loader = useSelector(selectRecommendationLoader);
   const navigate = useNavigate();
   const [isFilterVisible, setIsFilterVisible] = useState(true);
+useEffect(() => {
+  dispatch(fetchRecommendationRequest())
+}, [dispatch])
+console.log(recommendedProductData)
 
-  const loader = useSelector(selectRecommendationLoader);
 
   useEffect(() => {
     let prevScrollPos = window.scrollY;
