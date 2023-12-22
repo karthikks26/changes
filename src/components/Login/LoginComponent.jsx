@@ -49,7 +49,65 @@ const LoginComponent = () => {
           Login with Google
         </button>
 
+        <div className='gflbutton'>
+          <div className='BzWZlf'>
+            <div
+              jsname='fmcmS'
+              className='KTeGk'
+              id='profileIdentifier'
+            >
+              {" "}
+              Sign up with phone or email
+            </div>
+          </div>
+        </div>
+        <div style={{ padding: "10px" }}>
+          <span className='mtp'>
+            <span>
+              {" "}
+              By continuing, you agree to Myworld's{" "}
+              <a
+                target='_blank'
+                rel='noopener noreferrer'
+                data-test-id='tos'
+                href='/_/_/policy/terms-of-service/'
+              >
+                Terms of Service
+              </a>
+              ,{" "}
+              <a
+                target='_blank'
+                rel='noopener noreferrer'
+                data-test-id='privacy'
+                href='/_/_/policy/privacy-policy/'
+              >
+                Privacy policy
+              </a>{" "}
+              including{" "}
+              <a
+                target='_blank'
+                rel='noopener noreferrer'
+                data-test-id='privacy'
+              >
+                {" "}
+                Cookie Use{" "}
+              </a>
+              .{" "}
+            </span>
+          </span>
+        </div>
+        <div
+          style={{
+            borderBottom: "1px solid rgb(222, 222, 222)",
+            margin: "10px auto",
+            width: "110px",
+          }}
+        ></div>
+
+
       </div>
+
+
     </div>
   );
 };
