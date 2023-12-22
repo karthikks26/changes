@@ -10,18 +10,26 @@ import "./Mainslidestyle.css";
 import { list3 } from "../../assets/mainslide-list";
 import _debounce from "lodash/debounce";
 import { useDispatch, useSelector } from "react-redux";
-import { getsSliderFetch } from "../../Features/slider/sliderSlice";
+import { fetchSliderRequest, getSliderSuccess, getsSliderFetch, selectSliderData, selectSliderLoader } from "../../Features/slider/sliderSlice";
 import { useGetSliderImgQuery } from "../../Features/slider/sliderApi";
 
 function MainSlider() {
 
 
   const { data, error, isLoading } = useGetSliderImgQuery();
-
   const dispatch = useDispatch();
+  const sliderData = useSelector(selectSliderData);
+  const loader = useSelector(selectSliderLoader);
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_SLIDER_VIEW_REQUEST' });
+    // dispatch(getsSliderFetch());
+    // dispatch(fetchSliderRequest(true));
+  }, [dispatch]);
 
 
-  console.log(data);
+  console.log(loader, "loader");
+  console.log(sliderData, "sliderData");
 
   const products = list3.filter(
     (prod) => prod.id === 1 || prod.id === 2 || prod.id === 3
