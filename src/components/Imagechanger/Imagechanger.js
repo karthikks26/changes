@@ -26,8 +26,8 @@ const Imagechanger = () => {
 
   return (
 <>
-      <div className="main w-full h-full bg-gray-100 rounded-[50px] flex p-2">
-        <div className="left text-container flex flex-col items-center justify-center w-1/2 h-full p-1">
+      <div className="main w-full h-full flex p-2">
+        <div className="left text-container flex flex-col pr-24 pl-12 w-1/2 h-full p-1">
           <div className="text-container">
             <h1 className="font-bold text-3xl">Get to know your <br />health</h1>
             <h3 className='font-bold text-gray-500 mb-4'>Bands shown may be sold separately and may not be <br />available in all countries</h3>
@@ -54,7 +54,7 @@ const Imagechanger = () => {
         </div>
         <div className="right image-container flex w-1/2 h-full p-1">
           <div className="flex w-full h-full justify-center items-center">
-            <img src={img[index]} alt="" className="rounded-[50px] w-[80%] h-[72%]" />
+            <img src={img[index]} alt="" className=" w-[90%] h-[100%]" />
           </div>
         </div>
       </div>
