@@ -9,6 +9,8 @@ import "swiper/css/navigation";
 import "./Mainslidestyle.css";
 import { list3 } from "../../assets/mainslide-list";
 import _debounce from "lodash/debounce";
+import { useDispatch, useSelector } from "react-redux";
+import { getsSliderFetch, selectSliderData } from "../../Features/slider/sliderSlice";
 
 function MainSlider() {
   // const [fakeLoading, setFakeLoading] = useState(false);
@@ -35,7 +37,12 @@ function MainSlider() {
   //   setIsHovered(false);
   //   setShowCircle(false);
   // };
-
+const dispatch = useDispatch();
+const SliderData = useSelector(selectSliderData);
+useEffect(() => {
+  dispatch(getsSliderFetch());
+  console.log("slider data", SliderData);
+}, [dispatch]);
   const products = list3.filter(
     (prod) => prod.id === 1 || prod.id === 2 || prod.id === 3
   );
