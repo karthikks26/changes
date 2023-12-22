@@ -21,6 +21,7 @@ import { useSelector } from "react-redux";
 import { selectRecommendedProduct } from "../../Features/recommendation/recommendationSlice";
 import Doublecard from "../Doublecard/Doublecard";
 import Multicard from "../Imagechanger/Multicard";
+import Footer from "../Footer/Footer";
 
 
 function Cards() {
@@ -489,6 +490,7 @@ const sportsAndGymProducts = filterProductsByCategory(recommendedProductsDataFro
     }
 
       <Multicard/>
+        <Footer/>
     </div>
   );
 }
