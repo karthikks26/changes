@@ -37,12 +37,16 @@ function MainSlider() {
   //   setIsHovered(false);
   //   setShowCircle(false);
   // };
-const dispatch = useDispatch();
-const SliderData = useSelector(selectSliderData);
-useEffect(() => {
-  dispatch(getsSliderFetch());
-  console.log("slider data", SliderData);
-}, [dispatch]);
+  const dispatch = useDispatch();
+  const SliderData = useSelector(selectSliderData);
+  
+  useEffect(() => {
+    dispatch(getsSliderFetch());
+    console.log("slider data", SliderData);
+  }, [dispatch]);
+
+
+
   const products = list3.filter(
     (prod) => prod.id === 1 || prod.id === 2 || prod.id === 3
   );

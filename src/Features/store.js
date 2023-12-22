@@ -1,5 +1,5 @@
 
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import recommendationReducer from './recommendation/recommendationSlice';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './Sagas/index';
@@ -11,7 +11,7 @@ export const store = configureStore({
     recommendedProduct: recommendationReducer,
     slider: sliderReducer,
   },
-  middleware: (getDefaultMiddleware) => [sagaMiddleware, ...getDefaultMiddleware()],
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
 });
 
 sagaMiddleware.run(rootSaga);
