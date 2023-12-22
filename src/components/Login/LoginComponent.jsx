@@ -44,7 +44,7 @@ const LoginComponent = () => {
         </div>
         <button
           onClick={handleGoogleLogin}
-          className="text-white bg-black text-lg rounded-full font-semibold py-3 px-4 flex items-center justify-center w-3/4">
+          className="text-white bg-black text-lg rounded-full font-semibold py-3 px-4 flex items-center justify-center w-3/5">
           <Google className="mr-2" />
           Login with Google
         </button>
@@ -52,59 +52,43 @@ const LoginComponent = () => {
         <div className='gflbutton'>
           <div className='BzWZlf'>
             <div
-              jsname='fmcmS'
-              className='KTeGk'
-              id='profileIdentifier'
-            >
-              {" "}
+              className='text-black border border-black bg-white text-lg my-5 rounded-full font-semibold py-3 px-4 flex items-center justify-center w-3/5'>
               Sign up with phone or email
             </div>
           </div>
         </div>
-        <div style={{ padding: "10px" }}>
-          <span className='mtp'>
-            <span>
+        <div className="tarms">
+          <span className='mtp text-sm'>
+            By continuing, you agree to Ayatrio's{" "}
+            <a
+              target='_blank'
+              rel='noopener noreferrer'
+              data-test-id='tos'
+              href='/_/_/policy/terms-of-service/'
+            >
+              Terms of Service
+            </a>
+            ,{" "}
+            <a
+              target='_blank'
+              rel='noopener noreferrer'
+              data-test-id='privacy'
+              href='/_/_/policy/privacy-policy/'
+            >
+              Privacy policy
+            </a>{" "}
+            including{" "}
+            <a
+              target='_blank'
+              rel='noopener noreferrer'
+              data-test-id='privacy'
+            >
               {" "}
-              By continuing, you agree to Myworld's{" "}
-              <a
-                target='_blank'
-                rel='noopener noreferrer'
-                data-test-id='tos'
-                href='/_/_/policy/terms-of-service/'
-              >
-                Terms of Service
-              </a>
-              ,{" "}
-              <a
-                target='_blank'
-                rel='noopener noreferrer'
-                data-test-id='privacy'
-                href='/_/_/policy/privacy-policy/'
-              >
-                Privacy policy
-              </a>{" "}
-              including{" "}
-              <a
-                target='_blank'
-                rel='noopener noreferrer'
-                data-test-id='privacy'
-              >
-                {" "}
-                Cookie Use{" "}
-              </a>
-              .{" "}
-            </span>
+              Cookie Use{" "}
+            </a>
+            .{" "}
           </span>
         </div>
-        <div
-          style={{
-            borderBottom: "1px solid rgb(222, 222, 222)",
-            margin: "10px auto",
-            width: "110px",
-          }}
-        ></div>
-
-
       </div>
 
 
