@@ -10,7 +10,7 @@ import "./Mainslidestyle.css";
 import { list3 } from "../../assets/mainslide-list";
 import _debounce from "lodash/debounce";
 import { useDispatch, useSelector } from "react-redux";
-import { getsSliderFetch, selectSliderData } from "../../Features/slider/sliderSlice";
+import { fetchSliderRequest, getsSliderFetch, selectSliderData } from "../../Features/slider/sliderSlice";
 
 function MainSlider() {
   // const [fakeLoading, setFakeLoading] = useState(false);
@@ -39,11 +39,16 @@ function MainSlider() {
   // };
   const dispatch = useDispatch();
   const SliderData = useSelector(selectSliderData);
-  
   useEffect(() => {
     dispatch(getsSliderFetch());
-    console.log("slider data", SliderData);
+    dispatch(fetchSliderRequest(true));
   }, [dispatch]);
+  
+  useEffect(() => {
+    console.log("slider data", SliderData);
+  }, [SliderData]);
+  
+  console.log(dispatch(getsSliderFetch()));
 
 
 

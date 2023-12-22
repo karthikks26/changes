@@ -15,6 +15,8 @@ import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import CartPage from './pages/CartPage';
 import ItemPage from './pages/ItemPage';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchSliderRequest, getsSliderFetch, selectSliderData } from './Features/slider/sliderSlice';
 
 function App() {
 
@@ -35,7 +37,15 @@ function App() {
   useEffect(()=>{
     generateDeviceId();
   },[])
+  const dispatch = useDispatch();
+  const SliderData = useSelector(selectSliderData);
+  useEffect(()=>{
+    dispatch(getsSliderFetch());
+    dispatch(fetchSliderRequest(true));
+    console.log("slider data",SliderData);
+  },[dispatch]);
   
+
   console.log("Device ID:", deviceId);
   return (
     <>
