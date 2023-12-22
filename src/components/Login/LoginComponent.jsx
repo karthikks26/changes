@@ -35,7 +35,7 @@ const LoginComponent = () => {
               wordBreak: "break-word",
             }}
           >
-            Wellcome To Ayatrio Family Profile
+            Wellcome to ayatrio family profile
           </h3>
 
         </div>
