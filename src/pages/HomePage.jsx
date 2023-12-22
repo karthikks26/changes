@@ -11,10 +11,25 @@ import PopUp from '../components/PopUp/PopUp';
 // import { useDispatch, useSelector } from 'react-redux';
 // import {fetchSliderRequest,selectSliderData, selectSliderLoader} from '../Features/slider/sliderSlice';
 import { Oval } from 'react-loader-spinner';
+import { selectSliderData, selectSliderLoader } from '../Features/slider/sliderSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const HomePage = () => {
   // const dispatch = useDispatch();
   // const sliderData= useSelector(selectSliderData);
+  const dispatch = useDispatch();
+  const sliderData = useSelector(selectSliderData);
+  const loaderx = useSelector(selectSliderLoader);
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_SLIDER_VIEW_REQUEST' });
+    
+    // dispatch(getsSliderFetch());
+    // dispatch(fetchSliderRequest(true));
+  }, [dispatch]);
+
+  console.log(loaderx, "loader");
+  console.log(sliderData, "sliderData");
   const loader = false
   const navigate = useNavigate();
   const [isFilterVisible, setIsFilterVisible] = useState(true);

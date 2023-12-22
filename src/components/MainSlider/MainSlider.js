@@ -17,19 +17,6 @@ function MainSlider() {
 
 
   const { data, error, isLoading } = useGetSliderImgQuery();
-  const dispatch = useDispatch();
-  const sliderData = useSelector(selectSliderData);
-  const loader = useSelector(selectSliderLoader);
-
-  useEffect(() => {
-    dispatch({ type: 'FETCH_SLIDER_VIEW_REQUEST' });
-    // dispatch(getsSliderFetch());
-    // dispatch(fetchSliderRequest(true));
-  }, [dispatch]);
-
-
-  console.log(loader, "loader");
-  console.log(sliderData, "sliderData");
 
   const products = list3.filter(
     (prod) => prod.id === 1 || prod.id === 2 || prod.id === 3
