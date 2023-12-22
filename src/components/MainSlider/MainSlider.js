@@ -10,47 +10,18 @@ import "./Mainslidestyle.css";
 import { list3 } from "../../assets/mainslide-list";
 import _debounce from "lodash/debounce";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSliderRequest, getsSliderFetch, selectSliderData } from "../../Features/slider/sliderSlice";
+import { getsSliderFetch } from "../../Features/slider/sliderSlice";
+import { useGetSliderImgQuery } from "../../Features/slider/sliderApi";
 
 function MainSlider() {
-  // const [fakeLoading, setFakeLoading] = useState(false);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setFakeLoading(true);
-  //   },1500);
-  // }, []);
 
-  // const [isHovered, setIsHovered] = useState(false);
-  // const [showCircle, setShowCircle] = useState(false);
+  const { data, error, isLoading } = useGetSliderImgQuery();
 
-  // const debounceShowCircles = _debounce(() => {
-  //   setShowCircle(true);
-  // }, 0);
-
-  // const handleMouseEnter = () => {
-  //   setIsHovered(true);
-  //   debounceShowCircles();
-  // };
-
-  // const handleMouseLeave = () => {
-  //   setIsHovered(false);
-  //   setShowCircle(false);
-  // };
   const dispatch = useDispatch();
-  const SliderData = useSelector(selectSliderData);
-  useEffect(() => {
-    dispatch(getsSliderFetch());
-    dispatch(fetchSliderRequest(true));
-  }, [dispatch]);
-  
-  useEffect(() => {
-    console.log("slider data", SliderData);
-  }, [SliderData]);
-  
-  
 
 
+  console.log(data);
 
   const products = list3.filter(
     (prod) => prod.id === 1 || prod.id === 2 || prod.id === 3
