@@ -13,18 +13,22 @@ import PopUp from '../components/PopUp/PopUp';
 import { Oval } from 'react-loader-spinner';
 import { selectSliderData, selectSliderLoader } from '../Features/Slices/sliderSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { CardData } from '../Features/Slices/FIrstCardSlice';
 
 const HomePage = () => {
-  // const dispatch = useDispatch();
-  // const sliderData= useSelector(selectSliderData);
-
-
+  const dispatch = useDispatch();
+  const FirstCardData= useSelector(CardData);
+  useEffect(() => {
+    dispatch({ type: "FETCH_FIRST_CARD_REQUEST" });
+  }
+  , [dispatch]);
+console.log("first card data",FirstCardData)
   const loader = false
   const navigate = useNavigate();
   const [isFilterVisible, setIsFilterVisible] = useState(true);
   // useEffect(() => {
   //   dispatch(fetchSliderRequest());
-  // }, [dispatch]);
+  // }, [dispatch]);'[]
   
   // console.log(sliderData)
   // console.log(loader)
