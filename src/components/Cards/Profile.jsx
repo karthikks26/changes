@@ -1,6 +1,5 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import linkdln from './linkdln.jpg';
 
 const Profile = () => {
   return (
@@ -18,22 +17,22 @@ const Profile = () => {
         <div className='flex justify-center'>
         <div className='text-3xl font-bold ml-12'>Rajat Agrawal</div>
         <a href='#'>
-      <FontAwesomeIcon icon={faLinkedin} className="text-blue-500 text-lg h-6 w-6 m-2" style={{marginLeft:'2px'}} />
+      <img className='h-10 w-10' src={linkdln}/>
     </a></div>
         </div>
         <div className='col-span-1'>
         <div className="bg-black rounded-full h-40 w-40 mb-2 mt-32 ml-12"></div>
         <div className='flex justify-center'>
         <div className='text-3xl font-bold ml-12'>Rajat Agrawal</div>
-        <a href='#'>
-      <FontAwesomeIcon icon={faLinkedin} className="text-blue-500 text-lg h-6 w-6 m-2" style={{marginLeft:'2px'}} />
+        <a href='#'>      <img className='h-10 w-10' src={linkdln}/>
+
     </a></div>        </div>
         <div className='col-span-1'>
         <div className="bg-black rounded-full h-40 w-40 mb-2 mt-32 ml-12"></div>
         <div className='flex justify-center'>
         <div className='text-3xl font-bold ml-12'>Rajat Agrawal</div>
-        <a href='#'>
-      <FontAwesomeIcon icon={faLinkedin} className="text-blue-500 text-lg h-6 w-6 m-2" style={{marginLeft:'2px'}} />
+        <a href='#'>      <img className='h-10 w-10' src={linkdln}/>
+
     </a></div>        </div>
       </div>
       </div>
