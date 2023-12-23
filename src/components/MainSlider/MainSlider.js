@@ -9,14 +9,8 @@ import "swiper/css/navigation";
 import "./Mainslidestyle.css";
 import { list3 } from "../../assets/mainslide-list";
 import _debounce from "lodash/debounce";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchSliderRequest, getSliderSuccess, getsSliderFetch, selectSliderData, selectSliderLoader } from "../../Features/slider/sliderSlice";
-import { useGetSliderImgQuery } from "../../Features/slider/sliderApi";
 
 function MainSlider() {
-
-
-  const { data, error, isLoading } = useGetSliderImgQuery();
 
   const products = list3.filter(
     (prod) => prod.id === 1 || prod.id === 2 || prod.id === 3
