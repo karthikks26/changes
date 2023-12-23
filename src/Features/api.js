@@ -43,4 +43,20 @@ export const fetchRecommendedProduct = async () => {
         console.log(err)
     }
   };
+
+  export const fetchProductsWithSearch = async (searchQuery) => {
+    try {
+      const response = await axios.post('http://localhost:8080/api/products',  {
+        params: {
+        search: searchQuery,
+      }});
+  
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      
+      console.error('Error fetching products:', error);
+      throw error; 
+    }
+  };
   
