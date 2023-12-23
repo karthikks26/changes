@@ -189,7 +189,7 @@ const sportsAndGymProducts = filterProductsByCategory(recommendedProductsDataFro
       </div>
       <div className="pt-12  mb-20  bg-white">
         <div className="mb-2 w-full flex justify-between items-center">
-          <h2 className="text-bold text-2xl font-serif ml-4">
+          <h2 className="text-bold text-2xl font-serif ml-4 pt-2">
           {flooringProducts ? "Flooring" : "Beach and Resort"}
           </h2>
           <div className="Slidenav flex bg-slate-700 text-2xl cursor-pointer  text-white rounded-full gap-2">
