@@ -25,6 +25,7 @@ import Footer from "../Footer/Footer";
 import Tabs from './Tabs';
 import Profile from "./Profile";
 import Image from '../Imagechanger/Image'
+import Phone from "./Phone";
 
 
 function Cards() {
@@ -181,12 +182,13 @@ const sportsAndGymProducts = filterProductsByCategory(recommendedProductsDataFro
           )}
         </Swiper>
       </div>
+      <div className='bg-zinc-100 h-40 border border-black ml-12 mr-10 mb-16'></div>
       <div className="w-full sm:h-[80vh] h-[160vh] m-1 ">
         <Imagechanger />
       </div>
-      <div className="w-full sm:h-[70vh] h-[150vh] m-1 ">
-        <Doublecard />
-      </div>
+      <div className="w-full h-[70vh] mt-32 ml-1 mr-1 mb-28">
+        <Doublecard/>
+        </div>
       <div className="pt-12  mb-20  bg-white">
         <div className="mb-2 w-full flex justify-between items-center">
           <h2 className="text-bold text-2xl font-serif ml-4 pt-2">
@@ -496,6 +498,7 @@ const sportsAndGymProducts = filterProductsByCategory(recommendedProductsDataFro
         <Image />
         <Profile/>
         <Tabs/>
+        <Phone/>
         <Footer/>
     </div>
   );
