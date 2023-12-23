@@ -20,7 +20,7 @@ function MainSlider() {
   );
   const [scrollX, setScrollX] = useState(0);
   const scrl = useRef(null);
-  console.log("slider data", data);``
+  // console.log("slider data", data);``
     
 
   useEffect(() => {
