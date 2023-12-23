@@ -1,12 +1,22 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
-import recommendationReducer from './recommendation/recommendationSlice'
+import { configureStore } from "@reduxjs/toolkit";
+import recommendationReducer from "./Slices/recommendationSlice";
+import createSagaMiddleware from "redux-saga";
+import rootSaga from "./Sagas/index";
+import sliderReducer from "./Slices/sliderSlice";
+import { sliderApi } from "./slider/sliderApi";
+import searchReducer from "./search/searchSlice";
+
+const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
   reducer: {
-    recommendedProduct:recommendationReducer
+    [sliderApi.reducerPath]: sliderApi.reducer,
+    recommendedProduct: recommendationReducer,
+    slider: sliderReducer,
+    productWithSearch:searchReducer
   },
-  // Adding the api middleware enables caching, invalidation, polling,
-  // and other useful features of `rtk-query`.
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(),
-})
+    getDefaultMiddleware().concat(sagaMiddleware,sliderApi.middleware),
+});
+
+sagaMiddleware.run(rootSaga);

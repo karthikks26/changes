@@ -1,11 +1,15 @@
 .navbar {
-  display: flex;
-  flex-flow: row;
-  justify-content: space-between;
-  height: 64px;
-  width: 100%;
-  flex: 1 2 1;
-  padding: 0px 20px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    height: 64px;
+    width: 100%;
+    flex: 1 2 1;
+    padding: 0px 30px;
+}
+
+.search_icon_mar {
+    margin: 3px 10px;
 }
 
 .text-costom-co {
@@ -197,5 +201,12 @@
  .mainlogo{
     transform: scale(0.9);
  }
+
+}
+.MuiBackdrop-root.MuiBackdrop-invisible.MuiModal-backdrop.css-g3hgs1-MuiBackdrop-root-MuiModal-backdrop::-webkit-scrollbar{
+
+        width: 10px !important;
+        background-color: #333 !important;
+    
 
 }

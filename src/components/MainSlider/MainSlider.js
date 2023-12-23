@@ -8,39 +8,34 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./Mainslidestyle.css";
 import { list3 } from "../../assets/mainslide-list";
-
+import _debounce from "lodash/debounce";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchSliderRequest,
+  getSliderSuccess,
+  getsSliderFetch,
+  selectSliderData,
+  selectSliderLoader,
+} from "../../Features/Slices/sliderSlice";
+import { useGetSliderImgQuery } from "../../Features/slider/sliderApi";
 
 function MainSlider() {
-  // const [fakeLoading, setFakeLoading] = useState(false);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setFakeLoading(true);
-  //   },1500);
-  // }, []);
-
-  // const [isHovered, setIsHovered] = useState(false);
-  // const [showCircle, setShowCircle] = useState(false);
-
-  // const debounceShowCircles = _debounce(() => {
-  //   setShowCircle(true);
-  // }, 0);
-
-  // const handleMouseEnter = () => {
-  //   setIsHovered(true);
-  //   debounceShowCircles();
-  // };
-
-  // const handleMouseLeave = () => {
-  //   setIsHovered(false);
-  //   setShowCircle(false);
-  // };
-
   const products = list3.filter(
     (prod) => prod.id === 1 || prod.id === 2 || prod.id === 3
   );
   const [scrollX, setScrollX] = useState(0);
   const scrl = useRef(null);
+  // console.log("slider data", data);``
+  const [sliderData, setSliderData] = useState([]);
+
+  const dispatch = useDispatch();
+  const sliderSelect = useSelector(selectSliderData);
+  const loaderx = useSelector(selectSliderLoader);
+  console.log("slider data",sliderData)
+  useEffect(() => {
+    dispatch({ type: "FETCH_SLIDER_VIEW_REQUEST" });
+    setSliderData(sliderSelect);
+  }, [dispatch]);
 
   useEffect(() => {
     if (scrl.current) {
@@ -48,7 +43,7 @@ function MainSlider() {
       scrl.current.style.transition = "none";
     }
   }, []);
-
+console.log(products)
   const slide = (shift) => {
     if (scrl.current) {
       const targetScroll = scrl.current.scrollLeft + shift;
@@ -61,7 +56,6 @@ function MainSlider() {
     }
   };
 
-
   if (products.length > 0) {
     return (
       <div className="slider-container">
@@ -70,45 +64,38 @@ function MainSlider() {
           {/* <BsArrowLeftCircleFill className='arrow-nav' /> */}
         </div>
         <div className="slider-cont" ref={scrl}>
-          {products.map((prod, i) => (
+          {sliderData.map((slideItem, i) => (
             <div key={i}>
               <div className="circle-container relative items-center justify-center flex sd">
                 <img
                   className="sd rounded-sm"
-                  src={prod.imgSrc}
+                  src={slideItem.imgSrc}
                   alt="Product"
-                  // onMouseEnter={handleMouseEnter}
-                  // onMouseLeave={handleMouseLeave}
                 />
-                {/* isHovered &&
-                  showCircle && */}
-                  {prod.circles.map((circle, index) => (
+                {slideItem.circles.map((circle, index) => (
+                  <div
+                    key={index}
+                    className={`circle absolute w-5 h-5 bg-white border-4 border-slate-400 rounded-full`}
+                    style={{ top: `${circle.topPosition}%`, left: `${circle.leftPosition}%` }}
+                  >
                     <div
-                      key={index}
-                      className={`circle absolute w-5 h-5 bg-white border-4 border-slate-400 rounded-full
-                  
-                  
-                  `}
-                      style={{ top: `${circle.top}%`, left: `${circle.left}%` }}
-                    >
-                      <div
-                        className={`hover-box flex-row z-10 w-56 rounded-2xl flex items-center
-                     ${circle.top > 75 ? "top-condition" : ""} ${
-                          circle.left > 65 ? "left-condition" : ""
-                        }
+                      className={`hover-box flex-row z-10 w-56 rounded-2xl flex items-center
+                     ${circle.topPosition > 75 ? "top-condition" : ""} ${
+                        circle.leftPosition > 65 ? "left-condition" : ""
+                      }
                     `}
-                      >
-                        <div className="flex flex-col">
-                          <h2 className=" font-normal">{circle.text1}</h2>
-                          <p className=" text-slate-400">{circle.text2}</p>
-                          <p className="font-semibold">₹ {circle.price}</p>
-                        </div>
-                        <div className="relative flex items-center justify-center">
-                          <BsArrowRightCircleFill className="flex items-center justify-center" />
-                        </div>
+                    >
+                      <div className="flex flex-col">
+                        <h2 className=" font-normal">{circle.productTitle}</h2>
+                        <p className=" text-slate-400">{circle.productCategory}</p>
+                        <p className="font-semibold">₹ {circle.price}</p>
+                      </div>
+                      <div className="relative flex items-center justify-center">
+                        <BsArrowRightCircleFill className="flex items-center justify-center" />
                       </div>
                     </div>
-                  ))}
+                  </div>
+                ))}
               </div>
             </div>
           ))}

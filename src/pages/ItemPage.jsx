@@ -22,7 +22,7 @@ import ItemCard from "../components/Item/ItemCard";
 import Mobileswiper from "../components/Item/Mobileswiper";
 
 const ItemPage = () => {
-  const [showFilter, setShowFilter] = useState(false);
+  const [showFilter, setShowFilter] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [wallpaperProducts, setWallpaperProducts] = useState([]);
   const [popupVisible, setPopupVisible] = useState(false);

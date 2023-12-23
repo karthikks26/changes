@@ -1,8 +1,7 @@
 // Expandedbar.js
 import React, { useEffect, useRef, useState } from "react";
 import './Expandbar.css'
-import CloseIcon from "@mui/icons-material/Close";
-import SearchIcon from "@mui/icons-material/Search";
+import search from "../../assets/icon/search.svg"
 import mainlogo from "../../assets/ayatriologo.png";
 
 const Expandedbar = ({ searchText, onClose, onSearch }) => {
@@ -29,7 +28,7 @@ const Expandedbar = ({ searchText, onClose, onSearch }) => {
               value={searchTexte}
               onChange={(e) => setSearchText(e.target.value)}
             />
-            <SearchIcon className="absolute top-[18%] left-[1%] " />
+            <img src={search} alt="" className=" search_icon_mar w-5 mx-1 my-1.5 top-[18%] left-[1%]  absolute z-10" />
           </div>
           <div className="dropdown flex flex-col mb-8 gap-4 ">
             <div className="head text-slate-400">
@@ -43,7 +42,7 @@ const Expandedbar = ({ searchText, onClose, onSearch }) => {
            </div>
           </div>
         </div>
-        <div className="close text-lg mr-2 cursor-pointer" onClick={onClose}>
+        <div className="close text-base font-medium mr-4 cursor-pointer" onClick={onClose}>
           Close
         </div>
       </div>

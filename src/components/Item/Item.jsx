@@ -79,7 +79,7 @@ const Item = () => {
     "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "siuuuuuuuuuuuuuu.",
-  
+
   ];
   useEffect(() => {
     priceCal();
@@ -152,21 +152,18 @@ const Item = () => {
               <div className="colors flex gap-3">
                 <div
                   onClick={() => changeColor("red")}
-                  className={`color1 w-[50px] h-[50px] rounded-full ${
-                    imgColor === "red" ? "border border-slate-800" : ""
-                  }   bg-red-500`}
+                  className={`color1 w-[50px] h-[50px] rounded-full ${imgColor === "red" ? "border border-slate-800" : ""
+                    }   bg-red-500`}
                 ></div>
                 <div
                   onClick={() => changeColor("blue")}
-                  className={`color1 w-[50px] h-[50px] rounded-full ${
-                    imgColor === "blue" ? "border border-slate-800" : ""
-                  }  bg-blue-500`}
+                  className={`color1 w-[50px] h-[50px] rounded-full ${imgColor === "blue" ? "border border-slate-800" : ""
+                    }  bg-blue-500`}
                 ></div>
                 <div
                   onClick={() => changeColor("green")}
-                  className={`color1 w-[50px] h-[50px] rounded-full  ${
-                    imgColor === "green" ? "border border-slate-800" : ""
-                  } bg-green-500`}
+                  className={`color1 w-[50px] h-[50px] rounded-full  ${imgColor === "green" ? "border border-slate-800" : ""
+                    } bg-green-500`}
                 ></div>
               </div>
             </div>
@@ -232,12 +229,12 @@ const Item = () => {
 
             <div className="buttons mt-4">
               <div className="guestCheckout">
-                <button className="bg-black text-white w-full h-16 rounded-3xl hover:bg-gray-900 transition duration-300">
+                <button className="bg-black text-white w-full h-16 rounded-full hover:bg-gray-900 transition duration-300">
                   Add To Bag
                 </button>
               </div>
               <div className="memberCheckout mt-4">
-                <button className="bg-black text-white w-full h-16 rounded-3xl hover:bg-gray-900 transition duration-300">
+                <button className="bg-black text-white w-full h-16 rounded-full hover:bg-gray-900 transition duration-300">
                   Contact
                 </button>
               </div>
@@ -312,7 +309,7 @@ const Item = () => {
                 )}
               </div>
             </div>
-            
+
             <div className="textdropdown7">
               {/* Dropdown 4 */}
               <div className="dropdown   border-b-2 border-slate-300">

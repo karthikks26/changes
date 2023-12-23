@@ -8,14 +8,16 @@ import search from "../assets/icon/search.svg";
 import userprofile from "../assets/icon/profile.svg";
 import ayatrio_store from "../assets/icon/ayatrio_store.svg";
 import { useNavigate } from "react-router-dom";
-import Splashscreen from "../components/Splashscreen/Splashscreen";
+// import Splashscreen from "../components/Splashscreen/Splashscreen";
 import "./HomePage.css";
 import PopUp from "../components/PopUp/PopUp";
-import { useSelector } from "react-redux";
-import { selectRecommendationLoader } from "../Features/recommendation/recommendationSlice";
+// import { useDispatch, useSelector } from "react-redux";
+// import {fetchSliderRequest,selectSliderData, selectSliderLoader} from "../Features/slider/sliderSlice";
 import { Oval } from "react-loader-spinner";
 import axios from "axios";
 import Expandedbar from "../components/Header/Expandedbar";
+import { selectSliderData, selectSliderLoader } from '../Features/Slices/sliderSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const HomePage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -88,8 +90,12 @@ const HomePage = () => {
   };
 
   const [isFilterVisible, setIsFilterVisible] = useState(true);
-
-  const loader = useSelector(selectRecommendationLoader);
+  // useEffect(() => {
+  //   dispatch(fetchSliderRequest());
+  // }, [dispatch]);
+  
+  // console.log(sliderData)
+  // console.log(loader)
 
   useEffect(() => {
     let prevScrollPos = window.scrollY;
