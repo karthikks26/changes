@@ -134,7 +134,7 @@ const Amenities = () => {
       <h3 className="mb-6 text-xl font-semibold ml-1">
         What this place offers
       </h3>
-      <div className="amenties grid grid-cols-2 grid-rows-5">
+      <div className="amenties grid grid-cols-2 grid-rows-5 sm:w-auto w-[80vw] ">
         {amenties.map((amenty, index) => (
           <div className="flex my-2" key={index}>
             {amenty.icon.type === "svg" ? (

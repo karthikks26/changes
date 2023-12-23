@@ -84,6 +84,7 @@ const Item = () => {
   useEffect(() => {
     priceCal();
   }, [widthstate, heightstate, coststate]);
+
   const changeColor = (color) => {
     setImgColor(color);
     setSelectedImage(imgSets[color][0]);
@@ -99,11 +100,12 @@ const Item = () => {
 
   return (
     <>
-      <div className="main w-full">
+      <div className="main-item w-full sm:block hidden">
         <div className="flex top-6 m-[10%] justify-evenly gap-12">
           <div
-            className={`left ${fixer ? "fixed" : ""
-              }  w-[70%] flex flex-row`}
+            className={`left-item ${
+              fixer ? "fixed" : ""
+            }  w-[70%] flex flex-row`}
           >
             <div className="prevImg h-fit items-start top-0 sticky flex flex-col w-fit gap-[0.8rem] mx-2">
               {imgSets[imgColor].map((image, i) => (
@@ -128,7 +130,7 @@ const Item = () => {
               />
             </div>
           </div>
-          <div className="right mt-3 w-1/2">
+          <div className="right-item mt-3 w-1/2">
             <div className="textHolders flex flex-col">
               <h1 className="text-2xl font-bold mb-2">Football Shoe</h1>
               <h3 className="mb-2 font-semibold">
@@ -144,7 +146,7 @@ const Item = () => {
                 <h4>Also Includes Taxes</h4>
               </div>
             </div>
-
+{/* color-container */}
             <div className="colorContainer flex flex-col items-start mt-4">
               <h1 className="mb-2 font-bold">Other Colorways</h1>
               <div className="colors flex gap-3">
@@ -165,6 +167,7 @@ const Item = () => {
                 ></div>
               </div>
             </div>
+            {/* calculation */}
 
             <div className="calculation-container mt-2 ">
               <h1 className="text-xl my-6 font-bold">
@@ -222,6 +225,8 @@ const Item = () => {
                 </div>
               </div>
             </div>
+{/* buttons */}
+
             <div className="buttons mt-4">
               <div className="guestCheckout">
                 <button className="bg-black text-white w-full h-16 rounded-full hover:bg-gray-900 transition duration-300">
@@ -234,7 +239,7 @@ const Item = () => {
                 </button>
               </div>
             </div>
-
+{/* dropdown */}
             <div className="textdropdown1 mt-3">
               {/* Dropdown 1 */}
               <div className="dropdown  border-t-2  border-slate-300">
@@ -306,7 +311,7 @@ const Item = () => {
             </div>
 
             <div className="textdropdown7">
-              {/* Dropdown 3 */}
+              {/* Dropdown 4 */}
               <div className="dropdown   border-b-2 border-slate-300">
                 <div
                   onClick={() => setDropdownOpen4(!dropdownOpen4)}

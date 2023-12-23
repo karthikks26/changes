@@ -1,5 +1,6 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import manue from "../../assets/icon/manue.svg";
@@ -36,6 +37,11 @@ transition-all ease-linear duration-2000
             <div className="px-[30px] my-5">
               <div className="filter_container flex gap-32">
                 <div className="menuLog flex flex-col gap-4">
+                  <Link to="/virtualexperience/vrooms">
+                    <button className="bg-blue-500 text-white px-4 py-2 rounded-md transition duration-300 cursor-pointer hover:bg-blue-700">
+                      Virtual Experience
+                    </button>
+                  </Link>
                   <button className="bg-blue-500 text-white px-4 py-2 rounded-md transition duration-300 cursor-pointer hover:bg-blue-700">
                     Sign In
                   </button>

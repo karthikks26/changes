@@ -36,7 +36,8 @@ const Content3 = () => {
     <div className=" py-4 w-full h-full bg-[#f4e3dd]  text-sm">
       <Header />
       <Sidebar selectedPage={selectedPage} onSelectPage={handleSelectPage} />
-      <div className="relative container flex flex-row items-center gap-10 justify-center">
+      <div className="relative container-tikes flex flex-row items-center gap-10 justify-center">
+        {/* 1st */}
         <div
           onClick={() => handleClick(0)}
           className={`w-1/5 h-40 my-20 border-t-2 border-b-2 border-pink-950 relative flex items-center flex-col
@@ -178,14 +179,14 @@ selectedActivity(index) ? "" :""}
           )}
         </div>
       </div>
-      <div className="flex flex-col md:flex-row justify-between gap-5 px-10 mt-10">
+      <div className="flex flex-col sm:flex-row justify-between gap-5 px-10 mt-10">
         <button
           onClick={prevHandler}
           className="rounded-2xl px-3 py-1 text-center text-black font-normal bg-white"
         >
           Previous Question
         </button>
-        <div className="flex flex-col md:flex-row gap-3 items-center">
+        <div className="flex flex-col sm:flex-row gap-3 items-center">
           <p>
             Products Available (728){" "}
             <span>

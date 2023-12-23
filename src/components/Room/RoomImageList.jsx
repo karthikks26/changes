@@ -6,8 +6,8 @@ export default function RoomImageList() {
   return (
     <>
       {/* ------------------  room/place heading ------------------  */}
-      <div className="room-heading  flex justify-between align-middle mt-[4.5rem] mb-8 mx-1">
-        <h1 className="text-2xl font-semibold">
+      <div className="room-heading  flex justify-between align-middle mt-[4.5rem] mb-8 sm:w-auto w-[80vw] mx-1">
+        <h1 className="sm:text-2xl text-lg sm:font-semibold font-medium">
           Beautiful 4 BHK villa Mountain view,Swimming pool
         </h1>
         <div className="share-btn flex gap-x-4 text-sm items-center">
@@ -29,7 +29,7 @@ export default function RoomImageList() {
       </div>
 
       {/* ------------------  room/place image gallery ------------------  */}
-      <div className="imggallery" style={{ height: "55vh" }}>
+      <div className="imggallery sm:h-[55vh] h-auto sm:w-auto w-[90vw]">
         <div className="grid grid-cols-4 grid-rows-2 gap-2 h-full mx-1">
           <div className="col-span-2 row-span-2">
             <img

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
-
+import './styles.css'
+import { FaChevronDown ,FaChevronUp} from "react-icons/fa";
 const Imagechanger = () => {
   const [index, setIndex] = useState(0);
   const [openStates, setOpenStates] = useState([false, false, false]); // State to track open/close state
@@ -42,10 +42,27 @@ const Imagechanger = () => {
             <h3 className='font-bold text-gray-500 mb-4'>Bands shown may be sold separately and may not be <br />available in all countries</h3>
           </div>
           {Heading.map((value, idx) => (
-            <div key={idx} className="mb-7">
-              {idx === 1 && <div className="line-horizontal dark-black-line h-1 w-full bg-gray-300 mb-4" />}
-              <div onClick={() => handleToggle(idx)} className="flex items-center justify-between">
-                <h1 className={`text-2xl mb-2 font-bold text-left cursor-pointer ${openStates[idx] && 'open'}`}>
+            <div key={idx} className='mb-7 trending-choice'>
+              {idx === 1 && (
+                <>
+                  <div className="line-horizontal dark-black-line h-1 w-full bg-gray-300 " />
+                  <div onClick={() => setIndex(idx)} className='flex  items-center justify-between'>
+                  <h1
+                    
+                    className="text-2xl my-4 font-bold text-left cursor-pointer"
+                  >
+                    {value}
+                  </h1>
+                  {index === idx ? <FaChevronUp className='text-2xl my-4 font-sans text-gray-500 text-left cursor-pointer'/> : <FaChevronDown className='text-2xl my-4 text-gray-500 text-left cursor-pointer'/>}
+                  </div>
+                </>
+              )}
+              {idx !== 1 && (
+                <div onClick={() => setIndex(idx)} className='flex items-center justify-between'>
+                  <h1
+                  
+                  className="text-2xl mb-2 font-bold text-left cursor-pointer"
+                >
                   {value}
                 </h1>
                 {openStates[idx] ? (
@@ -63,7 +80,7 @@ const Imagechanger = () => {
         </div>
         <div className="right image-container flex w-1/2 h-full p-1">
           <div className="flex w-full h-full justify-center items-center">
-            <img src={img[index]} alt="" className=" w-[90%] h-[100%]" />
+            <img src={img[index]} alt="" className="rounded-[50px] sm:w-[80%] w-[80vw] sm:h-[72%] h-auto" />
           </div>
         </div>
       </div>

@@ -181,10 +181,10 @@ const sportsAndGymProducts = filterProductsByCategory(recommendedProductsDataFro
           )}
         </Swiper>
       </div>
-      <div className="w-full h-[80vh] m-1 ">
+      <div className="w-full sm:h-[80vh] h-[160vh] m-1 ">
         <Imagechanger />
       </div>
-      <div className="w-full h-[70vh] m-1 ">
+      <div className="w-full sm:h-[70vh] h-[150vh] m-1 ">
         <Doublecard />
       </div>
       <div className="pt-12  mb-20  bg-white">

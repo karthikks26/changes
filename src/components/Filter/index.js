@@ -47,10 +47,10 @@ function Filter() {
         isScrolled ? "bg-white" : "bg-white"
       } `}
     >
-      <div className="filter">
+      <div className="filter" style={{marginLeft:"0px"}}>
         <div className="Filter-array" ref={scrl}>
           <div
-            className={` slider_lr_container arrow-left ${
+            className={` slider_lr_container arrow-left  ${
               scrollX === 0 ? "hidden" : ""
             }`}
           >

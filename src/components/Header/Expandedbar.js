@@ -1,5 +1,6 @@
 // Expandedbar.js
 import React, { useEffect, useRef, useState } from "react";
+import './Expandbar.css'
 import search from "../../assets/icon/search.svg"
 import mainlogo from "../../assets/ayatriologo.png";
 
@@ -12,18 +13,18 @@ const Expandedbar = ({ searchText, onClose, onSearch }) => {
     inputRef.current.focus();
   }, []);
   return (
-    <div className="expanded-search-box p-2  bg-white h-310px w-full flex items-center justify-center">
+    <div className="expanded-search-box p-2  bg-white sm:h-310px h-full z-30 sm:w-full w-[80vw] flex items-center justify-center">
       <div className="flex flex-row  justify-between bg-white rounded-lg w-full h-[300px]">
-        <div className="logo">
+        <div className="logo hidden sm:block">
           <img src={mainlogo} className="w-44 z-30" alt="" />
         </div>
         <div className="searchDiv  flex flex-col justify-between">
-          <div className="searchCon relative w-[600px] h-[40px]  bg-[#efefef] rounded-full ">
+          <div className="searchCon relative sm:w-[600px] w-[60vw] h-[40px]  bg-[#e5e5e5] rounded-xl ">
             <input
             ref={inputRef}
               type="text"
               placeholder="Search"
-              className="search-input px-4 h-full w-full ml-8 bg-transparent focus:outline-none"
+              className="search-input  border px-4 h-full sm:w-full w-[60vw] ml-8 rounded-xl focus:outline-none"
               value={searchTexte}
               onChange={(e) => setSearchText(e.target.value)}
             />

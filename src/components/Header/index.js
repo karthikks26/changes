@@ -1,10 +1,11 @@
 import React from "react";
-// import "./styles.css";
+import "./styles.css";
 import mainlogo from "../../assets/ayatriologo.png";
-import adtocart from "../../assets/icon/adtocart.svg"
-import liketocart from "../../assets/icon/like.svg"
-import userprofile from "../../assets/icon/profile.svg"
-import search from "../../assets/icon/search.svg"
+import adtocart from "../../assets/icon/adtocart.svg";
+import liketocart from "../../assets/icon/like.svg";
+import userprofile from "../../assets/icon/profile.svg";
+import search from "../../assets/icon/search.svg";
+import ayatrio_store from "../../assets/icon/ayatrio_store.svg";
 import SimpleBottomNavigation from "./bottombar";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Menu from "./menu";
@@ -28,9 +29,12 @@ function Header({ howMuchScrolled }) {
 
   const getUser = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/auth/login/sucess", {
-        withCredentials: true,
-      });
+      const response = await axios.get(
+        "http://localhost:8080/auth/login/sucess",
+        {
+          withCredentials: true,
+        }
+      );
 
       setUserdata(response.data.user);
       console.log("user: ", response.data.user);
@@ -86,12 +90,12 @@ function Header({ howMuchScrolled }) {
 
   return (
     <header
-      className={`fixed w-full  top-0 transition-all ease-in-out duration-300  z-[9999] ${
+      className={`fixed w-full sm:bg-none  top-0 transition-all ease-in-out duration-300  z-[9999] ${
         isScrolled ? "bg-white" : "bg-white"
       } ${howMuchScrolled > 20 ? "hidden" : ""}`}>
       {!searchQuery ? (
         <div className="navbar flex justify-evenly items-center w-full">
-          <div className="left flex items-center gap-5 ">
+          <div className="left flex items-center sm:gap-5 ">
             <div className="profile-menu font-bold ">
               <Menu />
             </div>
@@ -101,12 +105,14 @@ function Header({ howMuchScrolled }) {
 
             <div className=" text-costom-co">New Arivals</div>
           </div>
-          <div className="middle">
+          <div className="mainlogo">
             <Link to="/home">
               <img src={mainlogo} alt="logo" className="w-48 m-2" />
             </Link>
           </div>
           <div className="right flex items-center gap-4">
+            {/* map-icon */}
+
             <div className="searchbar pt-4 w-40 h-10 items-right justify-end">
               <input
                 type="text"
@@ -115,27 +121,53 @@ function Header({ howMuchScrolled }) {
                 placeholder="Search"
                 className="searchTerm relative font-semibold placeholder-gray-400 w-[13rem] h-10 bg-[#efefef] p-4 rounded-full active:border-none focus:outline-none"
               />
-              <img src={search} alt="" className="seachbar-div2-icon absolute z-10" />
+              <img
+                src={search}
+                alt=""
+                className="seachbar-div2-icon absolute z-10"
+              />
             </div>
             <div className="icon_container cursor-pointer">
-
-                    <img src={liketocart} alt="" className="header-div-icon"/>
-                     <div className="cart-notification">12</div>
-
+              <img src={liketocart} alt="" className="header-div-icon" />
+              <div className="cart-notification">12</div>
             </div>
 
-            <div className="icon_container cursor-pointer" onClick={()=>navigate('/cart')}>
-                    <img src={adtocart} alt="" className="header-div-icon" />
-                    <div className="cart-notification">3</div>
+            <div
+              className="icon_container cursor-pointer"
+              onClick={() => navigate("/cart")}
+            >
+              <img src={adtocart} alt="" className="header-div-icon" />
+              <div className="cart-notification">3</div>
             </div>
             {loginStatus === "true" ? (
-              <div className="pro flex icon_container " onClick={handleProfileNav}>
-                 <img src={userprofile} alt="" className="header-div-icon"/>
+              <div
+                className="pro flex icon_container "
+                onClick={handleProfileNav}
+              >
+                <img src={userprofile} alt="" className="header-div-icon" />
               </div>
             ) : (
-              <img src={userprofile} onClick={handleLoginNav} alt="" className="header-div-icon"/>
-             
+              <img
+                src={userprofile}
+                onClick={handleLoginNav}
+                alt=""
+                className="header-div-icon"
+              />
             )}
+          </div>
+
+          <div className="map-icon">
+            <button
+              type="button"
+              className="flex items-center justify-center  z-10  text-white bg-black hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+              onClick={() => navigate("/ayatrio-map")}
+            >
+              <img
+                src={ayatrio_store}
+                alt=""
+                className="header-div-sStore-icon"
+              />
+            </button>
           </div>
         </div>
       ) : (

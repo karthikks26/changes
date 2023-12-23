@@ -46,7 +46,7 @@ const Content2 = () => {
       <Header />
       <Sidebar selectedPage={selectedPage} onSelectPage={handleSelectPage} />
 
-      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-x-20 gap-y-10  m-4 items-center justify-center ">
+      <div className="grid grid-cols-4 sm:grid-cols-6 sm:gap-x-20 gap-x-7 gap-y-10  m-4 items-center justify-center ">
         {colorTiles.map((item) => (
           <div
             key={item.title}
@@ -94,14 +94,14 @@ const Content2 = () => {
         ))}
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between gap-5 px-10 mt-10">
+      <div className="flex flex-col sm:flex-row justify-between gap-5 px-10 mt-10">
         <button
           onClick={prevHandler}
           className="rounded-2xl px-3 py-1 text-center text-black font-normal bg-white"
         >
           Previous Question
         </button>
-        <div className="flex flex-col md:flex-row gap-3 items-center">
+        <div className="flex flex-col sm:flex-row gap-3 items-center">
           <p>
             Products Available (728){" "}
             <span>

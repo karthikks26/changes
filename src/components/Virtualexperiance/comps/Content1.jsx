@@ -50,7 +50,7 @@ const Content1 = () => {
       <Header />
       <Sidebar selectedPage={selectedPage} onSelectPage={handleSelectPage} />
 
-       <div className="card-container flex flex-row justify-center  gap-20">
+      <div className="card-container flex flex-row justify-center  gap-20">
         {/* <div className="card-1 max-w-xs relative">
           {selected === Image1 && (
             <div
@@ -124,18 +124,18 @@ const Content1 = () => {
             curated sheet vinyl.
           </p>
         </div> */}
-      
-      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-x-2 gap-y-1  my-0 mx-0 ">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1  my-0 mx-0 ">
           {dataTiles.map((item) => (
             <div
               key={item.id}
               className="relative overflow-hidden m-1 aspect-w-16 aspect-h-9 group"
             >
-              {selectedActivity[item.id] && (
+              {/* {selectedActivity[item.id] && (
                 <div className="overlay rounded-2xl absolute top-0 left-0 w-full h-full opacity-50 bg-black"></div>
-              )}
+              )} */}
               <img
-            src={item.img}
+                src={item.img}
                 alt={item.title}
                 style={{ borderRadius: "1rem" }}
                 onClick={() => {
@@ -143,11 +143,12 @@ const Content1 = () => {
                   handleSelect();
                 }}
                 className={`object-cover  w-full h-full block p-1
-              ${
-                selectedActivity[item.id]
-                  ? " overlay z-10 black opacity-100"
-                  : ""
-              }  ${selectedActivity[item.id] ? " border-2 border-red-500" : ""}
+                ${
+                  selectedActivity[item.id]
+                    ? " overlay z-10 black opacity-100"
+                    : ""
+                }
+               ${selectedActivity[item.id] ? " border-2 border-red-500 " : ""}
               `}
               />
               <h3
@@ -182,16 +183,16 @@ const Content1 = () => {
             </div>
           ))}
         </div>
-      </div>  
+      </div>
 
-      <div className="flex flex-col md:flex-row justify-between gap-5 px-10 mt-10">
+      <div className="flex flex-col sm:flex-row justify-between gap-5 px-10 mt-10">
         <button
           onClick={prevHandler}
           className="rounded-2xl px-3 py-1 text-center text-black font-normal bg-white"
         >
           Previous Question
         </button>
-        <div className="flex flex-col md:flex-row gap-3 items-center">
+        <div className="flex flex-col sm:flex-row gap-3 items-center">
           <p>
             Products Available (728){" "}
             <span>

@@ -58,8 +58,9 @@
     display: none;
 }
 
-.arrow-right-filter {
-    right: 26%;
+.arrow-right {
+    /* right: 26%; */
+    right: 40%;
 }
 
 .riht-arrow-sty {
@@ -103,4 +104,48 @@
 
 .slider_lr_container:hover {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+
+@media only screen and (max-width : 450px) {
+   .Filter-array {
+        flex-direction: row;
+        overflow-x: auto; 
+        justify-content: flex-start; 
+      }
+      .filter{
+        display: flex;
+        flex-direction: column;
+      }
+    
+      .Filter-array-element {
+        display: flex;
+        gap: 0.55rem;
+        margin: 0;
+        align-items: center;
+        white-space: nowrap;
+        font-weight: 600;
+        padding: 0.7rem 1.1rem;
+      }
+    
+      .selected-array-element {
+        opacity: 100%;
+        border-bottom-style: solid;
+        font-weight: 600;
+        border-color: rgb(0, 0, 0);
+        border-width: 80%;
+      }
+  
+      .arrow-right {
+        display: none;
+      }
+      .after-arrow{
+        margin-bottom: 10px;
+      }
+      .arrow-left{
+        display: none;
+      }
+     
+      
+    
 }

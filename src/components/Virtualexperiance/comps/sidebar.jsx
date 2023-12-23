@@ -49,14 +49,14 @@ const Sidebar = ({ selectedPage, onSelectPage }) => {
   ];
 
   return (
-    <div className="w-full h-full  z-0 bg-[#f4e3dd] rounded flex flex-row gap-6 pt-16 pb-4 px-3">
-      <h1 className="w-1/2 text-2xl px-32 font-bold  text-rose-900">
+    <div className="w-full h-full  z-0 bg-[#f4e3dd] rounded flex sm:flex-row flex-col gap-6 pt-16 pb-4 px-3">
+      <h1 className="sm:w-1/2 w-full text-2xl sm:px-32 px-2 font-bold  text-rose-900">
         {circleData.map((circle) => {
           return circle.tag === selectedPage ? circle.text : null;
         })}
       </h1>
 
-      <div className="top-10 w-1/2  flex flex-row gap-10 relative items-centre justify-center">
+      <div className="circle-navigation top-10 sm:w-1/2 sm:h-auto w-0 h-0 flex flex-row gap-10 relative items-centre justify-center">
         {circleData.map((circle, index) => (
           <div key={circle.tag} className="part-circle flex flex-row ">
             <button
@@ -77,6 +77,15 @@ const Sidebar = ({ selectedPage, onSelectPage }) => {
             {index < circleData.length && (
               <div className="line absolute top-2 left-39 right-40 z-0  h-0.5 w-1/2 bg-orange-50 "></div>
             )}
+            {/* <div
+              key={index}
+              className="line absolute top-2 left-52 z-0 h-0.5 bg-orange-50"
+              style={{
+               
+                left: `calc(20% * ${index})`,
+                width: `60px`,
+              }}
+            ></div> */}
           </div>
         ))}
       </div>

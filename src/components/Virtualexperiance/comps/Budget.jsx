@@ -53,7 +53,7 @@ const Budget = () => {
     <div className="pt-4 pb-28 flex flex-col  w-full h-full justify-center  bg-[#f4e3dd]">
       <Header />
       <Sidebar selectedPage={selectedPage} onSelectPage={handleSelectPage} />
-      <div className="grid grid-cols-2 gap-y-4 place-items-center md:grid-cols-2 lg:grid-cols-4 mb-10">
+      <div className="grid grid-cols-2 gap-y-4 place-items-center sm:grid-cols-4 mb-10">
         {[
           { label: "$", index: "first" },
           { label: "$$", index: "second" },
@@ -105,14 +105,14 @@ const Budget = () => {
           </div>
         ))}
       </div>
-      <div className="flex flex-col md:flex-row justify-between gap-5 px-10 mt-10">
+      <div className="flex flex-col sm:flex-row justify-between gap-5 px-10 mt-10">
         <button
           onClick={prevHandler}
           className="rounded-2xl px-3 py-1 text-center text-black font-normal bg-white"
         >
           Previous Question
         </button>
-        <div className="flex flex-col md:flex-row gap-3 items-center">
+        <div className="flex flex-col sm:flex-row gap-3 items-center">
           <p>
             Products Available (728){" "}
             <span>
