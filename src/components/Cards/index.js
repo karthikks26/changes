@@ -24,6 +24,7 @@ import Multicard from "../Imagechanger/Multicard";
 import Footer from "../Footer/Footer";
 import Tabs from './Tabs';
 import Profile from "./Profile";
+import Image from '../Imagechanger/Image'
 
 
 function Cards() {
@@ -492,6 +493,7 @@ const sportsAndGymProducts = filterProductsByCategory(recommendedProductsDataFro
     }
 
       <Multicard/>
+        <Image />
         <Profile/>
         <Tabs/>
         <Footer/>
