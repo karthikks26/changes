@@ -11,7 +11,7 @@ import PopUp from '../components/PopUp/PopUp';
 // import { useDispatch, useSelector } from 'react-redux';
 // import {fetchSliderRequest,selectSliderData, selectSliderLoader} from '../Features/slider/sliderSlice';
 import { Oval } from 'react-loader-spinner';
-import { selectSliderData, selectSliderLoader } from '../Features/slider/sliderSlice';
+import { selectSliderData, selectSliderLoader } from '../Features/Slices/sliderSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 const HomePage = () => {
@@ -23,9 +23,7 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_SLIDER_VIEW_REQUEST' });
-    
-    // dispatch(getsSliderFetch());
-    // dispatch(fetchSliderRequest(true));
+
   }, [dispatch]);
 
   console.log(loaderx, "loader");

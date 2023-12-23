@@ -1,5 +1,5 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
-import { recomendProduct, recomendationLoader } from '../recommendation/recommendationSlice';
+import { recomendProduct, recomendationLoader } from '../Slices/recommendationSlice';
 import { fetchRecommendedProduct } from '../api'; 
 function* fetchRecommendedProductSaga() {
   try {

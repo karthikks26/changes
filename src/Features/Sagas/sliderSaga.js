@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { fetchSliderView } from '../api';
-import { getSliderSuccess, fetchSliderRequest, getSliderFailure } from '../slider/sliderSlice';
+import { getSliderSuccess, fetchSliderRequest, getSliderFailure } from '../Slices/sliderSlice';
 
 function* fetchSliderViewSaga() {
     console.log("slider saga")

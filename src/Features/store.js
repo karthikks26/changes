@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import recommendationReducer from "./recommendation/recommendationSlice";
+import recommendationReducer from "./Slices/recommendationSlice";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./Sagas/index";
-import sliderReducer from "./slider/sliderSlice";
+import sliderReducer from "./Slices/sliderSlice";
 import { sliderApi } from "./slider/sliderApi";
 
 const sagaMiddleware = createSagaMiddleware();

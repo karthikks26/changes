@@ -18,7 +18,7 @@ import Imagechanger from "../Imagechanger/Imagechanger";
 import Skeleton from "react-loading-skeleton";
 import Skeletoncard from "../Skeleton/Skeletoncard";
 import { useSelector } from "react-redux";
-import { selectRecommendedProduct } from "../../Features/recommendation/recommendationSlice";
+import { selectRecommendedProduct } from "../../Features/Slices/recommendationSlice";
 import Doublecard from "../Doublecard/Doublecard";
 import Multicard from "../Imagechanger/Multicard";
 import Footer from "../Footer/Footer";

@@ -10,7 +10,7 @@ import "./Mainslidestyle.css";
 import { list3 } from "../../assets/mainslide-list";
 import _debounce from "lodash/debounce";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSliderRequest, getSliderSuccess, getsSliderFetch, selectSliderData, selectSliderLoader } from "../../Features/slider/sliderSlice";
+import { fetchSliderRequest, getSliderSuccess, getsSliderFetch, selectSliderData, selectSliderLoader } from "../../Features/Slices/sliderSlice";
 import { useGetSliderImgQuery } from "../../Features/slider/sliderApi";
 
 function MainSlider() {
@@ -23,6 +23,8 @@ function MainSlider() {
   );
   const [scrollX, setScrollX] = useState(0);
   const scrl = useRef(null);
+  console.log("slider data", data);``
+    
 
   useEffect(() => {
     if (scrl.current) {

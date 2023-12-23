@@ -4,7 +4,7 @@ import back from "../../assets/back.png";
 import { FaCheckCircle } from "react-icons/fa";
 import axios from "axios";
 import { useDispatch} from "react-redux";
-import { recomendProduct, recomendationLoader } from "../../Features/recommendation/recommendationSlice";
+import { recomendProduct, recomendationLoader } from "../../Features/Slices/recommendationSlice";
 
 function App() {
   
