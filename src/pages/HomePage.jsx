@@ -27,7 +27,6 @@ const HomePage = () => {
   const loader = false
   const navigate = useNavigate();
   const [isFilterVisible, setIsFilterVisible] = useState(true);
-  const [sliderData, setSliderData] = useState([]);
 
 
 
