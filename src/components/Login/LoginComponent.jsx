@@ -13,8 +13,8 @@ const LoginComponent = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-slate-100">
-      <div className="bg-white p-8 rounded-lg shadow-2xl w-96">
+    <div className="flex items-center justify-center h-screen bg-slate-100 ">
+      <div className="bg-white p-8 rounded-lg shadow-2xl sm:w-96 w-[80vw] ">
         <h2 className="text-2xl font-semibold mb-4 text-center">
           Login with Google
         </h2>

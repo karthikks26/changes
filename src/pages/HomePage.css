@@ -11,3 +11,17 @@
     animation: fadeIn 0.5s linear;
   }
    */
+
+   .notch-buttons{
+    display: none;
+   }
+
+   @media only screen and (max-width: 450px) {
+
+   .fixed-ayatrio-map{
+    display: none;
+   }
+   .notch-buttons{
+    display: flex;
+   }
+  }

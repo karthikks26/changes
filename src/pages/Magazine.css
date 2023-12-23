@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  justify-content: center;
+  /* padding: 20px; */
 }
 
 .magazine-header {
@@ -12,7 +13,7 @@
 }
 
 .flip-book-container {
-  width: 80%;
+  width: 100%;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -44,4 +45,10 @@
 
 .pagination span {
   font-size: 16px;
+}
+
+.clearfix::after{
+  content: "";
+  display: table;
+  clear: both;
 }

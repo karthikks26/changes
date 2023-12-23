@@ -37,11 +37,12 @@ const BedIcon = () => (
 const Beding = () => {
   return (
     <div className="bedroom-info py-8">
-          <h2 className="my-4 text-xl font-semibold ml-1">
+          <h2 className="my-8 text-xl font-semibold ml-1 flex items-center justify-center">
             Where you'll sleep
           </h2>
-          <div className="flex gap-4 py-3 h-[162px]">
-            <div className="flex flex-col p-[24px] border rounded-xl w-[204px] h-[185px]">
+          <div className="flex items-center justify-center gap-4 py-3 sm:h-[162px]  sm:flex-row flex-col h-[490px]">
+            {/* 1st box */}
+            <div className="flex flex-col p-[24px] border rounded-xl sm:w-[204px] sm:h-[185px] h-auto w-[250px]">
                 <div className="flex">
                   <BedIcon />
                   <BedIcon />
@@ -51,7 +52,8 @@ const Beding = () => {
                   2 single beds
                 </span>
             </div>
-            <div className="flex flex-col p-[24px] border rounded-xl w-[204px] h-[185px]">
+            {/* 2nd box */}
+            <div className="flex flex-col p-[24px] border rounded-xl sm:w-[204px] sm:h-[185px] h-auto w-[250px]">
               <div className="flex">
                 <BedIcon />
                 <SmallBedIcon />
@@ -62,7 +64,8 @@ const Beding = () => {
                 1 double bed, 2 floor mattresses
               </span>
             </div>
-            <div className="flex flex-col p-[24px] border rounded-xl w-[204px] h-[185px]">
+            {/* 3rd box */}
+            <div className="flex flex-col p-[24px] border rounded-xl sm:w-[204px] sm:h-[185px] h-auto w-[250px]">
               <div className="flex">
                 <BedIcon />
                 <SmallBedIcon />

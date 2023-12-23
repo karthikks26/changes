@@ -8,10 +8,12 @@ import Card from "./Other/Card";
 const RoomInfo = () => {
   return (
     <div className="flex my-6 ml-1" style={{ width: "100%" }}>
-      <div className="mr-4" style={{ width: "60%" }}>
+      <div className="mr-4 sm:w-[60%]">
         <div className="room-details pb-4">
-          <h2 className="text-xl font-bold">Entire villa in Nandgaon, India</h2>
-          <div className="text-[1rem]">
+          <h2 className="sm:text-2xl text-lg sm:font-semibold font-medium ">
+            Entire villa in Nandgaon, India
+          </h2>
+          <div className=" text-base">
             16+ guests4 bedrooms5 beds3 bathrooms
           </div>
           <div className="reviews">
@@ -33,9 +35,8 @@ const RoomInfo = () => {
       </div>
 
       {/* ------------------ card -------------- */}
-      <div className="" style={{ width: "40%" }}>
-        <Card/>
-
+      <div className="sm:block hidden" style={{ width: "40%" }}>
+        <Card />
       </div>
     </div>
   );

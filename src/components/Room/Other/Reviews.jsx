@@ -13,8 +13,8 @@ const Reviews = () => {
       <span className="font-normal text-sm text-gray-500">
         Average rating will appear after 3 reviews
       </span>
-      <div className="reviews-container mt-6 grid grid-cols-2 grid-rows-1 gap-4">
-        <div className="mr-12">
+      <div className="reviews-container mt-6 grid sm:grid-cols-2 grids-col-1 grid-rows-1 gap-4 mx-auto">
+        <div className="sm:mr-12 m-0 sm:block ">
           <div className="review-header flex">
             <div className="w-[48px] h-[48px] mr-4">
               <img
@@ -40,7 +40,7 @@ const Reviews = () => {
             <span className="text-sm font-semibold ml-2">October 2023</span>
           </div>
           <div className="review mt-2">
-            <p className="text-gray-600 font-[16px] leading-6	mb-6">
+            <p className="text-gray-600 font-[16px] leading-6	mb-6 sm:w-auto text-justify w-[80vw]">
               We really had an amazing experience. Totally worth the money paid.
               Amazing food and service. The care takers were very very helpful
               and didn't say no to anything. Must visit.
@@ -74,7 +74,7 @@ const Reviews = () => {
             <span className="text-sm font-semibold ml-2">April 2023</span>
           </div>
           <div className="review mt-2">
-            <p className="text-gray-600 font-[16px] leading-6	mb-6">
+            <p className="text-gray-600 font-[16px] leading-6	mb-6 text-justify sm:w-auto w-[80vw]">
               We really had an amazing experience. Totally worth the money paid.
               Amazing food and service. The care takers were very very helpful
               and didn't say no to anything. Must visit.

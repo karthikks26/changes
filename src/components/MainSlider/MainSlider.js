@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./Mainslidestyle.css";
 import { list3 } from "../../assets/mainslide-list";
-import _debounce from "lodash/debounce";
+
 
 function MainSlider() {
   // const [fakeLoading, setFakeLoading] = useState(false);

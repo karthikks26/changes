@@ -3,7 +3,7 @@ import shoe from './shoe.avif';
 
 const OrderSum = () => {
   return (
-    <div>
+    <div className='sm:w-auto w-[80vw]'>
       <h3>Order Summary</h3>
       <br/>
       <div className='grid grid-cols-2'>
@@ -23,11 +23,11 @@ const OrderSum = () => {
             10445.00<br/>
         </div>
       </div>
-      <h6 className='text-xs mt-2 mb-6'>(The total reflects the price of your order, including all duties and taxes)</h6>
+      <h6 className='text-xs mt-2 mb-6 sm:w-[90%] w-[70vw]'>(The total reflects the price of your order, including all duties and taxes)</h6>
      <h3 className='font-bold'>Arrives Thu, 13 Dec-Wed, 3 Jan</h3>
-     <div className='grid grid-cols-2 gap-2'>
+     <div className='grid grid-cols-2 gap-10'>
         <div className='col-span-1'>
-            <img src={shoe} alt='shoes'/>;
+            <img src={shoe} alt='shoes'/>
         </div>
         <div className='col-span-1'>
             <h5 className='text-sm'>Jordan Nu<br/>Retro 1 Low<br/>Men's Shoes</h5>

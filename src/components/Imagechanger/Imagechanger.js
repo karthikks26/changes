@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './styles.css'
 import { FaChevronDown ,FaChevronUp} from "react-icons/fa";
 const Imagechanger = () => {
   const [index, setIndex] = useState(0);
@@ -17,13 +18,13 @@ const Imagechanger = () => {
 
   return (
     <>
-      <div className="main w-full h-full bg-gray-100 rounded-[50px] flex p-2">
+      <div className="main-trend imagechanger items-center justify-center  w-full h-full bg-gray-100 rounded-[50px] flex p-2">
         <div className="left text-container flex flex-col items-center justify-center w-1/2 h-full  p-1">
           {Heading.map((value, idx) => (
-            <div key={idx} className='mb-7'>
+            <div key={idx} className='mb-7 trending-choice'>
               {idx === 1 && (
                 <>
-                  <div className="line-horizontal dark-black-line h-1 w-full   bg-gray-300 " />
+                  <div className="line-horizontal dark-black-line h-1 w-full bg-gray-300 " />
                   <div onClick={() => setIndex(idx)} className='flex  items-center justify-between'>
                   <h1
                     
@@ -46,7 +47,7 @@ const Imagechanger = () => {
                 {index === idx ? <FaChevronUp className='text-2xl my-4 text-gray-500 text-left cursor-pointer'/> : <FaChevronDown className='text-2xl my-4 text-gray-500 text-left cursor-pointer'/>}
                 </div>
               )}
-              <div className='w-[23rem]'>
+              <div className='sm:w-[23rem] w-[80vw] h-auto'>
                 <p className={`${idx + 1}text`}>{index === idx ? text[idx] : ""}</p>
                 {idx === 1 && <hr className="line-horizontal dark-black-line h-1 w-full bg-gray-300" />}
               </div>
@@ -55,7 +56,7 @@ const Imagechanger = () => {
         </div>
         <div className="right image-container flex w-1/2 h-full p-1">
           <div className="flex w-full h-full justify-center items-center">
-            <img src={img[index]} alt="" className="rounded-[50px] w-[80%] h-[72%]" />
+            <img src={img[index]} alt="" className="rounded-[50px] sm:w-[80%] w-[80vw] sm:h-[72%] h-auto" />
           </div>
         </div>
       </div>
