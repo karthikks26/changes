@@ -103,7 +103,7 @@ const Image = () => {
           ))}
         </div>
         <div className="right image-container flex w-1/2 h-full p-1">
-          <div className="flex w-full h-full justify-center items-center relative pt-36">
+          <div className="flex w-full h-full justify-center items-center relative pt-8">
             {renderImages()}
             <div className='absolute top-0 h-full flex items-center cursor-pointer' onClick={() => handleCarouselClick(-1)}>
               <div className='text-3xl font-bold text-white'></div>
