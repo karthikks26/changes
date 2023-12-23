@@ -28,14 +28,11 @@ function MainSlider() {
   // console.log("slider data", data);``
   const [sliderData, setSliderData] = useState([]);
 
-  const dispatch = useDispatch();
   const sliderSelect = useSelector(selectSliderData);
-  const loaderx = useSelector(selectSliderLoader);
-  console.log("slider data",sliderData)
+  
   useEffect(() => {
-    dispatch({ type: "FETCH_SLIDER_VIEW_REQUEST" });
     setSliderData(sliderSelect);
-  }, [dispatch, sliderSelect]);
+  }, [sliderSelect]);
 
   useEffect(() => {
     if (scrl.current) {

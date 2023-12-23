@@ -20,18 +20,17 @@ const HomePage = () => {
   const FirstCardData= useSelector(CardData);
   useEffect(() => {
     dispatch({ type: "FETCH_FIRST_CARD_REQUEST" });
+    dispatch({ type: "FETCH_SLIDER_VIEW_REQUEST" });
   }
   , [dispatch]);
-console.log("first card data",FirstCardData)
+  
   const loader = false
   const navigate = useNavigate();
   const [isFilterVisible, setIsFilterVisible] = useState(true);
-  // useEffect(() => {
-  //   dispatch(fetchSliderRequest());
-  // }, [dispatch]);'[]
-  
-  // console.log(sliderData)
-  // console.log(loader)
+  const [sliderData, setSliderData] = useState([]);
+
+
+
 
   useEffect(() => {
     let prevScrollPos = window.scrollY;
