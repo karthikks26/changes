@@ -17,17 +17,8 @@ import { useDispatch, useSelector } from 'react-redux';
 const HomePage = () => {
   // const dispatch = useDispatch();
   // const sliderData= useSelector(selectSliderData);
-  const dispatch = useDispatch();
-  const sliderData = useSelector(selectSliderData);
-  const loaderx = useSelector(selectSliderLoader);
 
-  useEffect(() => {
-    dispatch({ type: 'FETCH_SLIDER_VIEW_REQUEST' });
 
-  }, [dispatch]);
-
-  console.log(loaderx, "loader");
-  console.log(sliderData, "sliderData");
   const loader = false
   const navigate = useNavigate();
   const [isFilterVisible, setIsFilterVisible] = useState(true);
