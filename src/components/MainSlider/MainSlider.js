@@ -28,14 +28,11 @@ function MainSlider() {
   // console.log("slider data", data);``
   const [sliderData, setSliderData] = useState([]);
 
-  const dispatch = useDispatch();
   const sliderSelect = useSelector(selectSliderData);
-  const loaderx = useSelector(selectSliderLoader);
-  console.log("slider data",sliderData)
+  
   useEffect(() => {
-    dispatch({ type: "FETCH_SLIDER_VIEW_REQUEST" });
     setSliderData(sliderSelect);
-  }, [dispatch]);
+  }, [sliderSelect]);
 
   useEffect(() => {
     if (scrl.current) {
@@ -56,7 +53,7 @@ console.log(products)
     }
   };
 
-  if (products.length > 0) {
+  if (sliderData.length > 0) {
     return (
       <div className="slider-container">
         <div className="arrow-left" onClick={() => slide(-380)}>

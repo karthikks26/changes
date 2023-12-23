@@ -18,55 +18,34 @@ import axios from "axios";
 import Expandedbar from "../components/Header/Expandedbar";
 import { selectSliderData, selectSliderLoader } from '../Features/Slices/sliderSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { CardData } from '../Features/Slices/FIrstCardSlice';
 
 const HomePage = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  const [searchText, setSearchText] = useState("");
-
-  const handleSearchChange = (event) => {
-    setSearchText(event.target.value);
-  };
-
-  const [userdata, setUserdata] = useState({});
-  console.log("response", userdata);
-
-  const getUser = async () => {
-    try {
-      const response = await axios.get(
-        "http://localhost:8080/auth/login/sucess",
-        {
-          withCredentials: true,
-        }
-      );
-
-      setUserdata(response.data.user);
-      console.log("user: ", response.data.user);
-    } catch (error) {
-      console.log("error", error);
-    }
-  };
-
+  const dispatch = useDispatch();
+  const FirstCardData= useSelector(CardData);
   useEffect(() => {
-    getUser();
-  }, []);
-
+    dispatch({ type: "FETCH_FIRST_CARD_REQUEST" });
+    dispatch({ type: "FETCH_SLIDER_VIEW_REQUEST" });
+  }
+  , [dispatch]);
+  
+  const loader = false
   const navigate = useNavigate();
-  useEffect(() => {
-    const handleScroll = () => {
-      // console.log(window.scrollY);
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     // console.log(window.scrollY);
+  //     if (window.scrollY > 0) {
+  //       setIsScrolled(true);
+  //     } else {
+  //       setIsScrolled(false);
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isScrolled]);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [isScrolled]);
   const handleLoginNav = () => {
     navigate("/login");
   };
@@ -90,12 +69,10 @@ const HomePage = () => {
   };
 
   const [isFilterVisible, setIsFilterVisible] = useState(true);
-  // useEffect(() => {
-  //   dispatch(fetchSliderRequest());
-  // }, [dispatch]);
-  
-  // console.log(sliderData)
-  // console.log(loader)
+  const [sliderData, setSliderData] = useState([]);
+
+
+
 
   useEffect(() => {
     let prevScrollPos = window.scrollY;
@@ -146,11 +123,15 @@ const HomePage = () => {
         {popUp === "true" ? null : <PopUp />}
         {/* <Header /> */}
         {/* <MobileSearchBar /> */}
-
+        
         {isFilterVisible && (
           <>
             <Header onSearchIconClick={handleSearchIconClick} />
-            {isSearchBarVisible && <Expandedbar searchText={searchText} onClose={onClose}  /> }
+            {isSearchBarVisible &&
+            
+             <Expandedbar
+              // searchText={searchText} 
+              onClose={onClose}  /> }
             <MobileSearchBar />
           </>
         )}

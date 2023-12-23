@@ -19,4 +19,5 @@ function* fetchRecommendedProductSaga() {
 
 export function* watchFetchRecommendedProduct() {
   yield takeLatest('RECOMMENDATION_REQUEST', fetchRecommendedProductSaga);
+  
 }
