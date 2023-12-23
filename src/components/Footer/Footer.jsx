@@ -9,16 +9,17 @@ const Footer = () => {
   return (
     <div>
       <div className='px-[50px] my-5'>
-      <h2 className='main_heading'>Shop Wallpapers</h2>
-      <div className='filter_container flex gap-32'>
-        <Featured />
-        <Collections />
-        <Styles />
-        <Colours />
-        <Rooms />
-       
+        <h2 className='main_heading'>Shop Wallpapers</h2>
+        <div className='filter_container flex gap-32'>
+
+          <Collections />
+          <Collections />
+          <Styles />
+          <Colours />
+          <Rooms />
+
+        </div>
       </div>
-    </div>
     </div>
   )
 }

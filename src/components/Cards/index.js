@@ -110,7 +110,7 @@ const sportsAndGymProducts = filterProductsByCategory(recommendedProductsDataFro
           <div className="Slidenav flex  bg-white text-2xl cursor-pointer  text-white rounded-full gap-2">
             <div
               onClick={() => swiper1Ref.current.swiper.slidePrev()}
-              className="custom-prev-button bg-slate-500   rounded-full  hover:bg-400 hover:scale-110 hover:text-slate-100"
+              className="custom-prev-button bg-slate-500  rounded-full  hover:bg-400 hover:scale-110 hover:text-slate-100"
             >
               <FaChevronLeft />
             </div>
