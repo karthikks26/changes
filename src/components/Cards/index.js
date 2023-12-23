@@ -23,6 +23,7 @@ import Doublecard from "../Doublecard/Doublecard";
 import Multicard from "../Imagechanger/Multicard";
 import Footer from "../Footer/Footer";
 import Tabs from './Tabs';
+import Profile from "./Profile";
 
 
 function Cards() {
@@ -491,6 +492,7 @@ const sportsAndGymProducts = filterProductsByCategory(recommendedProductsDataFro
     }
 
       <Multicard/>
+        <Profile/>
         <Tabs/>
         <Footer/>
     </div>
