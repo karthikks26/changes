@@ -53,7 +53,7 @@ console.log(products)
     }
   };
 
-  if (sliderData.length > 0) {
+  if  ( false && sliderData.length > 0) {
     return (
       <div className="slider-container">
         <div className="arrow-left" onClick={() => slide(-380)}>

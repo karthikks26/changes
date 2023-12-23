@@ -69,7 +69,6 @@ const HomePage = () => {
   };
 
   const [isFilterVisible, setIsFilterVisible] = useState(true);
-  const [sliderData, setSliderData] = useState([]);
 
 
 
