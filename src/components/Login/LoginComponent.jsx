@@ -52,13 +52,13 @@ const LoginComponent = () => {
         <div className='gflbutton'>
           <div className='BzWZlf'>
             <div
-              className='text-black border border-black bg-white text-lg my-5 rounded-full font-semibold py-3 px-4 flex items-center justify-center w-3/5'>
+              className='text-black border border-black bg-white text-lg my-2.5 rounded-full font-semibold py-3 px-4 flex items-center justify-center w-3/5'>
               Sign up with phone or email
             </div>
           </div>
         </div>
         <div className="tarms">
-          <span className='mtp text-sm'>
+          <span className='mtp text-xs'>
             By continuing, you agree to Ayatrio's{" "}
             <a
               target='_blank'
