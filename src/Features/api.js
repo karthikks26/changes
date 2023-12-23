@@ -46,7 +46,7 @@ export const fetchRecommendedProduct = async () => {
 
   export const fetchProductsWithSearch = async (searchQuery) => {
     try {
-      const response = await axios.post('http://localhost:8080/api/products',  {
+      const response = await axios.get('http://localhost:8080/api/products',  {
         params: {
         search: searchQuery,
       }});

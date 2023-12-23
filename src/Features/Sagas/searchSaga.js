@@ -2,7 +2,7 @@ import { call, put, debounce, takeLatest } from 'redux-saga/effects';
 import {
   searchProductsSuccess,
   searchProductsFailure,
-  
+  searchProductsRequest
 } from '../search/searchSlice';
 
 import { fetchProductsWithSearch } from '../api';
@@ -19,5 +19,5 @@ function* searchProducts(action) {
 
 export function* watchSearchProducts() {
   // Debounce the action to avoid making API calls for every keystroke
-  yield debounce(300, "SEARCH_PRODUCTS_REQUEST", searchProducts);
+  yield debounce(300,searchProductsRequest.type , searchProducts);
 }
