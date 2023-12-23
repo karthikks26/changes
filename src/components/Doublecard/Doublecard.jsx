@@ -8,12 +8,12 @@ const Doublecard = () => {
 
   return (
     <>
-      <div className="main w-full h-full m-2 flex p-2">
+      <div className="main w-full h-full m-2 flex pt-16 pb-2 pl-2 pr-2">
         <div className="left text-container flex flex-col items-center justify-center w-1/2 h-full  p-1">
         <div className="flex w-full h-full justify-center items-center">
            <div className='relative flex justify-center items-center  w-full h-full'>
             <h1 className=' text-white z-20 font-bold text-2xl absolute'>Ayatrio</h1>
-           <img src={img[0]} alt="" className="w-[100%] h-[100%]" />
+           <img src={img[0]} alt="" className="w-[100%] h-[110%]" />
            </div>
           </div>
         </div>
@@ -21,7 +21,7 @@ const Doublecard = () => {
           <div className="flex w-full h-full justify-center items-center">
           <div className='relative flex justify-center items-center  w-full h-full'>
             <h1 className=' text-white z-20 font-bold text-2xl absolute'>Ayatrio</h1>
-            <img src={img[1]} alt="" className="w-[100%] h-[100%]" />
+            <img src={img[1]} alt="" className="w-[100%] h-[110%]" />
             </div>
           </div>
         </div>

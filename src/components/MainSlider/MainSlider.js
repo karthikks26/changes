@@ -15,9 +15,6 @@ import { useGetSliderImgQuery } from "../../Features/slider/sliderApi";
 
 function MainSlider() {
 
-
-  const { data, error, isLoading } = useGetSliderImgQuery();
-
   const products = list3.filter(
     (prod) => prod.id === 1 || prod.id === 2 || prod.id === 3
   );

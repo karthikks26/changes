@@ -13,14 +13,14 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Login } from "@mui/icons-material";
 import Expandedbar from "./Expandedbar";
 import axios from "axios"
+import { useDispatch,useSelector } from 'react-redux'
+import { searchProductsRequest } from "../../Features/search/searchSlice";
 
 function Header({ howMuchScrolled }) {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const [searchText, setSearchText] = useState("");
-
   const handleSearchChange = (event) => {
-    setSearchText(event.target.value);
+    setSearchQuery(event.target.value);
   };
 
   const [userdata, setUserdata] = useState({});
@@ -39,9 +39,20 @@ function Header({ howMuchScrolled }) {
     }
   };
 
+  const [searchQuery,setSearchQuery] = useState('');
+  const dispatch = useDispatch();
+  
+  useEffect(()=>{
+    dispatch(searchProductsRequest(searchQuery));
+    console.log("search called");
+  },[dispatch,searchQuery])
+
   
   useEffect(() => {
-    getUser();
+    const fetchData = async () => {
+      await getUser();
+    };
+    fetchData();
   }, []);
 
   const navigate = useNavigate();
@@ -68,7 +79,7 @@ function Header({ howMuchScrolled }) {
     navigate("/profile");
   };
   const onClose = () => {
-    setSearchText("");
+    setSearchQuery("");
   };
   const loginStatus = localStorage.getItem("Login");
   console.log(loginStatus);
@@ -78,7 +89,7 @@ function Header({ howMuchScrolled }) {
       className={`fixed w-full  top-0 transition-all ease-in-out duration-300  z-[9999] ${
         isScrolled ? "bg-white" : "bg-white"
       } ${howMuchScrolled > 20 ? "hidden" : ""}`}>
-      {!searchText ? (
+      {!searchQuery ? (
         <div className="navbar flex justify-evenly items-center w-full">
           <div className="left flex items-center gap-5 ">
             <div className="profile-menu font-bold ">
@@ -100,7 +111,7 @@ function Header({ howMuchScrolled }) {
               <input
                 type="text"
                 onChange={handleSearchChange}
-                value={searchText}
+                value={searchQuery}
                 placeholder="Search"
                 className="searchTerm relative font-semibold placeholder-gray-400 w-[13rem] h-10 bg-[#efefef] p-4 rounded-full active:border-none focus:outline-none"
               />
@@ -128,7 +139,7 @@ function Header({ howMuchScrolled }) {
           </div>
         </div>
       ) : (
-        <Expandedbar searchText={searchText} onClose={onClose} />
+        <Expandedbar searchQuery={searchQuery} onClose={onClose} />
       )}
     </header>
   );

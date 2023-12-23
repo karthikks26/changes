@@ -23,6 +23,8 @@ import Doublecard from "../Doublecard/Doublecard";
 import Multicard from "../Imagechanger/Multicard";
 import Footer from "../Footer/Footer";
 import Tabs from './Tabs';
+import Profile from "./Profile";
+import Image from '../Imagechanger/Image'
 
 
 function Cards() {
@@ -110,7 +112,7 @@ const sportsAndGymProducts = filterProductsByCategory(recommendedProductsDataFro
           <div className="Slidenav flex  bg-white text-2xl cursor-pointer  text-white rounded-full gap-2">
             <div
               onClick={() => swiper1Ref.current.swiper.slidePrev()}
-              className="custom-prev-button bg-slate-500   rounded-full  hover:bg-400 hover:scale-110 hover:text-slate-100"
+              className="custom-prev-button bg-slate-500  rounded-full  hover:bg-400 hover:scale-110 hover:text-slate-100"
             >
               <FaChevronLeft />
             </div>
@@ -187,7 +189,7 @@ const sportsAndGymProducts = filterProductsByCategory(recommendedProductsDataFro
       </div>
       <div className="pt-12  mb-20  bg-white">
         <div className="mb-2 w-full flex justify-between items-center">
-          <h2 className="text-bold text-2xl font-serif ml-4">
+          <h2 className="text-bold text-2xl font-serif ml-4 pt-2">
           {flooringProducts ? "Flooring" : "Beach and Resort"}
           </h2>
           <div className="Slidenav flex bg-slate-700 text-2xl cursor-pointer  text-white rounded-full gap-2">
@@ -491,6 +493,8 @@ const sportsAndGymProducts = filterProductsByCategory(recommendedProductsDataFro
     }
 
       <Multicard/>
+        <Image />
+        <Profile/>
         <Tabs/>
         <Footer/>
     </div>

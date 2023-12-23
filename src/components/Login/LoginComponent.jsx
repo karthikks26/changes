@@ -44,12 +44,54 @@ const LoginComponent = () => {
         </div>
         <button
           onClick={handleGoogleLogin}
-          className="text-white bg-black text-lg rounded-full font-semibold py-3 px-4 flex items-center justify-center w-3/4">
+          className="text-white bg-black text-lg rounded-full font-semibold py-3 px-4 flex items-center justify-center w-3/5">
           <Google className="mr-2" />
           Login with Google
         </button>
 
+        <div className='gflbutton'>
+          <div className='BzWZlf'>
+            <div
+              className='text-black border border-black bg-white text-lg my-2.5 rounded-full font-semibold py-3 px-4 flex items-center justify-center w-3/5'>
+              Sign up with phone or email
+            </div>
+          </div>
+        </div>
+        <div className="tarms">
+          <span className='mtp text-xs'>
+            By continuing, you agree to Ayatrio's{" "}
+            <a
+              target='_blank'
+              rel='noopener noreferrer'
+              data-test-id='tos'
+              href='/_/_/policy/terms-of-service/'
+            >
+              Terms of Service
+            </a>
+            ,{" "}
+            <a
+              target='_blank'
+              rel='noopener noreferrer'
+              data-test-id='privacy'
+              href='/_/_/policy/privacy-policy/'
+            >
+              Privacy policy
+            </a>{" "}
+            including{" "}
+            <a
+              target='_blank'
+              rel='noopener noreferrer'
+              data-test-id='privacy'
+            >
+              {" "}
+              Cookie Use{" "}
+            </a>
+            .{" "}
+          </span>
+        </div>
       </div>
+
+
     </div>
   );
 };
