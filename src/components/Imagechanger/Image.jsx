@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
-const Last = () => {
+const Image = () => {
   const [index, setIndex] = useState(0);
   const [carouselIndex, setCarouselIndex] = useState(0);
 
@@ -119,4 +119,4 @@ const Last = () => {
   );
 };
 
-export default Last;
+export default Image;
