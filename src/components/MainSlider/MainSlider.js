@@ -33,7 +33,7 @@ function MainSlider() {
   useEffect(() => {
     setSliderData(sliderSelect);
   }, [sliderSelect]);
-
+console.log(sliderData)
   useEffect(() => {
     if (scrl.current) {
       scrl.current.scrollLeft = 380;
