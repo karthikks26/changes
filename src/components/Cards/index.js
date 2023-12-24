@@ -26,6 +26,7 @@ import Tabs from './Tabs';
 import Profile from "./Profile";
 import Image from '../Imagechanger/Image'
 import Phone from "./Phone";
+import { CardData, CardLoader } from "../../Features/Slices/FIrstCardSlice";
 
 
 function Cards() {
@@ -77,9 +78,12 @@ useEffect(() => {
     setLoading(false)
   }, 2500)
 }, [])
-
-
-
+const [trendingData, setTrendingData] = useState([]);
+const trendingSelect = useSelector(CardData);
+useEffect(() => {
+  setTrendingData(trendingSelect);
+}, [trendingSelect]);
+console.log(trendingData);
 const recommendedProducts = useSelector(selectRecommendedProduct);
   const recommendedProductsDataFromLocalStorage = JSON.parse(localStorage.getItem("recommendedProducts"));
 
@@ -108,7 +112,7 @@ const sportsAndGymProducts = filterProductsByCategory(recommendedProductsDataFro
       <div className="pt-12  mb-20  bg-white">
         <div className="mb-2 w-full flex justify-between items-center">
           <h2 className="text-bold text-2xl font-serif ml-4">
-            {wallpaperProducts ? "Wallpapers" : "Beach and Resort"}
+            {trendingData ? "Trending Products" : "Trending Product"}
           </h2>
           <div className="Slidenav flex  bg-white text-2xl cursor-pointer  text-white rounded-full gap-2">
             <div
@@ -159,7 +163,7 @@ const sportsAndGymProducts = filterProductsByCategory(recommendedProductsDataFro
            </SwiperSlide>
         
           ) : (
-            wallpaperProducts.map((product, idx) => {
+            trendingData.map((product, idx) => {
               return (
                 <SwiperSlide key={idx} className="">
                   <div className="grid grid-cols-1 mt-2  h-full fade-in ">
