@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import  room from './room.jpg'
+import work from './work.jpg'
 import living from './living.jpg'
 import kitchen from './kitchen.webp'
-import work from './work.jpg'
 
-const Tabs = () => {
+const Last = () => {
   const [activeTab, setActiveTab] = useState('all');
 
   const handleTabClick = (tab) => {
@@ -14,36 +14,36 @@ const Tabs = () => {
   const getContent = () => {
     switch (activeTab) {
       case 'all':
-        return <p><div className='container mr-4'>
+        return <div>
       <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
   <div class="row-span-2 overflow-hidden">
     <img className='h-full w-full object-cover ' src={room} alt="Room" />
   </div>
   <div class="overflow-hidden">
-    <img className='h-full w-full object-cover ' src={kitchen} alt="Room" />
-  </div>
-  <div class="row-span-2 overflow-hidden">
     <img className='h-full w-full object-cover ' src={work} alt="Room" />
   </div>
   <div class="row-span-2 overflow-hidden">
     <img className='h-full w-full object-cover ' src={living} alt="Room" />
   </div>
-  <div class="overflow-hidden">
-    <img className='h-full w-full object-cover ' src={living} alt="Room" />
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover ' src={kitchen} alt="Room" />
   </div>
   <div class="overflow-hidden">
     <img className='h-full w-full object-cover ' src={room} alt="Room" />
   </div>
-</div>
-</div></p>;
-      case 'bedroom':
-        return <p>
-          <div className='container mr-4'>
-      <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
-  <div class="row-span-2 overflow-hidden">
-    <img className='h-full w-full object-cover' src={room} alt="Room" />
-  </div>
   <div class="overflow-hidden">
+    <img className='h-full w-full object-cover ' src={living} alt="Room" />
+  </div>
+</div>
+</div>;
+      
+case 'bedroom':
+  return <div>
+    <div className='p-20 grid grid-cols-3 gap-3 grid-rows-3 mr-8'>
+      <div className='row-span-2 overflow-hidden'>
+        <img className='h-full w-full object-cover' src={room} />
+      </div>
+      <div class="overflow-hidden">
     <img className='h-full w-full object-cover' src={room} alt="Room" />
   </div>
   <div class="row-span-2 overflow-hidden">
@@ -58,11 +58,11 @@ const Tabs = () => {
   <div class="bg-teal-100 overflow-hidden">
     <img className='h-full w-full object-cover' src={room} alt="Room" />
   </div>
-</div>
-</div>
-        </p>;
+    </div>
+  </div>
+
       case 'livingroom':
-        return <p><div className='container mr-4'>
+        return <div>
       <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
   <div class="row-span-2 overflow-hidden">
     <img className='h-full w-full object-cover' src={living} alt="Room" />
@@ -83,9 +83,9 @@ const Tabs = () => {
     <img className='h-full w-full object-cover' src={living} alt="Room" />
   </div>
 </div>
-</div></p>;
+</div>;
         case 'kitchen':
-          return <p><div className='container mr-4'>
+          return <div>
       <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
   <div class="row-span-2 overflow-hidden">
     <img className='h-full w-full object-cover' src={kitchen} alt="Room" />
@@ -106,9 +106,9 @@ const Tabs = () => {
     <img className='h-full w-full object-cover' src={kitchen} alt="Room" />
   </div>
 </div>
-</div></p>;
+</div>;
           case 'workspace':
-            return <p><div className='container mr-4'>
+            return <div >
       <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
   <div class="row-span-2 overflow-hidden">
     <img className='h-full w-full object-cover' src={work} alt="Room" />
@@ -129,9 +129,9 @@ const Tabs = () => {
     <img className='h-full w-full object-cover' src={work} alt="Room" />
   </div>
 </div>
-</div></p>;
+</div>;
             case 'outdoor':
-              return <p><div className='container mr-4'>
+              return <div >
       <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
   <div class="row-span-2 overflow-hidden">
     <img className='h-full w-full object-cover' src={room} alt="Room" />
@@ -152,9 +152,9 @@ const Tabs = () => {
     <img className='h-full w-full object-cover' src={room} alt="Room" />
   </div>
 </div>
-</div></p>;
+</div>;
               case 'bathroom':
-                return <p><div className='container mr-4'>
+                return <div >
       <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
   <div class="row-span-2 overflow-hidden">
     <img className='h-full w-full object-cover' src={room} alt="Room" />
@@ -175,9 +175,9 @@ const Tabs = () => {
     <img className='h-full w-full object-cover' src={room} alt="Room" />
   </div>
 </div>
-</div></p>;
+</div>;
                 case 'babychildren':
-                  return <p><div className='container mr-4'>
+                  return <div >
       <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
   <div class="row-span-2 overflow-hidden">
     <img className='h-full w-full object-cover' src={room} alt="Room" />
@@ -198,9 +198,9 @@ const Tabs = () => {
     <img className='h-full w-full object-cover' src={room} alt="Room" />
   </div>
 </div>
-</div></p>;
+</div>;
                   case 'dining':
-                    return <p><div className='container mr-4'>
+                    return <div >
       <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
   <div class="row-span-2 overflow-hidden">
     <img className='h-full w-full object-cover' src={room} alt="Room" />
@@ -221,9 +221,9 @@ const Tabs = () => {
     <img className='h-full w-full object-cover' src={room} alt="Room" />
   </div>
 </div>
-</div></p>;
+</div>;
                     case 'hallway':
-                      return <p><div className='container mr-4'>
+                      return <div>
       <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
   <div class="row-span-2 overflow-hidden">
     <img className='h-full w-full object-cover' src={room} alt="Room" />
@@ -244,9 +244,9 @@ const Tabs = () => {
     <img className='h-full w-full object-cover' src={room} alt="Room" />
   </div>
 </div>
-</div></p>;
+</div>;
                       case 'laundry':
-                        return <p><div className='container mr-4'>
+                        return <div>
       <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
   <div class="row-span-2 overflow-hidden">
     <img className='h-full w-full object-cover' src={room} alt="Room" />
@@ -267,9 +267,9 @@ const Tabs = () => {
     <img className='h-full w-full object-cover' src={room} alt="Room" />
   </div>
 </div>
-</div></p>;
+</div>;
                         case 'accessories':
-                          return <p><div className='container mr-4'>
+                          return <div>
       <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
   <div class="row-span-2 overflow-hidden">
     <img className='h-full w-full object-cover' src={room} alt="Room" />
@@ -290,7 +290,7 @@ const Tabs = () => {
     <img className='h-full w-full object-cover' src={room} alt="Room" />
   </div>
 </div>
-</div></p>;
+</div>;
       default:
         return null;
     }
@@ -346,4 +346,5 @@ const Tabs = () => {
   );
 };
 
-export default Tabs;
+export default Last;
+
