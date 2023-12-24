@@ -33,7 +33,7 @@ function MainSlider() {
   useEffect(() => {
     setSliderData(sliderSelect);
   }, [sliderSelect]);
-
+console.log(sliderData)
   useEffect(() => {
     if (scrl.current) {
       scrl.current.scrollLeft = 380;
@@ -53,7 +53,7 @@ console.log(products)
     }
   };
 
-  if  ( false && sliderData.length > 0) {
+  if  ( sliderData.length > 0) {
     return (
       <div className="slider-container">
         <div className="arrow-left" onClick={() => slide(-380)}>
