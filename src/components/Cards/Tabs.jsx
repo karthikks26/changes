@@ -4,7 +4,7 @@ import work from './work.jpg'
 import living from './living.jpg'
 import kitchen from './kitchen.webp'
 
-const Last = () => {
+const Tabs = () => {
   const [activeTab, setActiveTab] = useState('all');
 
   const handleTabClick = (tab) => {
@@ -346,5 +346,5 @@ case 'bedroom':
   );
 };
 
-export default Last;
+export default Tabs;
 
