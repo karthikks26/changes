@@ -11,7 +11,7 @@ const ServicesCollections = [
 const AyatrioServices = () => {
     return (
         <div className='filter_item'>
-            <h4 className='filter_heading gray-text'>Service</h4>
+            <h4 className='filter_heading text-black'>Service</h4>
             <div className='filter_content'>
                 <ul className='filter_content_list'>
                     {ServicesCollections.map((item) => (

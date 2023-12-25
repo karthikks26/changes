@@ -13,7 +13,7 @@ const helpcollections = [
 const Helpcollections = () => {
     return (
         <div className='filter_item'>
-            <h4 className='filter_heading gray-text'>Help</h4>
+            <h4 className='filter_heading text-black'>Help</h4>
             <div className='filter_content'>
                 <ul className='filter_content_list'>
                     {helpcollections.map((item) => (
