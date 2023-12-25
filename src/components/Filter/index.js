@@ -47,7 +47,7 @@ function Filter() {
         isScrolled ? "bg-white" : "bg-white"
       } `}
     >
-      <div className="filter" style={{marginLeft:"0px"}}>
+      <div className="filter" style={{ marginLeft: "0px" }}>
         <div className="Filter-array" ref={scrl}>
           <div
             className={` slider_lr_container arrow-left  ${
@@ -65,7 +65,7 @@ function Filter() {
           {links.map((value, idx) => (
             <div
               key={idx}
-              className={`Filter-array-element ${
+              className={`Filter-array-elem                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ent ${
                 idx === selectedFilter ? "selected-array-element" : ""
               }`}
               onClick={(event) => handleDropdownClick(event, idx)}

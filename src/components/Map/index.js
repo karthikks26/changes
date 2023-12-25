@@ -5,6 +5,7 @@ import mapStyles from "./mapStyles";
 import MapMarker from "../MapMarker";
 import Sidebar from "../Sidebar";
 import { REACT_APP_GMAP_API_KEY } from "../../config";
+// import { REACT_APP_GMAP_API_KEY } from '../../config.js'
 import Search from "./Search";
 const Map = ({ setBoundaries, coords, places }) => {
   const { isLoaded } = useLoadScript({
@@ -21,7 +22,7 @@ const Map = ({ setBoundaries, coords, places }) => {
     const longitude = parseFloat(lng);
     setSelectedCoords({ lat: latitude, lng: longitude });  
     console.log(selectedCoords);
-    if(selectedCoords.lat==20.593 && selectedCoords.lng==78.96 ){
+    if(selectedCoords.lat===20.593 && selectedCoords.lng===78.96 ){
       setZoom(india_zoom);
     }
     else{

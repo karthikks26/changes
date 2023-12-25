@@ -8,13 +8,13 @@ const Multicard = () => {
   const [startIndex, setStartIndex] = useState(0);
  
   const handleRightArrowClick = () => {
-    if(startIndex==0){
+    if(startIndex===0){
       setStartIndex((prevIndex) => (prevIndex + 1) % 4);
     }
   };
 
   const handleLeftArrowClick = () => {
-    if(startIndex==1){
+    if(startIndex===1){
       setStartIndex((prevIndex) => (prevIndex - 1 + 4) % 4);
 
     }
@@ -24,7 +24,7 @@ const Multicard = () => {
     switch (index) {
       case 0:
         return (
-          <div className='ml-8 relative bg-white rounded-xl' style={{ width: '380px', height: '320px', paddingTop: '5px' }}>
+          <div className='sm:ml-8 pl-3 ml-3 relative bg-slate-200 rounded-xl sm:w[380px] sm:h-[320px] pt-[5px] ' >
             <div className='mt-8 ml-6 mr-12'>
               <CiDeliveryTruck size={52} />
             </div>
@@ -40,7 +40,7 @@ const Multicard = () => {
         );
       case 1:
         return (
-          <div className='ml-3 relative bg-white rounded-xl' style={{ width: '380px', height: '320px', paddingTop: '5px' }}>
+          <div className='sm:ml-8 pl-3 ml-3 mt-3 sm:mt-0 relative bg-slate-200 rounded-xl sm:w[380px] sm:h-[320px] pt-[5px] ' >
             <div className='mt-8 ml-6 mr-12'>
               <IoChatbubblesOutline size={46} />
             </div>
@@ -54,7 +54,7 @@ const Multicard = () => {
         );
       case 2:
         return (
-          <div className='ml-3 relative bg-white rounded-xl' style={{ width: '380px', height: '320px', paddingTop: '5px' }}>
+          <div className='sm:ml-8 pl-3 mt-3 sm:mt-0 ml-3 relative bg-slate-200 rounded-xl sm:w[380px] sm:h-[320px] pt-[5px] ' >
             <div className='mt-8 ml-6 mr-12'>
               <IoMdContacts size={48} />
             </div>
@@ -91,12 +91,12 @@ const Multicard = () => {
 
   return (
     <div>
-      <div className='bg-zinc-50 rounded-lg h-110 pb-16'>
-        <div className='text-5xl font-bold pt-10 pl-10 pb-10 font-sans'>
+      <div className='bg-zinc-50 rounded-lg w-full h-110 pb-16'>
+        <div className='sm:text-5xl text-2xl text-left font-bold py-10 sm:pl-10 pl-3 font-sans'>
           Why Ayatrio so innovative<br />for home furnishing.
         </div>
         {/* Main Display Container */}
-        <div className='flex overflow-x-hidden p-4'>
+        <div className='flex sm:flex-row flex-col overflow-x-hidden sm:p-4 p-1'>
           {Array.from({ length: 3 }).map((_, i) => (
             <div key={i} className='mr-4'>
               {renderGrid((startIndex + i) % 4)}

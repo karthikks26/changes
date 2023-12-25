@@ -32,15 +32,15 @@ const Imagechanger = () => {
   };
 
   return (
-    <div className="main w-full h-full flex p-2">
-      <div className="left text-container flex flex-col pr-24 pl-12 w-1/2 h-full p-1">
+    <div className="main-trend imagechanger w-full h-full flex p-2">
+      <div className="left text-container flex flex-col sm:pr-24 sm:pl-12 px-2 w-1/2 h-full p-1">
         <div className="text-container">
-          <h1 className="font-bold text-3xl">
+          <h1 className="sm:font-bold font-medium sm:text-3xl text-xl">
             Get to know your <br />
             health
           </h1>
-          <h3 className="font-bold text-gray-500 mb-4">
-            Bands shown may be sold separately and may not be <br />
+          <h3 className="sm:font-bold font-normal text-gray-500 mb-4 sm:w-[80%] w-auto">
+            Bands shown may be sold separately and may not be 
             available in all countries
           </h3>
         </div>
@@ -53,13 +53,13 @@ const Imagechanger = () => {
                   onClick={() => handleToggle(idx)}
                   className="flex items-center justify-between"
                 >
-                  <h1 className="text-2xl my-4 font-bold text-left cursor-pointer">
+                  <h1 className="my-4 sm:font-bold font-medium sm:text-2xl text-xl text-left cursor-pointer">
                     {value}
                   </h1>
                   {index === idx ? (
-                    <FaChevronUp className="text-2xl my-4 font-sans text-gray-500 text-left cursor-pointer" />
+                    <FaChevronUp className="sm:font-bold font-medium sm:text-2xl text-xl my-4 font-sans text-gray-500 text-left cursor-pointer" />
                   ) : (
-                    <FaChevronDown className="text-2xl my-4 text-gray-500 text-left cursor-pointer" />
+                    <FaChevronDown className="sm:font-bold font-medium sm:text-2xl text-xl my-4 text-gray-500 text-left cursor-pointer" />
                   )}
                 </div>
               </>
@@ -69,18 +69,18 @@ const Imagechanger = () => {
                 onClick={() => handleToggle(idx)}
                 className="flex items-center justify-between"
               >
-                <h1 className="text-2xl mb-2 font-bold text-left cursor-pointer">
+                <h1 className="sm:font-bold font-medium sm:text-2xl text-xl mb-2  text-left cursor-pointer">
                   {value}
                 </h1>
                 {openStates[idx] ? (
-                  <FaChevronUp className="text-2xl text-gray-500 cursor-pointer" />
+                  <FaChevronUp className="sm:font-bold font-medium sm:text-2xl text-xl text-gray-500 cursor-pointer" />
                 ) : (
-                  <FaChevronDown className="text-2xl text-gray-500 cursor-pointer" />
+                  <FaChevronDown className="sm:font-bold font-medium sm:text-2xl text-xl text-gray-500 cursor-pointer" />
                 )}
               </div>
             )}
             {openStates[idx] && (
-              <div className={`w-[23rem]`}>
+              <div className={` sm:w-[23rem] w-[80vw] sm:text-left text-justify`}>
                 <p className={`${idx + 1}text`}>
                   {openStates[idx] ? text[idx] : ""}
                 </p>
@@ -98,8 +98,8 @@ const Imagechanger = () => {
             <img
               key={i}
               src={image}
-              alt={`Image ${i + 1}`}
-              className={`rounded-[50px] sm:w-[80%] w-[80vw] sm:h-[72%] h-auto ${
+              alt=""
+              className={`rounded-[50px] sm:w-[80%] w-[80vw] h-[72%] ${
                 index === i ? "visible" : "hidden"
               }`}
             />

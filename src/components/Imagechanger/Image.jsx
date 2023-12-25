@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import React, { useState, useEffect } from "react";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const Image = () => {
   const [index, setIndex] = useState(0);
@@ -32,12 +32,17 @@ const Image = () => {
   const Heading = ["Trending Choices", "Trending Choices", "Trending Choices"];
 
   const toggleIndex = (clickedIndex) => {
-    setIndex((prevIndex) => (prevIndex === clickedIndex ? -1 : prevIndex === -1 ? clickedIndex : -1));
+    setIndex((prevIndex) =>
+      prevIndex === clickedIndex ? -1 : prevIndex === -1 ? clickedIndex : -1
+    );
     setCarouselIndex(0);
   };
 
   const handleCarouselClick = (increment) => {
-    setCarouselIndex((prevIndex) => (prevIndex + increment + images[index].length) % images[index].length);
+    setCarouselIndex(
+      (prevIndex) =>
+        (prevIndex + increment + images[index].length) % images[index].length
+    );
   };
 
   const renderImages = () => {
@@ -56,7 +61,9 @@ const Image = () => {
         key={imgIdx}
         src={src}
         alt=""
-        className={`rounded-[50px] w-[80%] h-[72%] ${imgIdx === carouselIndex ? '' : 'hidden'}`}
+        className={`rounded-[50px] w-[80%] h-[72%] ${
+          imgIdx === carouselIndex ? "" : "hidden"
+        }`}
       />
     ));
   };
@@ -69,52 +76,86 @@ const Image = () => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [index, images]);
+  }, [index]);
 
   return (
     <>
-      <div className="main w-full h-100 bg-gray-100 rounded-[50px] flex p-2">
-        <div className="left text-container flex flex-col items-center justify-center w-1/2 h-full pt-5">
-        <div className='text-3xl font-bold mb-2'>Trending adfsdd fjddf dffg <br/>fgdjd vfvdnd</div>
-        <div className='text-md font-bold mb-2'>Trending choices description fddg fjd rfhnkf lorem </div>
+      <div className="main-image w-full h-100 bg-gray-100 rounded-[50px] flex sm:flex-row flex-col p-2">
+        <div className="left-image text-container flex flex-col items-center justify-center sm:w-1/2 w-full h-full pt-5">
+          <div className="sm:text-3xl text-xl font-bold mb-2">
+            Trending adfsdd fjddf dffg <br />
+            fgdjd vfvdnd
+          </div>
+          <div className="text-md font-bold mb-2">
+            Trending choices description fddg fjd rfhnkf lorem{" "}
+          </div>
 
           {Heading.map((value, idx) => (
-            <div key={idx} className='mb-7'>
+            <div key={idx} className="mb-7">
               {idx === 1 && (
                 <>
                   <div className="line-horizontal dark-black-line h-1 w-full bg-gray-300" />
-                  <div onClick={() => toggleIndex(idx)} className='flex items-center justify-between'>
-                    <h1 className="text-2xl my-4 font-bold text-left cursor-pointer">{value}</h1>
-                    {index === idx ? <FaChevronUp className='text-2xl my-4 font-sans text-gray-500 text-left cursor-pointer' /> : <FaChevronDown className='text-2xl my-4 text-gray-500 text-left cursor-pointer' />}
+                  <div
+                    onClick={() => toggleIndex(idx)}
+                    className="flex items-center justify-between sm:w-auto w-[80vw]"
+                  >
+                    <h1 className="text-2xl sm:my-4 my-1 font-bold text-left cursor-pointer">
+                      {value}
+                    </h1>
+                    {index === idx ? (
+                      <FaChevronUp className="text-2xl my-4 font-sans text-gray-500 text-left cursor-pointer" />
+                    ) : (
+                      <FaChevronDown className="text-2xl my-4 text-gray-500 text-left cursor-pointer" />
+                    )}
                   </div>
                 </>
               )}
               {idx !== 1 && (
-                <div onClick={() => toggleIndex(idx)} className='flex items-center justify-between'>
-                  <h1 className="text-2xl mb-2 font-bold text-left cursor-pointer">{value}</h1>
-                  {index === idx ? <FaChevronUp className='text-2xl my-4 text-gray-500 text-left cursor-pointer' /> : <FaChevronDown className='text-2xl my-4 text-gray-500 text-left cursor-pointer' />}
+                <div
+                  onClick={() => toggleIndex(idx)}
+                  className="flex items-center justify-between  sm:w-auto w-[80vw] "
+                >
+                  <h1 className="text-2xl mb-2 font-bold text-left cursor-pointer">
+                    {value}
+                  </h1>
+                  {index === idx ? (
+                    <FaChevronUp className="text-2xl my-4 text-gray-500 text-left cursor-pointer" />
+                  ) : (
+                    <FaChevronDown className="text-2xl my-4 text-gray-500 text-left cursor-pointer" />
+                  )}
                 </div>
               )}
-              <div className='w-[23rem]'>
-                <p className={`${idx + 1}text`}>{index === idx ? text[idx] : ""}</p>
-                {idx === 1 && <hr className="line-horizontal dark-black-line h-1 w-full bg-gray-300" />}
+              <div className="sm:w-[23rem] w-[80vw]">
+                <p className={`${idx + 1}text`}>
+                  {index === idx ? text[idx] : ""}
+                </p>
+                {idx === 1 && (
+                  <hr className="line-horizontal dark-black-line h-1 w-full bg-gray-300" />
+                )}
               </div>
             </div>
           ))}
         </div>
-        <div className="right image-container flex w-1/2 h-full p-1">
+        <div className="right-image image-container flex sm:w-1/2 w-full h-full p-1">
           <div className="flex w-full h-full justify-center items-center relative pt-8">
             {renderImages()}
-            <div className='absolute top-0 h-full flex items-center cursor-pointer' onClick={() => handleCarouselClick(-1)}>
-              <div className='text-3xl font-bold text-white'></div>
+            <div
+              className="absolute top-0 h-full flex items-center cursor-pointer"
+              onClick={() => handleCarouselClick(-1)}
+            >
+              <div className="text-3xl font-bold text-white"></div>
             </div>
-            <div className='absolute top-0 right-0 h-full flex items-center cursor-pointer' onClick={() => handleCarouselClick(1)}>
-              <div className='text-3xl font-bold text-white'></div>
+            <div
+              className="absolute top-0 right-0 h-full flex items-center cursor-pointer"
+              onClick={() => handleCarouselClick(1)}
+            >
+              <div className="text-3xl font-bold text-white"></div>
             </div>
           </div>
         </div>
       </div>
-      <br /><br />
+      <br />
+      <br />
     </>
   );
 };

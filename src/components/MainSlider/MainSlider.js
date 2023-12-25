@@ -25,14 +25,22 @@ function MainSlider() {
   );
   const [scrollX, setScrollX] = useState(0);
   const scrl = useRef(null);
-  // console.log("slider data", data);``
-  const [sliderData, setSliderData] = useState([]);
+  // const [sliderData, setSliderData] = useState([]);
 
-  const sliderSelect = useSelector(selectSliderData);
-  
-  useEffect(() => {
-    setSliderData(sliderSelect);
-  }, [sliderSelect]);
+  // const dispatch = useDispatch();
+  // const sliderSelect = useSelector(selectSliderData);
+  // const loaderx = useSelector(selectSliderLoader);
+  // console.log("slider data",sliderData)
+  // useEffect(() => {
+  //   dispatch({ type: "FETCH_SLIDER_VIEW_REQUEST" });
+  //   setSliderData(sliderSelect);
+  // }, [dispatch, sliderSelect]);//added dependency sliderselect
+
+  // const sliderSelect = useSelector(selectSliderData);
+
+  // useEffect(() => {
+  //   setSliderData(sliderSelect);
+  // }, [sliderSelect]);
 
   useEffect(() => {
     if (scrl.current) {
@@ -40,7 +48,8 @@ function MainSlider() {
       scrl.current.style.transition = "none";
     }
   }, []);
-console.log(products)
+  // console.log("slider data", sliderData);
+  console.log(products);
   const slide = (shift) => {
     if (scrl.current) {
       const targetScroll = scrl.current.scrollLeft + shift;
@@ -53,7 +62,7 @@ console.log(products)
     }
   };
 
-  if  ( false && sliderData.length > 0) {
+  if (products.length > 0) {
     return (
       <div className="slider-container">
         <div className="arrow-left" onClick={() => slide(-380)}>
@@ -61,30 +70,35 @@ console.log(products)
           {/* <BsArrowLeftCircleFill className='arrow-nav' /> */}
         </div>
         <div className="slider-cont" ref={scrl}>
-          {sliderData.map((slideItem, i) => (
+          {products.map((prod, i) => (
             <div key={i}>
               <div className="circle-container relative items-center justify-center flex sd">
                 <img
                   className="sd rounded-sm"
-                  src={slideItem.imgSrc}
+                  src={prod.imgSrc}
                   alt="Product"
                 />
-                {slideItem.circles.map((circle, index) => (
+                {prod.circles.map((circle, index) => (
                   <div
                     key={index}
                     className={`circle absolute w-5 h-5 bg-white border-4 border-slate-400 rounded-full`}
-                    style={{ top: `${circle.topPosition}%`, left: `${circle.leftPosition}%` }}
+                    style={{
+                      top: `${circle.top}%`,
+                      left: `${circle.left}%`,
+                    }}
                   >
                     <div
                       className={`hover-box flex-row z-10 w-56 rounded-2xl flex items-center
-                     ${circle.topPosition > 75 ? "top-condition" : ""} ${
-                        circle.leftPosition > 65 ? "left-condition" : ""
+                     ${circle.top > 75 ? "top-condition" : ""} ${
+                        circle.left > 65 ? "left-condition" : ""
                       }
                     `}
                     >
                       <div className="flex flex-col">
                         <h2 className=" font-normal">{circle.productTitle}</h2>
-                        <p className=" text-slate-400">{circle.productCategory}</p>
+                        <p className=" text-slate-400">
+                          {circle.productCategory}
+                        </p>
                         <p className="font-semibold">₹ {circle.price}</p>
                       </div>
                       <div className="relative flex items-center justify-center">
