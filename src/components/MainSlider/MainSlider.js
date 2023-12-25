@@ -11,13 +11,10 @@ import { list3 } from "../../assets/mainslide-list";
 import _debounce from "lodash/debounce";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  fetchSliderRequest,
-  getSliderSuccess,
-  getsSliderFetch,
+  
   selectSliderData,
   selectSliderLoader,
 } from "../../Features/Slices/sliderSlice";
-import { useGetSliderImgQuery } from "../../Features/slider/sliderApi";
 
 function MainSlider() {
   const products = list3.filter(
