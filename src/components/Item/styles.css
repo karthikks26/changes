@@ -169,12 +169,14 @@
 }
 
 .swiper-button-prev {
-  margin-right: 100px;
+  margin-left: 82%;
+  margin-top: 80px;
 
 }
 
 .swiper-button-next {
-  margin-left: 100px;
+  margin-right: 2%;
+  margin-top: 80px;
 }
 
 .swiper-horizontal>.swiper-scrollbar,
