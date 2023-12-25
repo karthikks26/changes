@@ -65,7 +65,7 @@ function Filter() {
           {links.map((value, idx) => (
             <div
               key={idx}
-              className={`Filter-array-elem                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ent ${
+              className={`Filter-array-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ent ${
                 idx === selectedFilter ? "selected-array-element" : ""
               }`}
               onClick={(event) => handleDropdownClick(event, idx)}
@@ -91,7 +91,6 @@ function Filter() {
                   onClick={(event) => event.stopPropagation()} // Prevent clicks inside the dropdown from closing it
                 >
                   <div className="px-[50px] my-5">
-                    <h2 className="main_heading">Shop Wallpapers</h2>
                     <div className="filter_container flex gap-32">
                       <Featured />
                       <Collections />
