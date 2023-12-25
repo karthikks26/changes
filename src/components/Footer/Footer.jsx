@@ -1,22 +1,21 @@
 import React from 'react'
-import Featured from '../../Dropitems/Featured'
-import Collections from '../../Dropitems/Collections'
-import Styles from '../../Dropitems/Styles'
-import Colours from '../../Dropitems/Colours'
-import Rooms from '../../Dropitems/Rooms'
+import Joinayatrio from './Footer_child/Join_Ayatrio_Family'
+import Ayatrio_Family from './Footer_child/Ayatrio_Family'
+import Ayatrio_Services from './Footer_child/Ayatrio_Services'
+import Help_Supports from './Footer_child/Help_Supports'
+import About_Ayatrio from './Footer_child/About_Ayatrio'
 
 const Footer = () => {
   return (
     <div>
       <div className='px-[50px] my-5'>
-        <h2 className='main_heading'>Shop Wallpapers</h2>
         <div className='filter_container flex gap-32'>
 
-          <Collections />
-          <Collections />
-          <Styles />
-          <Colours />
-          <Rooms />
+          <Joinayatrio />
+          <Ayatrio_Family />
+          <Ayatrio_Services />
+          <Help_Supports />
+          <About_Ayatrio />
 
         </div>
       </div>
