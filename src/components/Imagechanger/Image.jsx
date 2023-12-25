@@ -1,9 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
+const ProgressBar = ({ progress }) => (
+  <div style={{ position: 'absolute', top: '28px', left: '62px', width: '80%', height: '5px', background: '#ffffff' }}>
+    <div
+      style={{
+        width: `${progress}%`,
+        height: '100%',
+        background: '#808080',
+        transition: 'width 1s',
+      }}
+    ></div>
+  </div>
+);
+
 const Image = () => {
   const [index, setIndex] = useState(0);
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   const text = [
     "dsadasdorem ipsum dolor sit amet, consectetur adipissit amet, consect eiusmod tempor incididunt ut labore et dolore magnasit amet, consect eiusmod tempor incididunt ut labore et dolore magnacing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,",
@@ -37,7 +51,8 @@ const Image = () => {
   };
 
   const handleCarouselClick = (increment) => {
-    setCarouselIndex((prevIndex) => (prevIndex + increment + images[index].length) % images[index].length);
+    const totalImages = images[index]?.length || 1; // Avoid division by zero if there are no images
+    setCarouselIndex((prevIndex) => (prevIndex + increment + totalImages) % totalImages);
   };
 
   const renderImages = () => {
@@ -46,7 +61,7 @@ const Image = () => {
         <img
           src={images[0][0]}
           alt=""
-          className={`rounded-[50px] w-[80%] h-[72%]`}
+          className={`w-[80%] h-[72%]`}
         />
       );
     }
@@ -56,27 +71,34 @@ const Image = () => {
         key={imgIdx}
         src={src}
         alt=""
-        className={`rounded-[50px] w-[80%] h-[72%] ${imgIdx === carouselIndex ? '' : 'hidden'}`}
+        className={` w-[80%] h-[72%] ${imgIdx === carouselIndex ? '' : 'hidden'}`}
       />
     ));
   };
 
   useEffect(() => {
+    const totalImages = images[index]?.length || 1; // Avoid division by zero if there are no images
+
     const interval = setInterval(() => {
       if (index !== -1) {
-        setCarouselIndex((prevIndex) => (prevIndex + 1) % images[index].length);
+        setCarouselIndex((prevIndex) => (prevIndex + 1) % totalImages);
+        setProgress((prevProgress) => (prevProgress + (1 / totalImages) * 100) % 100);
       }
     }, 1000);
 
     return () => clearInterval(interval);
   }, [index, images]);
 
+  useEffect(() => {
+    setProgress(0);
+  }, [index]);
+
   return (
     <>
       <div className="main w-full h-100 bg-gray-100 rounded-[50px] flex p-2">
         <div className="left text-container flex flex-col items-center justify-center w-1/2 h-full pt-5">
-        <div className='text-3xl font-bold mb-2'>Trending adfsdd fjddf dffg <br/>fgdjd vfvdnd</div>
-        <div className='text-md font-bold mb-2'>Trending choices description fddg fjd rfhnkf lorem </div>
+          <div className='text-3xl font-bold mb-2'>Trending adfsdd fjddf dffg <br/>fgdjd vfvdnd</div>
+          <div className='text-md font-bold mb-2'>Trending choices description fddg fjd rfhnkf lorem </div>
 
           {Heading.map((value, idx) => (
             <div key={idx} className='mb-7'>
@@ -104,6 +126,7 @@ const Image = () => {
         </div>
         <div className="right image-container flex w-1/2 h-full p-1">
           <div className="flex w-full h-full justify-center items-center relative pt-8">
+            {progress > 0 && <ProgressBar progress={progress} />}
             {renderImages()}
             <div className='absolute top-0 h-full flex items-center cursor-pointer' onClick={() => handleCarouselClick(-1)}>
               <div className='text-3xl font-bold text-white'></div>
