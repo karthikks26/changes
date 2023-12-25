@@ -20,7 +20,7 @@ export const FirstCardSlice = createSlice({
 
 export const { FirstCardLoader, FirstCardData } = FirstCardSlice.actions;
 
-export const CardData = (state) => state.FirstCard.data;
 export const CardLoader = (state) => state.FirstCard.loader;
+export const CardData = (state) => state.FirstCard.data;
 
 export default FirstCardSlice.reducer;

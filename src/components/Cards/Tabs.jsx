@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import room from "./room.jpg";
-import living from "./living.jpg";
-import kitchen from "./kitchen.webp";
-import work from "./work.jpg";
-import "./styles.css";
+import React, { useState } from 'react';
+import  room from './room.jpg'
+import work from './work.jpg'
+import living from './living.jpg'
+import kitchen from './kitchen.webp'
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("all");
@@ -14,618 +13,284 @@ const Tabs = () => {
 
   const getContent = () => {
     switch (activeTab) {
-      case "all":
-        return (
-          // <p>
-          //   <div className="container  ">
-              <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8 ">
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover "
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover "
-                    src={kitchen}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover "
-                    src={work}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover "
-                    src={living}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover "
-                    src={living}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover "
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-              </div>
-          //   </div>
-          // </p>
-        );
-      case "bedroom":
-        return (
-          // <p>
-          //   <div className="container mr-4">
-              <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="bg-teal-100 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-              </div>
-          //   </div>
-          // </p>
-        );
-      case "livingroom":
-        return (
-          // <p>
-          //   <div className="container mr-4">
-              <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={living}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={living}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={living}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={living}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={living}
-                    alt="Room"
-                  />
-                </div>
-                <div class="bg-teal-100 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={living}
-                    alt="Room"
-                  />
-                </div>
-              </div>
-          //   </div>
-          // </p>
-        );
-      case "kitchen":
-        return (
-          // <p>
-          //   <div className="container mr-4">
-              <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={kitchen}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={kitchen}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={kitchen}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={kitchen}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={kitchen}
-                    alt="Room"
-                  />
-                </div>
-                <div class="bg-teal-100 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={kitchen}
-                    alt="Room"
-                  />
-                </div>
-              </div>
-          //   </div>
-          // </p>
-        );
-      case "workspace":
-        return (
-          // <p>
-          //   <div className="container mr-4">
-              <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={work}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={work}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={work}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={work}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={work}
-                    alt="Room"
-                  />
-                </div>
-                <div class="bg-teal-100 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={work}
-                    alt="Room"
-                  />
-                </div>
-              </div>
-          //   </div>
-          // </p>
-        );
-      case "outdoor":
-        return (
-          // <p>
-          //   <div className="container mr-4">
-              <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="bg-teal-100 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-              </div>
-          //   </div>
-          // </p>
-        );
-      case "bathroom":
-        return (
-          // <p>
-          //   <div className="container mr-4">
-              <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="bg-teal-100 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-              </div>
-          //   </div>
-          // </p>
-        );
-      case "babychildren":
-        return (
-          // <p>
-          //   <div className="container mr-4">
-              <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="bg-teal-100 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-              </div>
-          //   {/* </div>
-          // </p> */}
-        );
-      case "dining":
-        return (
-          // <p>
-          //   <div className="container mr-4">
-              <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="bg-teal-100 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-              </div>
-          //   </div>
-          // </p>
-        );
-      case "hallway":
-        return (
-          <p>
-            <div className="container mr-4">
-              <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="bg-teal-100 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-              </div>
-            </div>
-          </p>
-        );
-      case "laundry":
-        return (
-          // <p>
-          //   <div className="container mr-4">
-              <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="bg-teal-100 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-              </div>
-          //   </div>
-          // </p>
-        );
-      case "accessories":
-        return (
-          // <p>
-          //   <div className="container mr-4">
-              <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="row-span-2 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-                <div class="bg-teal-100 overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={room}
-                    alt="Room"
-                  />
-                </div>
-              </div>
-          //   </div>
-          // </p>
-        );
+      case 'all':
+        return <div>
+      <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover ' src={room} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover ' src={work} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover ' src={living} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover ' src={kitchen} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover ' src={room} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover ' src={living} alt="Room" />
+  </div>
+</div>
+</div>;
+      
+case 'bedroom':
+  return <div>
+    <div className='p-20 grid grid-cols-3 gap-3 grid-rows-3 mr-8'>
+      <div className='row-span-2 overflow-hidden'>
+        <img className='h-full w-full object-cover' src={room} />
+      </div>
+      <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="bg-teal-100 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+    </div>
+  </div>
+
+      case 'livingroom':
+        return <div>
+      <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={living} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={living} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={living} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={living} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={living} alt="Room" />
+  </div>
+  <div class="bg-teal-100 overflow-hidden">
+    <img className='h-full w-full object-cover' src={living} alt="Room" />
+  </div>
+</div>
+</div>;
+        case 'kitchen':
+          return <div>
+      <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={kitchen} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={kitchen} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={kitchen} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={kitchen} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={kitchen} alt="Room" />
+  </div>
+  <div class="bg-teal-100 overflow-hidden">
+    <img className='h-full w-full object-cover' src={kitchen} alt="Room" />
+  </div>
+</div>
+</div>;
+          case 'workspace':
+            return <div >
+      <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={work} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={work} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={work} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={work} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={work} alt="Room" />
+  </div>
+  <div class="bg-teal-100 overflow-hidden">
+    <img className='h-full w-full object-cover' src={work} alt="Room" />
+  </div>
+</div>
+</div>;
+            case 'outdoor':
+              return <div >
+      <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="bg-teal-100 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+</div>
+</div>;
+              case 'bathroom':
+                return <div >
+      <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="bg-teal-100 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+</div>
+</div>;
+                case 'babychildren':
+                  return <div >
+      <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="bg-teal-100 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+</div>
+</div>;
+                  case 'dining':
+                    return <div >
+      <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="bg-teal-100 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+</div>
+</div>;
+                    case 'hallway':
+                      return <div>
+      <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="bg-teal-100 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+</div>
+</div>;
+                      case 'laundry':
+                        return <div>
+      <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="bg-teal-100 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+</div>
+</div>;
+                        case 'accessories':
+                          return <div>
+      <div class="p-20 text-green-800 grid grid-cols-3 gap-3 grid-rows-3 mr-8">
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="row-span-2 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+  <div class="bg-teal-100 overflow-hidden">
+    <img className='h-full w-full object-cover' src={room} alt="Room" />
+  </div>
+</div>
+</div>;
       default:
         return null;
     }
@@ -676,3 +341,4 @@ const Tabs = () => {
 };
 
 export default Tabs;
+

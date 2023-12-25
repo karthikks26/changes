@@ -1,30 +1,36 @@
-import React, { useState } from 'react';
+import React from 'react'
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { CiDeliveryTruck } from 'react-icons/ci';
-import { IoIosAddCircle, IoMdContacts, IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { IoIosAddCircle, IoMdContacts} from 'react-icons/io';
 import { IoChatbubblesOutline } from 'react-icons/io5';
 import { MdMenuBook } from "react-icons/md";
+import './styles.css'
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
 
 const Multicard = () => {
-  const [startIndex, setStartIndex] = useState(0);
- 
-  const handleRightArrowClick = () => {
-    if(startIndex===0){
-      setStartIndex((prevIndex) => (prevIndex + 1) % 4);
-    }
-  };
+  return (
+    <div>
+    <div className='bg-zinc-50 rounded-lg h-100 pb-16'>
+        <div className='text-5xl font-bold pt-10 pl-10 pb-10 font-sans'>
+          Why Ayatrio so innovative<br />for home furnishing.
+        </div>
+      <Swiper
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      spaceBetween={20}
+      slidesPerView={3}
+      navigation={{clickable: true}}
+      onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log('slide change')}
+      style={{ '--swiper-navigation-size': '24px'}}
 
-  const handleLeftArrowClick = () => {
-    if(startIndex===1){
-      setStartIndex((prevIndex) => (prevIndex - 1 + 4) % 4);
-
-    }
-  };
-
-  const renderGrid = (index) => {
-    switch (index) {
-      case 0:
-        return (
-          <div className='sm:ml-8 pl-3 ml-3 relative bg-slate-200 rounded-xl sm:w[380px] sm:h-[320px] pt-[5px] ' >
+    >
+      <SwiperSlide>
+      <div className='ml-8 relative bg-white rounded-xl' style={{ width: '380px', height: '320px', paddingTop: '5px' }}>
             <div className='mt-8 ml-6 mr-12'>
               <CiDeliveryTruck size={52} />
             </div>
@@ -36,11 +42,9 @@ const Multicard = () => {
             <div className='absolute bottom-1 right-4 mb-8'>
               <IoIosAddCircle size={34} />
             </div>
-          </div>
-        );
-      case 1:
-        return (
-          <div className='sm:ml-8 pl-3 ml-3 mt-3 sm:mt-0 relative bg-slate-200 rounded-xl sm:w[380px] sm:h-[320px] pt-[5px] ' >
+          </div></SwiperSlide>
+      <SwiperSlide>          
+      <div className='ml-4 relative bg-white rounded-xl' style={{ width: '380px', height: '320px', paddingTop: '5px' }}>
             <div className='mt-8 ml-6 mr-12'>
               <IoChatbubblesOutline size={46} />
             </div>
@@ -51,10 +55,9 @@ const Multicard = () => {
               <IoIosAddCircle size={34} />
             </div>
           </div>
-        );
-      case 2:
-        return (
-          <div className='sm:ml-8 pl-3 mt-3 sm:mt-0 ml-3 relative bg-slate-200 rounded-xl sm:w[380px] sm:h-[320px] pt-[5px] ' >
+          </SwiperSlide>
+      <SwiperSlide>          
+      <div className='ml-1 relative bg-white rounded-xl' style={{ width: '380px', height: '320px', paddingTop: '5px' }}>
             <div className='mt-8 ml-6 mr-12'>
               <IoMdContacts size={48} />
             </div>
@@ -66,11 +69,9 @@ const Multicard = () => {
             <div className='absolute bottom-1 right-4 mb-8'>
               <IoIosAddCircle size={34} />
             </div>
-          </div>
-        );
-      case 3:
-        return (
-          <div className='ml-3 relative bg-white rounded-xl' style={{ width: '380px', height: '320px', paddingTop: '5px' }}>
+          </div></SwiperSlide>
+      <SwiperSlide>          
+      <div className='ml-1 relative bg-white rounded-xl' style={{ width: '380px', height: '320px', paddingTop: '5px' }}>
             <div className='mt-8 ml-6 mr-12'>
               <MdMenuBook size={44} />
             </div>
@@ -83,34 +84,11 @@ const Multicard = () => {
               <IoIosAddCircle size={34} />
             </div>
           </div>
-        );
-      default:
-        return null;
-    }
-  };
-
-  return (
-    <div>
-      <div className='bg-zinc-50 rounded-lg w-full h-110 pb-16'>
-        <div className='sm:text-5xl text-2xl text-left font-bold py-10 sm:pl-10 pl-3 font-sans'>
-          Why Ayatrio so innovative<br />for home furnishing.
-        </div>
-        {/* Main Display Container */}
-        <div className='flex sm:flex-row flex-col overflow-x-hidden sm:p-4 p-1'>
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className='mr-4'>
-              {renderGrid((startIndex + i) % 4)}
-            </div>
-          ))}
-        </div>
-        <div className='flex mt-4 ml-20'>
-          <IoIosArrowBack size={30} className='cursor-pointer mr-4 'style={{marginLeft:'90%'}} onClick={handleLeftArrowClick} />
-          <IoIosArrowForward size={30} className='cursor-pointer' onClick={handleRightArrowClick} />
-        </div>
-      </div>
-      
+          </SwiperSlide>
+    </Swiper>
     </div>
-  );
-};
+    </div>
+  )
+}
 
-export default Multicard;
+export default Multicard

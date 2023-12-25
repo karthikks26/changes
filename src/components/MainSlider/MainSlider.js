@@ -11,13 +11,10 @@ import { list3 } from "../../assets/mainslide-list";
 import _debounce from "lodash/debounce";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  fetchSliderRequest,
-  getSliderSuccess,
-  getsSliderFetch,
+  
   selectSliderData,
   selectSliderLoader,
 } from "../../Features/Slices/sliderSlice";
-import { useGetSliderImgQuery } from "../../Features/slider/sliderApi";
 
 function MainSlider() {
   const products = list3.filter(
@@ -36,12 +33,12 @@ function MainSlider() {
   //   setSliderData(sliderSelect);
   // }, [dispatch, sliderSelect]);//added dependency sliderselect
 
-  // const sliderSelect = useSelector(selectSliderData);
-
-  // useEffect(() => {
-  //   setSliderData(sliderSelect);
-  // }, [sliderSelect]);
-
+  const sliderSelect = useSelector(selectSliderData);
+  
+  useEffect(() => {
+    setSliderData(sliderSelect);
+  }, [sliderSelect]);
+console.log(sliderData)
   useEffect(() => {
     if (scrl.current) {
       scrl.current.scrollLeft = 380;

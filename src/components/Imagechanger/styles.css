@@ -24,3 +24,14 @@
     border-radius: 50px; /* Apply the border-radius to the image */
   }
 }
+/* Add custom styles for Swiper navigation here */
+.swiper-button-prev {
+  margin-left: 88%;
+}
+
+.swiper-button-next {
+  right: 20px; 
+}
+
+
+
