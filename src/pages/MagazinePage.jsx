@@ -20,13 +20,13 @@ const unsplashImages = [
 const MagazinePage = () => {
   const magazineRef = useRef(null);
 
-  const handlePrevPage = () => {
-    magazineRef.current.pageFlip().flipPrev();
-  };
+  // const handlePrevPage = () => {
+  //   magazineRef.current.pageFlip().flipPrev();
+  // };
 
-  const handleNextPage = () => {
-    magazineRef.current.pageFlip().flipNext();
-  };
+  // const handleNextPage = () => {
+  //   magazineRef.current.pageFlip().flipNext();
+  // };
 
   return (
     <div className="overflow-hidden w-full h-screen ">

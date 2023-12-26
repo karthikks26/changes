@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faL, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { dataActivity } from "./data";
 import { useNavigate } from "react-router-dom";
 import Header from "../../Header";
-import Button from "./Button";
-import ActivityModal from "./ActivityModal";
+
 import { TiTick } from "react-icons/ti";
 import { FaCircle } from "react-icons/fa";
 import Sidebar from "./sidebar";
@@ -79,7 +76,8 @@ const Activities = () => {
                 handleSelect();
               }}
               className={`object-cover  w-full h-full block p-1
-              ${selectedActivity[item.id]
+              ${
+                selectedActivity[item.id]
                   ? " overlay z-10 black opacity-100"
                   : ""
               }  ${selectedActivity[item.id] ? "border-2 border-red-500" : ""}
@@ -87,10 +85,11 @@ const Activities = () => {
             />
             <h3
               className={` p-1 rounded-sm absolute right-0 bottom-0
-              ${selectedActivity[item.id]
+              ${
+                selectedActivity[item.id]
                   ? "font-semibold text-white absolute left-2 bottom-2 bg-transparent"
                   : "bg-white"
-                }
+              }
               `}
             >
               {item.title}
@@ -99,7 +98,7 @@ const Activities = () => {
             {selectedActivity[item.id] && (
               <div
                 className="room-item absolute top-2 right-2 z-10  flex items-center opacity-50 justify-center"
-              // style={{ zIndex: 10 }}
+                // style={{ zIndex: 10 }}
               >
                 <div className="circle-container relative flex justify-center items-center">
                   <FaCircle size={30} color="black" className="opacity-100" />

@@ -4,30 +4,28 @@ import { useState } from "react";
 import mapStyles from "./mapStyles";
 import MapMarker from "../MapMarker";
 import Sidebar from "../Sidebar";
-// import { REACT_APP_GMAP_API_KEY } from "../../config";
-import { REACT_APP_GMAP_API_KEY } from '../../config.js'
+import { REACT_APP_GMAP_API_KEY } from "../../config.js";
 import Search from "./Search";
 const Map = ({ setBoundaries, coords, places }) => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: REACT_APP_GMAP_API_KEY,
   });
   const india_zoom = 5;
-  const hotels_zoom= 8;
+  const hotels_zoom = 8;
   const [zoom, setZoom] = useState(india_zoom);
   const [map, setMap] = useState(null);
   const [selectedCoords, setSelectedCoords] = useState(coords);
   const handleResultClick = ({ lat, lng }) => {
-    if(lat && lng && lat!==null && lng!==null){
+    if (lat && lng && lat !== null && lng !== null) {
       const latitude = parseFloat(lat);
-    const longitude = parseFloat(lng);
-    setSelectedCoords({ lat: latitude, lng: longitude });  
-    console.log(selectedCoords);
-    if(selectedCoords.lat===20.593 && selectedCoords.lng===78.96 ){
-      setZoom(india_zoom);
-    }
-    else{
-      setZoom(hotels_zoom)
-    }
+      const longitude = parseFloat(lng);
+      setSelectedCoords({ lat: latitude, lng: longitude });
+      console.log(selectedCoords);
+      if (selectedCoords.lat === 20.593 && selectedCoords.lng === 78.96) {
+        setZoom(india_zoom);
+      } else {
+        setZoom(hotels_zoom);
+      }
     }
   };
   console.log(selectedCoords);
